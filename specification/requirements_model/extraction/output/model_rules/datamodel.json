@@ -1,0 +1,127 @@
+{
+    "DataModel-M-000-M": {
+        "Function": "Composite",
+        "Reference": "DataModel",
+        "EntityType": "DataModel",
+        "EntityName": "Data Model",
+        "EntityId": "DataModel",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.5",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Static",
+        "Order": 0,
+        "ValidationCriteria": {
+            "MustSatisfy": "DataModel MUST adhere to the following requirements:",
+            "Keyword": "MUST",
+            "Requirement": {
+                "CheckFunction": "AND",
+                "Items": [
+                    {
+                        "CheckFunction": "CheckModelRule",
+                        "ModelRuleId": "DataModel-M-001-M"
+                    },
+                    {
+                        "CheckFunction": "CheckModelRule",
+                        "ModelRuleId": "DataModel-M-002-C"
+                    },
+                    {
+                        "CheckFunction": "CheckModelRule",
+                        "ModelRuleId": "DataModel-M-003-C"
+                    },
+                    {
+                        "CheckFunction": "CheckModelRule",
+                        "ModelRuleId": "DataModel-M-004-C"
+                    }
+                ]
+            },
+            "Condition": {},
+            "Dependencies": [
+                "DataModel-M-001-M",
+                "DataModel-M-002-C",
+                "DataModel-M-003-C",
+                "DataModel-M-004-C"
+            ]
+        }
+    },
+    "DataModel-M-001-M": {
+        "Function": "Presence",
+        "Reference": "CostAndUsage",
+        "EntityType": "DataModel",
+        "EntityName": "Cost And Usage",
+        "EntityId": "CostAndUsage",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.5",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Static",
+        "Order": 10,
+        "ValidationCriteria": {
+            "MustSatisfy": "DataModel MUST include CostAndUsage.",
+            "Keyword": "MUST",
+            "Requirement": {},
+            "Condition": {},
+            "Dependencies": []
+        }
+    },
+    "DataModel-M-002-C": {
+        "Function": "Presence",
+        "Reference": "BillingPeriod",
+        "EntityType": "DataModel",
+        "EntityName": "Billing Period",
+        "EntityId": "BillingPeriod",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.5",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Dynamic",
+        "Order": 20,
+        "ValidationCriteria": {
+            "MustSatisfy": "DataModel MUST include BillingPeriod when the operating model includes payable invoices.",
+            "Keyword": "MUST",
+            "Requirement": {},
+            "Condition": {},
+            "Dependencies": []
+        }
+    },
+    "DataModel-M-003-C": {
+        "Function": "Presence",
+        "Reference": "ContractCommitment",
+        "EntityType": "DataModel",
+        "EntityName": "Contract Commitment",
+        "EntityId": "ContractCommitment",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.5",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Dynamic",
+        "Order": 30,
+        "ValidationCriteria": {
+            "MustSatisfy": "DataModel MUST include ContractCommitment when the operating model includes contract commitments.",
+            "Keyword": "MUST",
+            "Requirement": {},
+            "Condition": {},
+            "Dependencies": []
+        }
+    },
+    "DataModel-M-004-C": {
+        "Function": "Presence",
+        "Reference": "InvoiceDetail",
+        "EntityType": "DataModel",
+        "EntityName": "Invoice Detail",
+        "EntityId": "InvoiceDetail",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.5",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Dynamic",
+        "Order": 40,
+        "ValidationCriteria": {
+            "MustSatisfy": "DataModel MUST include InvoiceDetail when the operating model includes payable invoices.",
+            "Keyword": "MUST",
+            "Requirement": {},
+            "Condition": {},
+            "Dependencies": []
+        }
+    }
+}
