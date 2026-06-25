@@ -38,7 +38,7 @@
                     },
                     {
                         "CheckFunction": "CheckModelRule",
-                        "ModelRuleId": "BIP-BillingPeriodStatus-C-006-C"
+                        "ModelRuleId": "BIP-BillingPeriodStatus-C-005-C"
                     }
                 ]
             },
@@ -48,7 +48,7 @@
                 "BIP-BillingPeriodStatus-C-002-M",
                 "BIP-BillingPeriodStatus-C-003-M",
                 "BIP-BillingPeriodStatus-C-004-M",
-                "BIP-BillingPeriodStatus-C-006-C"
+                "BIP-BillingPeriodStatus-C-005-C"
             ]
         }
     },
@@ -152,7 +152,7 @@
         "EntityId": "BillingPeriodStatus",
         "Notes": "",
         "ModelVersionIntroduced": "1.4",
-        "Status": "Removed",
+        "Status": "Active",
         "ApplicabilityCriteria": [],
         "Type": "Dynamic",
         "Order": 50,
@@ -161,30 +161,6 @@
         "DatasetName": "Billing Period",
         "ValidationCriteria": {
             "MustSatisfy": "BillingPeriodStatus MUST NOT be \"Open\" following a previous status of \"Closed\", except when explicitly requested or approved by the customer.",
-            "Keyword": "MUST NOT",
-            "Requirement": {},
-            "Condition": {},
-            "Dependencies": []
-        },
-        "ModelVersionRemoved": "1.5"
-    },
-    "BIP-BillingPeriodStatus-C-006-C": {
-        "Function": "Validation",
-        "Reference": "BillingPeriodStatus",
-        "EntityType": "Column",
-        "EntityName": "Billing Period Status",
-        "EntityId": "BillingPeriodStatus",
-        "Notes": "",
-        "ModelVersionIntroduced": "1.5",
-        "Status": "Active",
-        "ApplicabilityCriteria": [],
-        "Type": "Dynamic",
-        "Order": 60,
-        "DatasetType": "BIP",
-        "DatasetId": "BillingPeriod",
-        "DatasetName": "Billing Period",
-        "ValidationCriteria": {
-            "MustSatisfy": "BillingPeriodStatus MUST NOT be &quot;Open&quot; following a previous status of &quot;Closed&quot;, except when explicitly requested or approved by the customer.",
             "Keyword": "MUST NOT",
             "Requirement": {},
             "Condition": {},
