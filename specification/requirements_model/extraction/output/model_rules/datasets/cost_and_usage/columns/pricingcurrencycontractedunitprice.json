@@ -1,0 +1,380 @@
+{
+    "CAU-PricingCurrencyContractedUnitPrice-C-000-C": {
+        "Function": "Composite",
+        "Reference": "PricingCurrencyContractedUnitPrice",
+        "EntityType": "Column",
+        "EntityName": "Pricing Currency Contracted Unit Price",
+        "EntityId": "PricingCurrencyContractedUnitPrice",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.2",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Static",
+        "Order": 0,
+        "DatasetType": "CAU",
+        "DatasetId": "CostAndUsage",
+        "DatasetName": "Cost and Usage",
+        "ValidationCriteria": {
+            "MustSatisfy": "PricingCurrencyContractedUnitPrice MUST adhere to the following requirements:",
+            "Keyword": "MUST",
+            "Requirement": {
+                "CheckFunction": "AND",
+                "Items": [
+                    {
+                        "CheckFunction": "CheckModelRule",
+                        "ModelRuleId": "CAU-PricingCurrencyContractedUnitPrice-C-001-M"
+                    },
+                    {
+                        "CheckFunction": "CheckModelRule",
+                        "ModelRuleId": "CAU-PricingCurrencyContractedUnitPrice-C-002-M"
+                    },
+                    {
+                        "CheckFunction": "CheckModelRule",
+                        "ModelRuleId": "CAU-PricingCurrencyContractedUnitPrice-C-003-M"
+                    },
+                    {
+                        "CheckFunction": "CheckModelRule",
+                        "ModelRuleId": "CAU-PricingCurrencyContractedUnitPrice-C-007-C"
+                    }
+                ]
+            },
+            "Condition": {},
+            "Dependencies": [
+                "CAU-PricingCurrencyContractedUnitPrice-C-001-M",
+                "CAU-PricingCurrencyContractedUnitPrice-C-002-M",
+                "CAU-PricingCurrencyContractedUnitPrice-C-003-M",
+                "CAU-PricingCurrencyContractedUnitPrice-C-007-C"
+            ]
+        }
+    },
+    "CAU-PricingCurrencyContractedUnitPrice-C-001-M": {
+        "Function": "Validation",
+        "Reference": "PricingCurrencyContractedUnitPrice",
+        "EntityType": "Column",
+        "EntityName": "Pricing Currency Contracted Unit Price",
+        "EntityId": "PricingCurrencyContractedUnitPrice",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.2",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Static",
+        "Order": 10,
+        "DatasetType": "CAU",
+        "DatasetId": "CostAndUsage",
+        "DatasetName": "Cost and Usage",
+        "ValidationCriteria": {
+            "MustSatisfy": "PricingCurrencyContractedUnitPrice MUST be of type Decimal.",
+            "Keyword": "MUST",
+            "Requirement": {},
+            "Condition": {},
+            "Dependencies": []
+        }
+    },
+    "CAU-PricingCurrencyContractedUnitPrice-C-002-M": {
+        "Function": "Validation",
+        "Reference": "PricingCurrencyContractedUnitPrice",
+        "EntityType": "Column",
+        "EntityName": "Pricing Currency Contracted Unit Price",
+        "EntityId": "PricingCurrencyContractedUnitPrice",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.2",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Dynamic",
+        "Order": 20,
+        "DatasetType": "CAU",
+        "DatasetId": "CostAndUsage",
+        "DatasetName": "Cost and Usage",
+        "ValidationCriteria": {
+            "MustSatisfy": "PricingCurrencyContractedUnitPrice MUST conform to NumericFormat requirements.",
+            "Keyword": "MUST",
+            "Requirement": {},
+            "Condition": {},
+            "Dependencies": [
+                "ATT-NumericFormat-A-000-M"
+            ]
+        }
+    },
+    "CAU-PricingCurrencyContractedUnitPrice-C-003-M": {
+        "Function": "Composite",
+        "Reference": "PricingCurrencyContractedUnitPrice",
+        "EntityType": "Column",
+        "EntityName": "Pricing Currency Contracted Unit Price",
+        "EntityId": "PricingCurrencyContractedUnitPrice",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.2",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Static",
+        "Order": 30,
+        "DatasetType": "CAU",
+        "DatasetId": "CostAndUsage",
+        "DatasetName": "Cost and Usage",
+        "ValidationCriteria": {
+            "MustSatisfy": "PricingCurrencyContractedUnitPrice MUST adhere to the following nullability requirements:",
+            "Keyword": "MUST",
+            "Requirement": {
+                "CheckFunction": "AND",
+                "Items": [
+                    {
+                        "CheckFunction": "CheckModelRule",
+                        "ModelRuleId": "CAU-PricingCurrencyContractedUnitPrice-C-011-C"
+                    },
+                    {
+                        "CheckFunction": "CheckModelRule",
+                        "ModelRuleId": "CAU-PricingCurrencyContractedUnitPrice-C-004-C"
+                    },
+                    {
+                        "CheckFunction": "CheckModelRule",
+                        "ModelRuleId": "CAU-PricingCurrencyContractedUnitPrice-C-012-C"
+                    },
+                    {
+                        "CheckFunction": "CheckModelRule",
+                        "ModelRuleId": "CAU-PricingCurrencyContractedUnitPrice-C-005-C"
+                    },
+                    {
+                        "CheckFunction": "CheckModelRule",
+                        "ModelRuleId": "CAU-PricingCurrencyContractedUnitPrice-C-006-O"
+                    }
+                ]
+            },
+            "Condition": {},
+            "Dependencies": [
+                "CAU-PricingCurrencyContractedUnitPrice-C-011-C",
+                "CAU-PricingCurrencyContractedUnitPrice-C-004-C",
+                "CAU-PricingCurrencyContractedUnitPrice-C-012-C",
+                "CAU-PricingCurrencyContractedUnitPrice-C-005-C",
+                "CAU-PricingCurrencyContractedUnitPrice-C-006-O"
+            ]
+        }
+    },
+    "CAU-PricingCurrencyContractedUnitPrice-C-004-C": {
+        "Function": "Validation",
+        "Reference": "PricingCurrencyContractedUnitPrice",
+        "EntityType": "Column",
+        "EntityName": "Pricing Currency Contracted Unit Price",
+        "EntityId": "PricingCurrencyContractedUnitPrice",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.2",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Dynamic",
+        "Order": 40,
+        "DatasetType": "CAU",
+        "DatasetId": "CostAndUsage",
+        "DatasetName": "Cost and Usage",
+        "ValidationCriteria": {
+            "MustSatisfy": "PricingCurrencyContractedUnitPrice MUST be null when ChargeCategory is \"Tax\".",
+            "Keyword": "MUST",
+            "Requirement": {},
+            "Condition": {},
+            "Dependencies": []
+        }
+    },
+    "CAU-PricingCurrencyContractedUnitPrice-C-005-C": {
+        "Function": "Validation",
+        "Reference": "PricingCurrencyContractedUnitPrice",
+        "EntityType": "Column",
+        "EntityName": "Pricing Currency Contracted Unit Price",
+        "EntityId": "PricingCurrencyContractedUnitPrice",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.2",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Dynamic",
+        "Order": 50,
+        "DatasetType": "CAU",
+        "DatasetId": "CostAndUsage",
+        "DatasetName": "Cost and Usage",
+        "ValidationCriteria": {
+            "MustSatisfy": "PricingCurrencyContractedUnitPrice MUST NOT be null when ChargeCategory is \"Usage\" or \"Purchase\" and ChargeClass is not \"Correction\".",
+            "Keyword": "MUST NOT",
+            "Requirement": {},
+            "Condition": {},
+            "Dependencies": []
+        }
+    },
+    "CAU-PricingCurrencyContractedUnitPrice-C-006-O": {
+        "Function": "Validation",
+        "Reference": "PricingCurrencyContractedUnitPrice",
+        "EntityType": "Column",
+        "EntityName": "Pricing Currency Contracted Unit Price",
+        "EntityId": "PricingCurrencyContractedUnitPrice",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.2",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Static",
+        "Order": 60,
+        "DatasetType": "CAU",
+        "DatasetId": "CostAndUsage",
+        "DatasetName": "Cost and Usage",
+        "ValidationCriteria": {
+            "MustSatisfy": "PricingCurrencyContractedUnitPrice MAY be null in all other cases.",
+            "Keyword": "MAY",
+            "Requirement": {},
+            "Condition": {},
+            "Dependencies": []
+        }
+    },
+    "CAU-PricingCurrencyContractedUnitPrice-C-007-C": {
+        "Function": "Composite",
+        "Reference": "PricingCurrencyContractedUnitPrice",
+        "EntityType": "Column",
+        "EntityName": "Pricing Currency Contracted Unit Price",
+        "EntityId": "PricingCurrencyContractedUnitPrice",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.2",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Static",
+        "Order": 70,
+        "DatasetType": "CAU",
+        "DatasetId": "CostAndUsage",
+        "DatasetName": "Cost and Usage",
+        "ValidationCriteria": {
+            "MustSatisfy": "When PricingCurrencyContractedUnitPrice is not null, PricingCurrencyContractedUnitPrice MUST adhere to the following requirements:",
+            "Keyword": "MUST",
+            "Requirement": {
+                "CheckFunction": "AND",
+                "Items": [
+                    {
+                        "CheckFunction": "CheckModelRule",
+                        "ModelRuleId": "CAU-PricingCurrencyContractedUnitPrice-C-008-C"
+                    },
+                    {
+                        "CheckFunction": "CheckModelRule",
+                        "ModelRuleId": "CAU-PricingCurrencyContractedUnitPrice-C-009-C"
+                    }
+                ]
+            },
+            "Condition": {},
+            "Dependencies": [
+                "CAU-PricingCurrencyContractedUnitPrice-C-008-C",
+                "CAU-PricingCurrencyContractedUnitPrice-C-009-C"
+            ]
+        }
+    },
+    "CAU-PricingCurrencyContractedUnitPrice-C-008-C": {
+        "Function": "Validation",
+        "Reference": "PricingCurrencyContractedUnitPrice",
+        "EntityType": "Column",
+        "EntityName": "Pricing Currency Contracted Unit Price",
+        "EntityId": "PricingCurrencyContractedUnitPrice",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.2",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Static",
+        "Order": 80,
+        "DatasetType": "CAU",
+        "DatasetId": "CostAndUsage",
+        "DatasetName": "Cost and Usage",
+        "ValidationCriteria": {
+            "MustSatisfy": "PricingCurrencyContractedUnitPrice MUST be a non-negative decimal value.",
+            "Keyword": "MUST",
+            "Requirement": {},
+            "Condition": {},
+            "Dependencies": []
+        }
+    },
+    "CAU-PricingCurrencyContractedUnitPrice-C-009-C": {
+        "Function": "Validation",
+        "Reference": "PricingCurrencyContractedUnitPrice",
+        "EntityType": "Column",
+        "EntityName": "Pricing Currency Contracted Unit Price",
+        "EntityId": "PricingCurrencyContractedUnitPrice",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.2",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Static",
+        "Order": 90,
+        "DatasetType": "CAU",
+        "DatasetId": "CostAndUsage",
+        "DatasetName": "Cost and Usage",
+        "ValidationCriteria": {
+            "MustSatisfy": "PricingCurrencyContractedUnitPrice MUST be denominated in the PricingCurrency.",
+            "Keyword": "MUST",
+            "Requirement": {},
+            "Condition": {},
+            "Dependencies": []
+        }
+    },
+    "CAU-PricingCurrencyContractedUnitPrice-C-010-C": {
+        "Function": "Validation",
+        "Reference": "PricingCurrencyContractedUnitPrice",
+        "EntityType": "Column",
+        "EntityName": "Pricing Currency Contracted Unit Price",
+        "EntityId": "PricingCurrencyContractedUnitPrice",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.2",
+        "Status": "Removed",
+        "ModelVersionRemoved": "1.3",
+        "ApplicabilityCriteria": [],
+        "Order": 160,
+        "DatasetType": "CAU",
+        "DatasetId": "CostAndUsage",
+        "DatasetName": "Cost and Usage",
+        "Type": "Dynamic",
+        "ValidationCriteria": {
+            "MustSatisfy": "Discrepancies in PricingCurrencyContractedUnitPrice, ContractedCost, or PricingQuantity MAY exist when ChargeClass is \"Correction\".",
+            "Keyword": "MAY",
+            "Requirement": {},
+            "Condition": {
+                "CheckFunction": "CheckValue",
+                "ColumnName": "ChargeClass",
+                "Value": "Correction"
+            },
+            "Dependencies": [
+                "CAU-ChargeClass-C-005-C"
+            ]
+        }
+    },
+    "CAU-PricingCurrencyContractedUnitPrice-C-011-C": {
+        "Function": "Validation",
+        "Reference": "PricingCurrencyContractedUnitPrice",
+        "EntityType": "Column",
+        "EntityName": "Pricing Currency Contracted Unit Price",
+        "EntityId": "PricingCurrencyContractedUnitPrice",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.3",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Dynamic",
+        "Order": 110,
+        "DatasetType": "CAU",
+        "DatasetId": "CostAndUsage",
+        "DatasetName": "Cost and Usage",
+        "ValidationCriteria": {
+            "MustSatisfy": "PricingCurrencyContractedUnitPrice MUST be null when SkuPriceId is null.",
+            "Keyword": "MUST",
+            "Requirement": {},
+            "Condition": {},
+            "Dependencies": []
+        }
+    },
+    "CAU-PricingCurrencyContractedUnitPrice-C-012-C": {
+        "Function": "Validation",
+        "Reference": "PricingCurrencyContractedUnitPrice",
+        "EntityType": "Column",
+        "EntityName": "Pricing Currency Contracted Unit Price",
+        "EntityId": "PricingCurrencyContractedUnitPrice",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.3",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Dynamic",
+        "Order": 120,
+        "DatasetType": "CAU",
+        "DatasetId": "CostAndUsage",
+        "DatasetName": "Cost and Usage",
+        "ValidationCriteria": {
+            "MustSatisfy": "PricingCurrencyContractedUnitPrice MUST NOT be null when SkuPriceId is not null.",
+            "Keyword": "MUST NOT",
+            "Requirement": {},
+            "Condition": {},
+            "Dependencies": []
+        }
+    }
+}

@@ -1,0 +1,146 @@
+{
+    "CAU-PricingCurrency-C-000-C": {
+        "Function": "Composite",
+        "Reference": "PricingCurrency",
+        "EntityType": "Column",
+        "EntityName": "Pricing Currency",
+        "EntityId": "PricingCurrency",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.2",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Static",
+        "Order": 0,
+        "DatasetType": "CAU",
+        "DatasetId": "CostAndUsage",
+        "DatasetName": "Cost and Usage",
+        "ValidationCriteria": {
+            "MustSatisfy": "PricingCurrency MUST adhere to the following requirements:",
+            "Keyword": "MUST",
+            "Requirement": {
+                "CheckFunction": "AND",
+                "Items": [
+                    {
+                        "CheckFunction": "CheckModelRule",
+                        "ModelRuleId": "CAU-PricingCurrency-C-001-M"
+                    },
+                    {
+                        "CheckFunction": "CheckModelRule",
+                        "ModelRuleId": "CAU-PricingCurrency-C-002-M"
+                    },
+                    {
+                        "CheckFunction": "CheckModelRule",
+                        "ModelRuleId": "CAU-PricingCurrency-C-003-M"
+                    },
+                    {
+                        "CheckFunction": "CheckModelRule",
+                        "ModelRuleId": "CAU-PricingCurrency-C-004-M"
+                    }
+                ]
+            },
+            "Condition": {},
+            "Dependencies": [
+                "CAU-PricingCurrency-C-001-M",
+                "CAU-PricingCurrency-C-002-M",
+                "CAU-PricingCurrency-C-003-M",
+                "CAU-PricingCurrency-C-004-M"
+            ]
+        }
+    },
+    "CAU-PricingCurrency-C-001-M": {
+        "Function": "Validation",
+        "Reference": "PricingCurrency",
+        "EntityType": "Column",
+        "EntityName": "Pricing Currency",
+        "EntityId": "PricingCurrency",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.2",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Static",
+        "Order": 10,
+        "DatasetType": "CAU",
+        "DatasetId": "CostAndUsage",
+        "DatasetName": "Cost and Usage",
+        "ValidationCriteria": {
+            "MustSatisfy": "PricingCurrency MUST be of type String.",
+            "Keyword": "MUST",
+            "Requirement": {},
+            "Condition": {},
+            "Dependencies": []
+        }
+    },
+    "CAU-PricingCurrency-C-002-M": {
+        "Function": "Validation",
+        "Reference": "PricingCurrency",
+        "EntityType": "Column",
+        "EntityName": "Pricing Currency",
+        "EntityId": "PricingCurrency",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.2",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Dynamic",
+        "Order": 20,
+        "DatasetType": "CAU",
+        "DatasetId": "CostAndUsage",
+        "DatasetName": "Cost and Usage",
+        "ValidationCriteria": {
+            "MustSatisfy": "PricingCurrency MUST conform to StringHandling requirements.",
+            "Keyword": "MUST",
+            "Requirement": {},
+            "Condition": {},
+            "Dependencies": [
+                "ATT-StringHandling-A-000-M"
+            ]
+        }
+    },
+    "CAU-PricingCurrency-C-003-M": {
+        "Function": "Validation",
+        "Reference": "PricingCurrency",
+        "EntityType": "Column",
+        "EntityName": "Pricing Currency",
+        "EntityId": "PricingCurrency",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.2",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Dynamic",
+        "Order": 30,
+        "DatasetType": "CAU",
+        "DatasetId": "CostAndUsage",
+        "DatasetName": "Cost and Usage",
+        "ValidationCriteria": {
+            "MustSatisfy": "PricingCurrency MUST conform to CurrencyFormat requirements.",
+            "Keyword": "MUST",
+            "Requirement": {},
+            "Condition": {},
+            "Dependencies": [
+                "ATT-CurrencyFormat-A-000-M"
+            ]
+        }
+    },
+    "CAU-PricingCurrency-C-004-M": {
+        "Function": "Validation",
+        "Reference": "PricingCurrency",
+        "EntityType": "Column",
+        "EntityName": "Pricing Currency",
+        "EntityId": "PricingCurrency",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.2",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Static",
+        "Order": 40,
+        "DatasetType": "CAU",
+        "DatasetId": "CostAndUsage",
+        "DatasetName": "Cost and Usage",
+        "ValidationCriteria": {
+            "MustSatisfy": "PricingCurrency MUST NOT be null.",
+            "Keyword": "MUST NOT",
+            "Requirement": {},
+            "Condition": {},
+            "Dependencies": []
+        }
+    }
+}

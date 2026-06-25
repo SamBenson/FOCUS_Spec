@@ -1,0 +1,114 @@
+{
+    "CCT-ContractCommitmentCategory-C-000-M": {
+        "Function": "Composite",
+        "Reference": "ContractCommitmentCategory",
+        "EntityType": "Column",
+        "EntityName": "Contract Commitment Category",
+        "EntityId": "ContractCommitmentCategory",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.3",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Static",
+        "Order": 0,
+        "DatasetType": "CCT",
+        "DatasetId": "ContractCommitment",
+        "DatasetName": "Contract Commitment",
+        "ValidationCriteria": {
+            "MustSatisfy": "ContractCommitmentCategory MUST adhere to the following requirements:",
+            "Keyword": "MUST",
+            "Requirement": {
+                "CheckFunction": "AND",
+                "Items": [
+                    {
+                        "CheckFunction": "CheckModelRule",
+                        "ModelRuleId": "CCT-ContractCommitmentCategory-C-001-M"
+                    },
+                    {
+                        "CheckFunction": "CheckModelRule",
+                        "ModelRuleId": "CCT-ContractCommitmentCategory-C-002-M"
+                    },
+                    {
+                        "CheckFunction": "CheckModelRule",
+                        "ModelRuleId": "CCT-ContractCommitmentCategory-C-003-M"
+                    }
+                ]
+            },
+            "Condition": {},
+            "Dependencies": [
+                "CCT-ContractCommitmentCategory-C-001-M",
+                "CCT-ContractCommitmentCategory-C-002-M",
+                "CCT-ContractCommitmentCategory-C-003-M"
+            ]
+        }
+    },
+    "CCT-ContractCommitmentCategory-C-001-M": {
+        "Function": "Validation",
+        "Reference": "ContractCommitmentCategory",
+        "EntityType": "Column",
+        "EntityName": "Contract Commitment Category",
+        "EntityId": "ContractCommitmentCategory",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.3",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Static",
+        "Order": 10,
+        "DatasetType": "CCT",
+        "DatasetId": "ContractCommitment",
+        "DatasetName": "Contract Commitment",
+        "ValidationCriteria": {
+            "MustSatisfy": "ContractCommitmentCategory MUST be of type String.",
+            "Keyword": "MUST",
+            "Requirement": {},
+            "Condition": {},
+            "Dependencies": []
+        }
+    },
+    "CCT-ContractCommitmentCategory-C-002-M": {
+        "Function": "Validation",
+        "Reference": "ContractCommitmentCategory",
+        "EntityType": "Column",
+        "EntityName": "Contract Commitment Category",
+        "EntityId": "ContractCommitmentCategory",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.3",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Static",
+        "Order": 20,
+        "DatasetType": "CCT",
+        "DatasetId": "ContractCommitment",
+        "DatasetName": "Contract Commitment",
+        "ValidationCriteria": {
+            "MustSatisfy": "ContractCommitmentCategory MUST NOT be null.",
+            "Keyword": "MUST NOT",
+            "Requirement": {},
+            "Condition": {},
+            "Dependencies": []
+        }
+    },
+    "CCT-ContractCommitmentCategory-C-003-M": {
+        "Function": "Validation",
+        "Reference": "ContractCommitmentCategory",
+        "EntityType": "Column",
+        "EntityName": "Contract Commitment Category",
+        "EntityId": "ContractCommitmentCategory",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.3",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Static",
+        "Order": 30,
+        "DatasetType": "CCT",
+        "DatasetId": "ContractCommitment",
+        "DatasetName": "Contract Commitment",
+        "ValidationCriteria": {
+            "MustSatisfy": "ContractCommitmentCategory MUST be one of the allowed values.",
+            "Keyword": "MUST",
+            "Requirement": {},
+            "Condition": {},
+            "Dependencies": []
+        }
+    }
+}

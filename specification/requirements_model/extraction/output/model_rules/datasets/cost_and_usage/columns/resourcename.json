@@ -1,0 +1,205 @@
+{
+    "CAU-ResourceName-C-000-C": {
+        "Function": "Composite",
+        "Reference": "ResourceName",
+        "EntityType": "Column",
+        "EntityName": "Resource Name",
+        "EntityId": "ResourceName",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.2",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Static",
+        "Order": 0,
+        "DatasetType": "CAU",
+        "DatasetId": "CostAndUsage",
+        "DatasetName": "Cost and Usage",
+        "ValidationCriteria": {
+            "MustSatisfy": "ResourceName MUST adhere to the following requirements:",
+            "Keyword": "MUST",
+            "Requirement": {
+                "CheckFunction": "AND",
+                "Items": [
+                    {
+                        "CheckFunction": "CheckModelRule",
+                        "ModelRuleId": "CAU-ResourceName-C-001-M"
+                    },
+                    {
+                        "CheckFunction": "CheckModelRule",
+                        "ModelRuleId": "CAU-ResourceName-C-002-M"
+                    },
+                    {
+                        "CheckFunction": "CheckModelRule",
+                        "ModelRuleId": "CAU-ResourceName-C-003-C"
+                    },
+                    {
+                        "CheckFunction": "CheckModelRule",
+                        "ModelRuleId": "CAU-ResourceName-C-006-C"
+                    }
+                ]
+            },
+            "Condition": {},
+            "Dependencies": [
+                "CAU-ResourceName-C-001-M",
+                "CAU-ResourceName-C-002-M",
+                "CAU-ResourceName-C-003-C",
+                "CAU-ResourceName-C-006-C"
+            ]
+        }
+    },
+    "CAU-ResourceName-C-001-M": {
+        "Function": "Validation",
+        "Reference": "ResourceName",
+        "EntityType": "Column",
+        "EntityName": "Resource Name",
+        "EntityId": "ResourceName",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.2",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Static",
+        "Order": 10,
+        "DatasetType": "CAU",
+        "DatasetId": "CostAndUsage",
+        "DatasetName": "Cost and Usage",
+        "ValidationCriteria": {
+            "MustSatisfy": "ResourceName MUST be of type String.",
+            "Keyword": "MUST",
+            "Requirement": {},
+            "Condition": {},
+            "Dependencies": []
+        }
+    },
+    "CAU-ResourceName-C-002-M": {
+        "Function": "Validation",
+        "Reference": "ResourceName",
+        "EntityType": "Column",
+        "EntityName": "Resource Name",
+        "EntityId": "ResourceName",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.2",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Dynamic",
+        "Order": 20,
+        "DatasetType": "CAU",
+        "DatasetId": "CostAndUsage",
+        "DatasetName": "Cost and Usage",
+        "ValidationCriteria": {
+            "MustSatisfy": "ResourceName MUST conform to StringHandling requirements.",
+            "Keyword": "MUST",
+            "Requirement": {},
+            "Condition": {},
+            "Dependencies": [
+                "ATT-StringHandling-A-000-M"
+            ]
+        }
+    },
+    "CAU-ResourceName-C-003-C": {
+        "Function": "Composite",
+        "Reference": "ResourceName",
+        "EntityType": "Column",
+        "EntityName": "Resource Name",
+        "EntityId": "ResourceName",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.2",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Static",
+        "Order": 30,
+        "DatasetType": "CAU",
+        "DatasetId": "CostAndUsage",
+        "DatasetName": "Cost and Usage",
+        "ValidationCriteria": {
+            "MustSatisfy": "ResourceName MUST adhere to the following nullability requirements:",
+            "Keyword": "MUST",
+            "Requirement": {
+                "CheckFunction": "AND",
+                "Items": [
+                    {
+                        "CheckFunction": "CheckModelRule",
+                        "ModelRuleId": "CAU-ResourceName-C-004-C"
+                    },
+                    {
+                        "CheckFunction": "CheckModelRule",
+                        "ModelRuleId": "CAU-ResourceName-C-005-C"
+                    }
+                ]
+            },
+            "Condition": {},
+            "Dependencies": [
+                "CAU-ResourceName-C-004-C",
+                "CAU-ResourceName-C-005-C"
+            ]
+        }
+    },
+    "CAU-ResourceName-C-004-C": {
+        "Function": "Validation",
+        "Reference": "ResourceName",
+        "EntityType": "Column",
+        "EntityName": "Resource Name",
+        "EntityId": "ResourceName",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.2",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Dynamic",
+        "Order": 40,
+        "DatasetType": "CAU",
+        "DatasetId": "CostAndUsage",
+        "DatasetName": "Cost and Usage",
+        "ValidationCriteria": {
+            "MustSatisfy": "ResourceName MUST be null when ResourceId is null or when the resource does not have an assigned display name.",
+            "Keyword": "MUST",
+            "Requirement": {},
+            "Condition": {},
+            "Dependencies": []
+        }
+    },
+    "CAU-ResourceName-C-005-C": {
+        "Function": "Validation",
+        "Reference": "ResourceName",
+        "EntityType": "Column",
+        "EntityName": "Resource Name",
+        "EntityId": "ResourceName",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.2",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Dynamic",
+        "Order": 50,
+        "DatasetType": "CAU",
+        "DatasetId": "CostAndUsage",
+        "DatasetName": "Cost and Usage",
+        "ValidationCriteria": {
+            "MustSatisfy": "ResourceName MUST NOT be null when ResourceId is not null and the resource has an assigned display name.",
+            "Keyword": "MUST NOT",
+            "Requirement": {},
+            "Condition": {},
+            "Dependencies": []
+        }
+    },
+    "CAU-ResourceName-C-006-C": {
+        "Function": "Validation",
+        "Reference": "ResourceName",
+        "EntityType": "Column",
+        "EntityName": "Resource Name",
+        "EntityId": "ResourceName",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.2",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Dynamic",
+        "Order": 60,
+        "DatasetType": "CAU",
+        "DatasetId": "CostAndUsage",
+        "DatasetName": "Cost and Usage",
+        "ValidationCriteria": {
+            "MustSatisfy": "ResourceName MUST NOT duplicate ResourceId when the resource is not provisioned interactively or only has a system-generated ResourceId.",
+            "Keyword": "MUST NOT",
+            "Requirement": {},
+            "Condition": {},
+            "Dependencies": []
+        }
+    }
+}

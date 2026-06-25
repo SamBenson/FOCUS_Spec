@@ -1,0 +1,254 @@
+{
+    "CAU-ChargeCategory-C-000-M": {
+        "Function": "Composite",
+        "Reference": "ChargeCategory",
+        "EntityType": "Column",
+        "EntityName": "Charge Category",
+        "EntityId": "ChargeCategory",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.2",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Static",
+        "Order": 0,
+        "DatasetType": "CAU",
+        "DatasetId": "CostAndUsage",
+        "DatasetName": "Cost and Usage",
+        "ValidationCriteria": {
+            "MustSatisfy": "ChargeCategory MUST adhere to the following requirements:",
+            "Keyword": "MUST",
+            "Requirement": {
+                "CheckFunction": "AND",
+                "Items": [
+                    {
+                        "CheckFunction": "CheckModelRule",
+                        "ModelRuleId": "CAU-ChargeCategory-C-001-M"
+                    },
+                    {
+                        "CheckFunction": "CheckModelRule",
+                        "ModelRuleId": "CAU-ChargeCategory-C-002-M"
+                    },
+                    {
+                        "CheckFunction": "CheckModelRule",
+                        "ModelRuleId": "CAU-ChargeCategory-C-003-M"
+                    },
+                    {
+                        "CheckFunction": "CheckModelRule",
+                        "ModelRuleId": "CAU-ChargeCategory-C-004-C"
+                    },
+                    {
+                        "CheckFunction": "CheckModelRule",
+                        "ModelRuleId": "CAU-ChargeCategory-C-005-C"
+                    },
+                    {
+                        "CheckFunction": "CheckModelRule",
+                        "ModelRuleId": "CAU-ChargeCategory-C-006-C"
+                    },
+                    {
+                        "CheckFunction": "CheckModelRule",
+                        "ModelRuleId": "CAU-ChargeCategory-C-007-C"
+                    },
+                    {
+                        "CheckFunction": "CheckModelRule",
+                        "ModelRuleId": "CAU-ChargeCategory-C-008-C"
+                    }
+                ]
+            },
+            "Condition": {},
+            "Dependencies": [
+                "CAU-ChargeCategory-C-001-M",
+                "CAU-ChargeCategory-C-002-M",
+                "CAU-ChargeCategory-C-003-M",
+                "CAU-ChargeCategory-C-004-C",
+                "CAU-ChargeCategory-C-005-C",
+                "CAU-ChargeCategory-C-006-C",
+                "CAU-ChargeCategory-C-007-C",
+                "CAU-ChargeCategory-C-008-C"
+            ]
+        }
+    },
+    "CAU-ChargeCategory-C-001-M": {
+        "Function": "Validation",
+        "Reference": "ChargeCategory",
+        "EntityType": "Column",
+        "EntityName": "Charge Category",
+        "EntityId": "ChargeCategory",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.2",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Static",
+        "Order": 10,
+        "DatasetType": "CAU",
+        "DatasetId": "CostAndUsage",
+        "DatasetName": "Cost and Usage",
+        "ValidationCriteria": {
+            "MustSatisfy": "ChargeCategory MUST be of type String.",
+            "Keyword": "MUST",
+            "Requirement": {},
+            "Condition": {},
+            "Dependencies": []
+        }
+    },
+    "CAU-ChargeCategory-C-002-M": {
+        "Function": "Validation",
+        "Reference": "ChargeCategory",
+        "EntityType": "Column",
+        "EntityName": "Charge Category",
+        "EntityId": "ChargeCategory",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.2",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Static",
+        "Order": 20,
+        "DatasetType": "CAU",
+        "DatasetId": "CostAndUsage",
+        "DatasetName": "Cost and Usage",
+        "ValidationCriteria": {
+            "MustSatisfy": "ChargeCategory MUST NOT be null.",
+            "Keyword": "MUST NOT",
+            "Requirement": {},
+            "Condition": {},
+            "Dependencies": []
+        }
+    },
+    "CAU-ChargeCategory-C-003-M": {
+        "Function": "Validation",
+        "Reference": "ChargeCategory",
+        "EntityType": "Column",
+        "EntityName": "Charge Category",
+        "EntityId": "ChargeCategory",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.2",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Static",
+        "Order": 30,
+        "DatasetType": "CAU",
+        "DatasetId": "CostAndUsage",
+        "DatasetName": "Cost and Usage",
+        "ValidationCriteria": {
+            "MustSatisfy": "ChargeCategory MUST be one of the allowed values.",
+            "Keyword": "MUST",
+            "Requirement": {},
+            "Condition": {},
+            "Dependencies": []
+        }
+    },
+    "CAU-ChargeCategory-C-004-C": {
+        "Function": "Validation",
+        "Reference": "ChargeCategory",
+        "EntityType": "Column",
+        "EntityName": "Charge Category",
+        "EntityId": "ChargeCategory",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.4",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Dynamic",
+        "Order": 40,
+        "DatasetType": "CAU",
+        "DatasetId": "CostAndUsage",
+        "DatasetName": "Cost and Usage",
+        "ValidationCriteria": {
+            "MustSatisfy": "ChargeCategory MUST be \"Usage\" when the charge represents consumption of a service or resource.",
+            "Keyword": "MUST",
+            "Requirement": {},
+            "Condition": {},
+            "Dependencies": []
+        }
+    },
+    "CAU-ChargeCategory-C-005-C": {
+        "Function": "Validation",
+        "Reference": "ChargeCategory",
+        "EntityType": "Column",
+        "EntityName": "Charge Category",
+        "EntityId": "ChargeCategory",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.4",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Dynamic",
+        "Order": 50,
+        "DatasetType": "CAU",
+        "DatasetId": "CostAndUsage",
+        "DatasetName": "Cost and Usage",
+        "ValidationCriteria": {
+            "MustSatisfy": "ChargeCategory MUST be \"Purchase\" when the charge represents acquisition of a service, resource, or commitment.",
+            "Keyword": "MUST",
+            "Requirement": {},
+            "Condition": {},
+            "Dependencies": []
+        }
+    },
+    "CAU-ChargeCategory-C-006-C": {
+        "Function": "Validation",
+        "Reference": "ChargeCategory",
+        "EntityType": "Column",
+        "EntityName": "Charge Category",
+        "EntityId": "ChargeCategory",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.4",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Dynamic",
+        "Order": 60,
+        "DatasetType": "CAU",
+        "DatasetId": "CostAndUsage",
+        "DatasetName": "Cost and Usage",
+        "ValidationCriteria": {
+            "MustSatisfy": "ChargeCategory MUST be \"Tax\" when the charge represents taxes levied by the relevant authorities.",
+            "Keyword": "MUST",
+            "Requirement": {},
+            "Condition": {},
+            "Dependencies": []
+        }
+    },
+    "CAU-ChargeCategory-C-007-C": {
+        "Function": "Validation",
+        "Reference": "ChargeCategory",
+        "EntityType": "Column",
+        "EntityName": "Charge Category",
+        "EntityId": "ChargeCategory",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.4",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Dynamic",
+        "Order": 70,
+        "DatasetType": "CAU",
+        "DatasetId": "CostAndUsage",
+        "DatasetName": "Cost and Usage",
+        "ValidationCriteria": {
+            "MustSatisfy": "ChargeCategory MUST be \"Credit\" when the charge represents a financial incentive or allowance unrelated to other charges.",
+            "Keyword": "MUST",
+            "Requirement": {},
+            "Condition": {},
+            "Dependencies": []
+        }
+    },
+    "CAU-ChargeCategory-C-008-C": {
+        "Function": "Validation",
+        "Reference": "ChargeCategory",
+        "EntityType": "Column",
+        "EntityName": "Charge Category",
+        "EntityId": "ChargeCategory",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.4",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Dynamic",
+        "Order": 80,
+        "DatasetType": "CAU",
+        "DatasetId": "CostAndUsage",
+        "DatasetName": "Cost and Usage",
+        "ValidationCriteria": {
+            "MustSatisfy": "ChargeCategory MUST be \"Adjustment\" when the charge represents a billing modification that does not fall into other ChargeCategories.",
+            "Keyword": "MUST",
+            "Requirement": {},
+            "Condition": {},
+            "Dependencies": []
+        }
+    }
+}

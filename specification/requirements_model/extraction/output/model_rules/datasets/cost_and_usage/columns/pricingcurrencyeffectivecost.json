@@ -1,0 +1,223 @@
+{
+    "CAU-PricingCurrencyEffectiveCost-C-000-C": {
+        "Function": "Composite",
+        "Reference": "PricingCurrencyEffectiveCost",
+        "EntityType": "Column",
+        "EntityName": "Pricing Currency Effective Cost",
+        "EntityId": "PricingCurrencyEffectiveCost",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.2",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Static",
+        "Order": 0,
+        "DatasetType": "CAU",
+        "DatasetId": "CostAndUsage",
+        "DatasetName": "Cost and Usage",
+        "ValidationCriteria": {
+            "MustSatisfy": "PricingCurrencyEffectiveCost MUST adhere to the following requirements:",
+            "Keyword": "MUST",
+            "Requirement": {
+                "CheckFunction": "AND",
+                "Items": [
+                    {
+                        "CheckFunction": "CheckModelRule",
+                        "ModelRuleId": "CAU-PricingCurrencyEffectiveCost-C-001-M"
+                    },
+                    {
+                        "CheckFunction": "CheckModelRule",
+                        "ModelRuleId": "CAU-PricingCurrencyEffectiveCost-C-002-M"
+                    },
+                    {
+                        "CheckFunction": "CheckModelRule",
+                        "ModelRuleId": "CAU-PricingCurrencyEffectiveCost-C-003-M"
+                    },
+                    {
+                        "CheckFunction": "CheckModelRule",
+                        "ModelRuleId": "CAU-PricingCurrencyEffectiveCost-C-006-M"
+                    },
+                    {
+                        "CheckFunction": "CheckModelRule",
+                        "ModelRuleId": "CAU-PricingCurrencyEffectiveCost-C-007-M"
+                    }
+                ]
+            },
+            "Condition": {},
+            "Dependencies": [
+                "CAU-PricingCurrencyEffectiveCost-C-001-M",
+                "CAU-PricingCurrencyEffectiveCost-C-002-M",
+                "CAU-PricingCurrencyEffectiveCost-C-003-M",
+                "CAU-PricingCurrencyEffectiveCost-C-006-M",
+                "CAU-PricingCurrencyEffectiveCost-C-007-M"
+            ]
+        }
+    },
+    "CAU-PricingCurrencyEffectiveCost-C-001-M": {
+        "Function": "Validation",
+        "Reference": "PricingCurrencyEffectiveCost",
+        "EntityType": "Column",
+        "EntityName": "Pricing Currency Effective Cost",
+        "EntityId": "PricingCurrencyEffectiveCost",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.2",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Static",
+        "Order": 10,
+        "DatasetType": "CAU",
+        "DatasetId": "CostAndUsage",
+        "DatasetName": "Cost and Usage",
+        "ValidationCriteria": {
+            "MustSatisfy": "PricingCurrencyEffectiveCost MUST be of type Decimal.",
+            "Keyword": "MUST",
+            "Requirement": {},
+            "Condition": {},
+            "Dependencies": []
+        }
+    },
+    "CAU-PricingCurrencyEffectiveCost-C-002-M": {
+        "Function": "Validation",
+        "Reference": "PricingCurrencyEffectiveCost",
+        "EntityType": "Column",
+        "EntityName": "Pricing Currency Effective Cost",
+        "EntityId": "PricingCurrencyEffectiveCost",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.2",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Dynamic",
+        "Order": 20,
+        "DatasetType": "CAU",
+        "DatasetId": "CostAndUsage",
+        "DatasetName": "Cost and Usage",
+        "ValidationCriteria": {
+            "MustSatisfy": "PricingCurrencyEffectiveCost MUST conform to NumericFormat requirements.",
+            "Keyword": "MUST",
+            "Requirement": {},
+            "Condition": {},
+            "Dependencies": [
+                "ATT-NumericFormat-A-000-M"
+            ]
+        }
+    },
+    "CAU-PricingCurrencyEffectiveCost-C-003-M": {
+        "Function": "Validation",
+        "Reference": "PricingCurrencyEffectiveCost",
+        "EntityType": "Column",
+        "EntityName": "Pricing Currency Effective Cost",
+        "EntityId": "PricingCurrencyEffectiveCost",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.2",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Static",
+        "Order": 30,
+        "DatasetType": "CAU",
+        "DatasetId": "CostAndUsage",
+        "DatasetName": "Cost and Usage",
+        "ValidationCriteria": {
+            "MustSatisfy": "PricingCurrencyEffectiveCost MUST NOT be null.",
+            "Keyword": "MUST NOT",
+            "Requirement": {},
+            "Condition": {},
+            "Dependencies": []
+        }
+    },
+    "CAU-PricingCurrencyEffectiveCost-C-004-M": {
+        "Function": "Validation",
+        "Reference": "PricingCurrencyEffectiveCost",
+        "EntityType": "Column",
+        "EntityName": "Pricing Currency Effective Cost",
+        "EntityId": "PricingCurrencyEffectiveCost",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.2",
+        "ModelVersionRemoved": "1.4",
+        "Status": "Removed",
+        "ApplicabilityCriteria": [],
+        "Order": 80,
+        "DatasetType": "CAU",
+        "DatasetId": "CostAndUsage",
+        "DatasetName": "Cost and Usage",
+        "Type": "Static",
+        "ValidationCriteria": {
+            "MustSatisfy": "PricingCurrencyEffectiveCost MUST be a valid decimal value.",
+            "Keyword": "MUST",
+            "Requirement": {
+                "CheckFunction": "CheckDecimalValue",
+                "ColumnName": "PricingCurrencyEffectiveCost"
+            },
+            "Condition": {},
+            "Dependencies": []
+        }
+    },
+    "CAU-PricingCurrencyEffectiveCost-C-005-M": {
+        "Function": "Validation",
+        "Reference": "PricingCurrencyEffectiveCost",
+        "EntityType": "Column",
+        "EntityName": "Pricing Currency Effective Cost",
+        "EntityId": "PricingCurrencyEffectiveCost",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.2",
+        "Status": "Removed",
+        "ModelVersionRemoved": "1.4",
+        "ApplicabilityCriteria": [],
+        "Order": -1,
+        "DatasetType": "CAU",
+        "DatasetId": "CostAndUsage",
+        "DatasetName": "Cost and Usage",
+        "Type": "Dynamic",
+        "ValidationCriteria": {
+            "MustSatisfy": "PricingCurrencyEffectiveCost MUST be 0 in the event of prepaid purchases or purchases that are applicable to previous usage.",
+            "Keyword": "MUST",
+            "Requirement": {},
+            "Condition": {},
+            "Dependencies": []
+        }
+    },
+    "CAU-PricingCurrencyEffectiveCost-C-006-M": {
+        "Function": "Validation",
+        "Reference": "PricingCurrencyEffectiveCost",
+        "EntityType": "Column",
+        "EntityName": "Pricing Currency Effective Cost",
+        "EntityId": "PricingCurrencyEffectiveCost",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.2",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Static",
+        "Order": 60,
+        "DatasetType": "CAU",
+        "DatasetId": "CostAndUsage",
+        "DatasetName": "Cost and Usage",
+        "ValidationCriteria": {
+            "MustSatisfy": "PricingCurrencyEffectiveCost MUST be denominated in the PricingCurrency.",
+            "Keyword": "MUST",
+            "Requirement": {},
+            "Condition": {},
+            "Dependencies": []
+        }
+    },
+    "CAU-PricingCurrencyEffectiveCost-C-007-M": {
+        "Function": "Validation",
+        "Reference": "PricingCurrencyEffectiveCost",
+        "EntityType": "Column",
+        "EntityName": "Pricing Currency Effective Cost",
+        "EntityId": "PricingCurrencyEffectiveCost",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.2",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Static",
+        "Order": 70,
+        "DatasetType": "CAU",
+        "DatasetId": "CostAndUsage",
+        "DatasetName": "Cost and Usage",
+        "ValidationCriteria": {
+            "MustSatisfy": "PricingCurrencyEffectiveCost MUST be the PricingCurrency-denominated equivalent of EffectiveCost.",
+            "Keyword": "MUST",
+            "Requirement": {},
+            "Condition": {},
+            "Dependencies": []
+        }
+    }
+}

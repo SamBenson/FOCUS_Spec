@@ -1,0 +1,144 @@
+{
+    "CAU-ChargePeriodStart-C-000-M": {
+        "Function": "Composite",
+        "Reference": "ChargePeriodStart",
+        "EntityType": "Column",
+        "EntityName": "Charge Period Start",
+        "EntityId": "ChargePeriodStart",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.2",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Static",
+        "Order": 0,
+        "DatasetType": "CAU",
+        "DatasetId": "CostAndUsage",
+        "DatasetName": "Cost and Usage",
+        "ValidationCriteria": {
+            "MustSatisfy": "ChargePeriodStart MUST adhere to the following requirements:",
+            "Keyword": "MUST",
+            "Requirement": {
+                "CheckFunction": "AND",
+                "Items": [
+                    {
+                        "CheckFunction": "CheckModelRule",
+                        "ModelRuleId": "CAU-ChargePeriodStart-C-001-M"
+                    },
+                    {
+                        "CheckFunction": "CheckModelRule",
+                        "ModelRuleId": "CAU-ChargePeriodStart-C-002-M"
+                    },
+                    {
+                        "CheckFunction": "CheckModelRule",
+                        "ModelRuleId": "CAU-ChargePeriodStart-C-003-M"
+                    },
+                    {
+                        "CheckFunction": "CheckModelRule",
+                        "ModelRuleId": "CAU-ChargePeriodStart-C-004-M"
+                    }
+                ]
+            },
+            "Condition": {},
+            "Dependencies": [
+                "CAU-ChargePeriodStart-C-001-M",
+                "CAU-ChargePeriodStart-C-002-M",
+                "CAU-ChargePeriodStart-C-003-M",
+                "CAU-ChargePeriodStart-C-004-M"
+            ]
+        }
+    },
+    "CAU-ChargePeriodStart-C-001-M": {
+        "Function": "Validation",
+        "Reference": "ChargePeriodStart",
+        "EntityType": "Column",
+        "EntityName": "Charge Period Start",
+        "EntityId": "ChargePeriodStart",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.2",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Static",
+        "Order": 10,
+        "DatasetType": "CAU",
+        "DatasetId": "CostAndUsage",
+        "DatasetName": "Cost and Usage",
+        "ValidationCriteria": {
+            "MustSatisfy": "ChargePeriodStart MUST be of type Date/Time.",
+            "Keyword": "MUST",
+            "Requirement": {},
+            "Condition": {},
+            "Dependencies": []
+        }
+    },
+    "CAU-ChargePeriodStart-C-002-M": {
+        "Function": "Validation",
+        "Reference": "ChargePeriodStart",
+        "EntityType": "Column",
+        "EntityName": "Charge Period Start",
+        "EntityId": "ChargePeriodStart",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.2",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Dynamic",
+        "Order": 20,
+        "DatasetType": "CAU",
+        "DatasetId": "CostAndUsage",
+        "DatasetName": "Cost and Usage",
+        "ValidationCriteria": {
+            "MustSatisfy": "ChargePeriodStart MUST conform to DateTimeFormat requirements.",
+            "Keyword": "MUST",
+            "Requirement": {},
+            "Condition": {},
+            "Dependencies": [
+                "ATT-DateTimeFormat-A-000-M"
+            ]
+        }
+    },
+    "CAU-ChargePeriodStart-C-003-M": {
+        "Function": "Validation",
+        "Reference": "ChargePeriodStart",
+        "EntityType": "Column",
+        "EntityName": "Charge Period Start",
+        "EntityId": "ChargePeriodStart",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.2",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Static",
+        "Order": 30,
+        "DatasetType": "CAU",
+        "DatasetId": "CostAndUsage",
+        "DatasetName": "Cost and Usage",
+        "ValidationCriteria": {
+            "MustSatisfy": "ChargePeriodStart MUST NOT be null.",
+            "Keyword": "MUST NOT",
+            "Requirement": {},
+            "Condition": {},
+            "Dependencies": []
+        }
+    },
+    "CAU-ChargePeriodStart-C-004-M": {
+        "Function": "Validation",
+        "Reference": "ChargePeriodStart",
+        "EntityType": "Column",
+        "EntityName": "Charge Period Start",
+        "EntityId": "ChargePeriodStart",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.2",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Static",
+        "Order": 40,
+        "DatasetType": "CAU",
+        "DatasetId": "CostAndUsage",
+        "DatasetName": "Cost and Usage",
+        "ValidationCriteria": {
+            "MustSatisfy": "ChargePeriodStart MUST be the inclusive start bound of the effective period of the charge.",
+            "Keyword": "MUST",
+            "Requirement": {},
+            "Condition": {},
+            "Dependencies": []
+        }
+    }
+}

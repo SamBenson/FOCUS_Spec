@@ -1,0 +1,144 @@
+{
+    "CCT-ContractCommitmentDescription-C-000-M": {
+        "Function": "Composite",
+        "Reference": "ContractCommitmentDescription",
+        "EntityType": "Column",
+        "EntityName": "Contract Commitment Description",
+        "EntityId": "ContractCommitmentDescription",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.3",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Static",
+        "Order": 0,
+        "DatasetType": "CCT",
+        "DatasetId": "ContractCommitment",
+        "DatasetName": "Contract Commitment",
+        "ValidationCriteria": {
+            "MustSatisfy": "ContractCommitmentDescription MUST adhere to the following requirements:",
+            "Keyword": "MUST",
+            "Requirement": {
+                "CheckFunction": "AND",
+                "Items": [
+                    {
+                        "CheckFunction": "CheckModelRule",
+                        "ModelRuleId": "CCT-ContractCommitmentDescription-C-001-M"
+                    },
+                    {
+                        "CheckFunction": "CheckModelRule",
+                        "ModelRuleId": "CCT-ContractCommitmentDescription-C-002-M"
+                    },
+                    {
+                        "CheckFunction": "CheckModelRule",
+                        "ModelRuleId": "CCT-ContractCommitmentDescription-C-003-O"
+                    },
+                    {
+                        "CheckFunction": "CheckModelRule",
+                        "ModelRuleId": "CCT-ContractCommitmentDescription-C-004-O"
+                    }
+                ]
+            },
+            "Condition": {},
+            "Dependencies": [
+                "CCT-ContractCommitmentDescription-C-001-M",
+                "CCT-ContractCommitmentDescription-C-002-M",
+                "CCT-ContractCommitmentDescription-C-003-O",
+                "CCT-ContractCommitmentDescription-C-004-O"
+            ]
+        }
+    },
+    "CCT-ContractCommitmentDescription-C-001-M": {
+        "Function": "Validation",
+        "Reference": "ContractCommitmentDescription",
+        "EntityType": "Column",
+        "EntityName": "Contract Commitment Description",
+        "EntityId": "ContractCommitmentDescription",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.3",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Static",
+        "Order": 10,
+        "DatasetType": "CCT",
+        "DatasetId": "ContractCommitment",
+        "DatasetName": "Contract Commitment",
+        "ValidationCriteria": {
+            "MustSatisfy": "ContractCommitmentDescription MUST be of type String.",
+            "Keyword": "MUST",
+            "Requirement": {},
+            "Condition": {},
+            "Dependencies": []
+        }
+    },
+    "CCT-ContractCommitmentDescription-C-002-M": {
+        "Function": "Validation",
+        "Reference": "ContractCommitmentDescription",
+        "EntityType": "Column",
+        "EntityName": "Contract Commitment Description",
+        "EntityId": "ContractCommitmentDescription",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.3",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Dynamic",
+        "Order": 20,
+        "DatasetType": "CCT",
+        "DatasetId": "ContractCommitment",
+        "DatasetName": "Contract Commitment",
+        "ValidationCriteria": {
+            "MustSatisfy": "ContractCommitmentDescription MUST conform to StringHandling requirements.",
+            "Keyword": "MUST",
+            "Requirement": {},
+            "Condition": {},
+            "Dependencies": [
+                "ATT-StringHandling-A-000-M"
+            ]
+        }
+    },
+    "CCT-ContractCommitmentDescription-C-003-O": {
+        "Function": "Validation",
+        "Reference": "ContractCommitmentDescription",
+        "EntityType": "Column",
+        "EntityName": "Contract Commitment Description",
+        "EntityId": "ContractCommitmentDescription",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.3",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Static",
+        "Order": 30,
+        "DatasetType": "CCT",
+        "DatasetId": "ContractCommitment",
+        "DatasetName": "Contract Commitment",
+        "ValidationCriteria": {
+            "MustSatisfy": "ContractCommitmentDescription SHOULD NOT be null.",
+            "Keyword": "SHOULD NOT",
+            "Requirement": {},
+            "Condition": {},
+            "Dependencies": []
+        }
+    },
+    "CCT-ContractCommitmentDescription-C-004-O": {
+        "Function": "Validation",
+        "Reference": "ContractCommitmentDescription",
+        "EntityType": "Column",
+        "EntityName": "Contract Commitment Description",
+        "EntityId": "ContractCommitmentDescription",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.3",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Static",
+        "Order": 40,
+        "DatasetType": "CCT",
+        "DatasetId": "ContractCommitment",
+        "DatasetName": "Contract Commitment",
+        "ValidationCriteria": {
+            "MustSatisfy": "ContractCommitmentDescription maximum length SHOULD be provided in the corresponding FOCUS Metadata Schema.",
+            "Keyword": "SHOULD",
+            "Requirement": {},
+            "Condition": {},
+            "Dependencies": []
+        }
+    }
+}

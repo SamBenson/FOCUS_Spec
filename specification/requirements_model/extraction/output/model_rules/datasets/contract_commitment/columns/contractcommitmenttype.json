@@ -1,0 +1,144 @@
+{
+    "CCT-ContractCommitmentType-C-000-M": {
+        "Function": "Composite",
+        "Reference": "ContractCommitmentType",
+        "EntityType": "Column",
+        "EntityName": "Contract Commitment Type",
+        "EntityId": "ContractCommitmentType",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.3",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Static",
+        "Order": 0,
+        "DatasetType": "CCT",
+        "DatasetId": "ContractCommitment",
+        "DatasetName": "Contract Commitment",
+        "ValidationCriteria": {
+            "MustSatisfy": "ContractCommitmentType MUST adhere to the following requirements:",
+            "Keyword": "MUST",
+            "Requirement": {
+                "CheckFunction": "AND",
+                "Items": [
+                    {
+                        "CheckFunction": "CheckModelRule",
+                        "ModelRuleId": "CCT-ContractCommitmentType-C-001-M"
+                    },
+                    {
+                        "CheckFunction": "CheckModelRule",
+                        "ModelRuleId": "CCT-ContractCommitmentType-C-002-M"
+                    },
+                    {
+                        "CheckFunction": "CheckModelRule",
+                        "ModelRuleId": "CCT-ContractCommitmentType-C-003-M"
+                    },
+                    {
+                        "CheckFunction": "CheckModelRule",
+                        "ModelRuleId": "CCT-ContractCommitmentType-C-004-M"
+                    }
+                ]
+            },
+            "Condition": {},
+            "Dependencies": [
+                "CCT-ContractCommitmentType-C-001-M",
+                "CCT-ContractCommitmentType-C-002-M",
+                "CCT-ContractCommitmentType-C-003-M",
+                "CCT-ContractCommitmentType-C-004-M"
+            ]
+        }
+    },
+    "CCT-ContractCommitmentType-C-001-M": {
+        "Function": "Validation",
+        "Reference": "ContractCommitmentType",
+        "EntityType": "Column",
+        "EntityName": "Contract Commitment Type",
+        "EntityId": "ContractCommitmentType",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.3",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Static",
+        "Order": 10,
+        "DatasetType": "CCT",
+        "DatasetId": "ContractCommitment",
+        "DatasetName": "Contract Commitment",
+        "ValidationCriteria": {
+            "MustSatisfy": "ContractCommitmentType MUST be of type String.",
+            "Keyword": "MUST",
+            "Requirement": {},
+            "Condition": {},
+            "Dependencies": []
+        }
+    },
+    "CCT-ContractCommitmentType-C-002-M": {
+        "Function": "Validation",
+        "Reference": "ContractCommitmentType",
+        "EntityType": "Column",
+        "EntityName": "Contract Commitment Type",
+        "EntityId": "ContractCommitmentType",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.3",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Dynamic",
+        "Order": 20,
+        "DatasetType": "CCT",
+        "DatasetId": "ContractCommitment",
+        "DatasetName": "Contract Commitment",
+        "ValidationCriteria": {
+            "MustSatisfy": "ContractCommitmentType MUST conform to StringHandling requirements.",
+            "Keyword": "MUST",
+            "Requirement": {},
+            "Condition": {},
+            "Dependencies": [
+                "ATT-StringHandling-A-000-M"
+            ]
+        }
+    },
+    "CCT-ContractCommitmentType-C-003-M": {
+        "Function": "Validation",
+        "Reference": "ContractCommitmentType",
+        "EntityType": "Column",
+        "EntityName": "Contract Commitment Type",
+        "EntityId": "ContractCommitmentType",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.3",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Static",
+        "Order": 30,
+        "DatasetType": "CCT",
+        "DatasetId": "ContractCommitment",
+        "DatasetName": "Contract Commitment",
+        "ValidationCriteria": {
+            "MustSatisfy": "ContractCommitmentType MUST NOT be null.",
+            "Keyword": "MUST NOT",
+            "Requirement": {},
+            "Condition": {},
+            "Dependencies": []
+        }
+    },
+    "CCT-ContractCommitmentType-C-004-M": {
+        "Function": "Validation",
+        "Reference": "ContractCommitmentType",
+        "EntityType": "Column",
+        "EntityName": "Contract Commitment Type",
+        "EntityId": "ContractCommitmentType",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.3",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Static",
+        "Order": 40,
+        "DatasetType": "CCT",
+        "DatasetId": "ContractCommitment",
+        "DatasetName": "Contract Commitment",
+        "ValidationCriteria": {
+            "MustSatisfy": "ContractCommitmentType MUST be a consistent, readable display value.",
+            "Keyword": "MUST",
+            "Requirement": {},
+            "Condition": {},
+            "Dependencies": []
+        }
+    }
+}

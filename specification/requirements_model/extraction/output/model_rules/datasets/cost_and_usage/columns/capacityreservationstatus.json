@@ -1,0 +1,264 @@
+{
+    "CAU-CapacityReservationStatus-C-000-C": {
+        "Function": "Composite",
+        "Reference": "CapacityReservationStatus",
+        "EntityType": "Column",
+        "EntityName": "Capacity Reservation Status",
+        "EntityId": "CapacityReservationStatus",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.2",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Static",
+        "Order": 0,
+        "DatasetType": "CAU",
+        "DatasetId": "CostAndUsage",
+        "DatasetName": "Cost and Usage",
+        "ValidationCriteria": {
+            "MustSatisfy": "CapacityReservationStatus MUST adhere to the following requirements:",
+            "Keyword": "MUST",
+            "Requirement": {
+                "CheckFunction": "AND",
+                "Items": [
+                    {
+                        "CheckFunction": "CheckModelRule",
+                        "ModelRuleId": "CAU-CapacityReservationStatus-C-001-M"
+                    },
+                    {
+                        "CheckFunction": "CheckModelRule",
+                        "ModelRuleId": "CAU-CapacityReservationStatus-C-002-C"
+                    },
+                    {
+                        "CheckFunction": "CheckModelRule",
+                        "ModelRuleId": "CAU-CapacityReservationStatus-C-005-C"
+                    }
+                ]
+            },
+            "Condition": {},
+            "Dependencies": [
+                "CAU-CapacityReservationStatus-C-001-M",
+                "CAU-CapacityReservationStatus-C-002-C",
+                "CAU-CapacityReservationStatus-C-005-C"
+            ]
+        }
+    },
+    "CAU-CapacityReservationStatus-C-001-M": {
+        "Function": "Validation",
+        "Reference": "CapacityReservationStatus",
+        "EntityType": "Column",
+        "EntityName": "Capacity Reservation Status",
+        "EntityId": "CapacityReservationStatus",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.2",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Static",
+        "Order": 10,
+        "DatasetType": "CAU",
+        "DatasetId": "CostAndUsage",
+        "DatasetName": "Cost and Usage",
+        "ValidationCriteria": {
+            "MustSatisfy": "CapacityReservationStatus MUST be of type String.",
+            "Keyword": "MUST",
+            "Requirement": {},
+            "Condition": {},
+            "Dependencies": []
+        }
+    },
+    "CAU-CapacityReservationStatus-C-002-C": {
+        "Function": "Composite",
+        "Reference": "CapacityReservationStatus",
+        "EntityType": "Column",
+        "EntityName": "Capacity Reservation Status",
+        "EntityId": "CapacityReservationStatus",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.2",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Static",
+        "Order": 20,
+        "DatasetType": "CAU",
+        "DatasetId": "CostAndUsage",
+        "DatasetName": "Cost and Usage",
+        "ValidationCriteria": {
+            "MustSatisfy": "CapacityReservationStatus MUST adhere to the following nullability requirements:",
+            "Keyword": "MUST",
+            "Requirement": {
+                "CheckFunction": "AND",
+                "Items": [
+                    {
+                        "CheckFunction": "CheckModelRule",
+                        "ModelRuleId": "CAU-CapacityReservationStatus-C-003-C"
+                    },
+                    {
+                        "CheckFunction": "CheckModelRule",
+                        "ModelRuleId": "CAU-CapacityReservationStatus-C-004-C"
+                    }
+                ]
+            },
+            "Condition": {},
+            "Dependencies": [
+                "CAU-CapacityReservationStatus-C-003-C",
+                "CAU-CapacityReservationStatus-C-004-C"
+            ]
+        }
+    },
+    "CAU-CapacityReservationStatus-C-003-C": {
+        "Function": "Validation",
+        "Reference": "CapacityReservationStatus",
+        "EntityType": "Column",
+        "EntityName": "Capacity Reservation Status",
+        "EntityId": "CapacityReservationStatus",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.2",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Dynamic",
+        "Order": 30,
+        "DatasetType": "CAU",
+        "DatasetId": "CostAndUsage",
+        "DatasetName": "Cost and Usage",
+        "ValidationCriteria": {
+            "MustSatisfy": "CapacityReservationStatus MUST be null when CapacityReservationId is null.",
+            "Keyword": "MUST",
+            "Requirement": {},
+            "Condition": {},
+            "Dependencies": []
+        }
+    },
+    "CAU-CapacityReservationStatus-C-004-C": {
+        "Function": "Validation",
+        "Reference": "CapacityReservationStatus",
+        "EntityType": "Column",
+        "EntityName": "Capacity Reservation Status",
+        "EntityId": "CapacityReservationStatus",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.2",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Dynamic",
+        "Order": 40,
+        "DatasetType": "CAU",
+        "DatasetId": "CostAndUsage",
+        "DatasetName": "Cost and Usage",
+        "ValidationCriteria": {
+            "MustSatisfy": "CapacityReservationStatus MUST NOT be null when CapacityReservationId is not null and ChargeCategory is \"Usage\".",
+            "Keyword": "MUST NOT",
+            "Requirement": {},
+            "Condition": {},
+            "Dependencies": []
+        }
+    },
+    "CAU-CapacityReservationStatus-C-005-C": {
+        "Function": "Composite",
+        "Reference": "CapacityReservationStatus",
+        "EntityType": "Column",
+        "EntityName": "Capacity Reservation Status",
+        "EntityId": "CapacityReservationStatus",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.2",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Static",
+        "Order": 50,
+        "DatasetType": "CAU",
+        "DatasetId": "CostAndUsage",
+        "DatasetName": "Cost and Usage",
+        "ValidationCriteria": {
+            "MustSatisfy": "When CapacityReservationStatus is not null, CapacityReservationStatus MUST adhere to the following requirements:",
+            "Keyword": "MUST",
+            "Requirement": {
+                "CheckFunction": "AND",
+                "Items": [
+                    {
+                        "CheckFunction": "CheckModelRule",
+                        "ModelRuleId": "CAU-CapacityReservationStatus-C-006-M"
+                    },
+                    {
+                        "CheckFunction": "CheckModelRule",
+                        "ModelRuleId": "CAU-CapacityReservationStatus-C-007-C"
+                    },
+                    {
+                        "CheckFunction": "CheckModelRule",
+                        "ModelRuleId": "CAU-CapacityReservationStatus-C-008-C"
+                    }
+                ]
+            },
+            "Condition": {},
+            "Dependencies": [
+                "CAU-CapacityReservationStatus-C-006-M",
+                "CAU-CapacityReservationStatus-C-007-C",
+                "CAU-CapacityReservationStatus-C-008-C"
+            ]
+        }
+    },
+    "CAU-CapacityReservationStatus-C-006-M": {
+        "Function": "Validation",
+        "Reference": "CapacityReservationStatus",
+        "EntityType": "Column",
+        "EntityName": "Capacity Reservation Status",
+        "EntityId": "CapacityReservationStatus",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.2",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Static",
+        "Order": 60,
+        "DatasetType": "CAU",
+        "DatasetId": "CostAndUsage",
+        "DatasetName": "Cost and Usage",
+        "ValidationCriteria": {
+            "MustSatisfy": "CapacityReservationStatus MUST be one of the allowed values.",
+            "Keyword": "MUST",
+            "Requirement": {},
+            "Condition": {},
+            "Dependencies": []
+        }
+    },
+    "CAU-CapacityReservationStatus-C-007-C": {
+        "Function": "Validation",
+        "Reference": "CapacityReservationStatus",
+        "EntityType": "Column",
+        "EntityName": "Capacity Reservation Status",
+        "EntityId": "CapacityReservationStatus",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.2",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Dynamic",
+        "Order": 70,
+        "DatasetType": "CAU",
+        "DatasetId": "CostAndUsage",
+        "DatasetName": "Cost and Usage",
+        "ValidationCriteria": {
+            "MustSatisfy": "CapacityReservationStatus MUST be \"Unused\" when the charge represents the unused portion of a capacity reservation.",
+            "Keyword": "MUST",
+            "Requirement": {},
+            "Condition": {},
+            "Dependencies": []
+        }
+    },
+    "CAU-CapacityReservationStatus-C-008-C": {
+        "Function": "Validation",
+        "Reference": "CapacityReservationStatus",
+        "EntityType": "Column",
+        "EntityName": "Capacity Reservation Status",
+        "EntityId": "CapacityReservationStatus",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.2",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Dynamic",
+        "Order": 80,
+        "DatasetType": "CAU",
+        "DatasetId": "CostAndUsage",
+        "DatasetName": "Cost and Usage",
+        "ValidationCriteria": {
+            "MustSatisfy": "CapacityReservationStatus MUST be \"Used\" when the charge represents the used portion of a capacity reservation.",
+            "Keyword": "MUST",
+            "Requirement": {},
+            "Condition": {},
+            "Dependencies": []
+        }
+    }
+}

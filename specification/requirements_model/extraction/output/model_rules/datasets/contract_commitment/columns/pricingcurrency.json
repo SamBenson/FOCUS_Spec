@@ -1,0 +1,146 @@
+{
+    "CCT-PricingCurrency-C-000-C": {
+        "Function": "Composite",
+        "Reference": "PricingCurrency",
+        "EntityType": "Column",
+        "EntityName": "Pricing Currency",
+        "EntityId": "PricingCurrency",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.4",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Static",
+        "Order": 0,
+        "DatasetType": "CCT",
+        "DatasetId": "ContractCommitment",
+        "DatasetName": "Contract Commitment",
+        "ValidationCriteria": {
+            "MustSatisfy": "PricingCurrency MUST adhere to the following requirements:",
+            "Keyword": "MUST",
+            "Requirement": {
+                "CheckFunction": "AND",
+                "Items": [
+                    {
+                        "CheckFunction": "CheckModelRule",
+                        "ModelRuleId": "CCT-PricingCurrency-C-001-M"
+                    },
+                    {
+                        "CheckFunction": "CheckModelRule",
+                        "ModelRuleId": "CCT-PricingCurrency-C-002-M"
+                    },
+                    {
+                        "CheckFunction": "CheckModelRule",
+                        "ModelRuleId": "CCT-PricingCurrency-C-003-M"
+                    },
+                    {
+                        "CheckFunction": "CheckModelRule",
+                        "ModelRuleId": "CCT-PricingCurrency-C-004-M"
+                    }
+                ]
+            },
+            "Condition": {},
+            "Dependencies": [
+                "CCT-PricingCurrency-C-001-M",
+                "CCT-PricingCurrency-C-002-M",
+                "CCT-PricingCurrency-C-003-M",
+                "CCT-PricingCurrency-C-004-M"
+            ]
+        }
+    },
+    "CCT-PricingCurrency-C-001-M": {
+        "Function": "Validation",
+        "Reference": "PricingCurrency",
+        "EntityType": "Column",
+        "EntityName": "Pricing Currency",
+        "EntityId": "PricingCurrency",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.4",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Static",
+        "Order": 10,
+        "DatasetType": "CCT",
+        "DatasetId": "ContractCommitment",
+        "DatasetName": "Contract Commitment",
+        "ValidationCriteria": {
+            "MustSatisfy": "PricingCurrency MUST be of type String.",
+            "Keyword": "MUST",
+            "Requirement": {},
+            "Condition": {},
+            "Dependencies": []
+        }
+    },
+    "CCT-PricingCurrency-C-002-M": {
+        "Function": "Validation",
+        "Reference": "PricingCurrency",
+        "EntityType": "Column",
+        "EntityName": "Pricing Currency",
+        "EntityId": "PricingCurrency",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.4",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Dynamic",
+        "Order": 20,
+        "DatasetType": "CCT",
+        "DatasetId": "ContractCommitment",
+        "DatasetName": "Contract Commitment",
+        "ValidationCriteria": {
+            "MustSatisfy": "PricingCurrency MUST conform to StringHandling requirements.",
+            "Keyword": "MUST",
+            "Requirement": {},
+            "Condition": {},
+            "Dependencies": [
+                "ATT-StringHandling-A-000-M"
+            ]
+        }
+    },
+    "CCT-PricingCurrency-C-003-M": {
+        "Function": "Validation",
+        "Reference": "PricingCurrency",
+        "EntityType": "Column",
+        "EntityName": "Pricing Currency",
+        "EntityId": "PricingCurrency",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.4",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Dynamic",
+        "Order": 30,
+        "DatasetType": "CCT",
+        "DatasetId": "ContractCommitment",
+        "DatasetName": "Contract Commitment",
+        "ValidationCriteria": {
+            "MustSatisfy": "PricingCurrency MUST conform to CurrencyFormat requirements.",
+            "Keyword": "MUST",
+            "Requirement": {},
+            "Condition": {},
+            "Dependencies": [
+                "ATT-CurrencyFormat-A-000-M"
+            ]
+        }
+    },
+    "CCT-PricingCurrency-C-004-M": {
+        "Function": "Validation",
+        "Reference": "PricingCurrency",
+        "EntityType": "Column",
+        "EntityName": "Pricing Currency",
+        "EntityId": "PricingCurrency",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.4",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Static",
+        "Order": 40,
+        "DatasetType": "CCT",
+        "DatasetId": "ContractCommitment",
+        "DatasetName": "Contract Commitment",
+        "ValidationCriteria": {
+            "MustSatisfy": "PricingCurrency MUST NOT be null.",
+            "Keyword": "MUST NOT",
+            "Requirement": {},
+            "Condition": {},
+            "Dependencies": []
+        }
+    }
+}

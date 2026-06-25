@@ -1,0 +1,144 @@
+{
+    "IND-PaymentTerms-C-000-M": {
+        "Function": "Composite",
+        "Reference": "PaymentTerms",
+        "EntityType": "Column",
+        "EntityName": "Payment Terms",
+        "EntityId": "PaymentTerms",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.4",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Static",
+        "Order": 0,
+        "DatasetType": "IND",
+        "DatasetId": "InvoiceDetail",
+        "DatasetName": "Invoice Detail",
+        "ValidationCriteria": {
+            "MustSatisfy": "PaymentTerms MUST adhere to the following requirements:",
+            "Keyword": "MUST",
+            "Requirement": {
+                "CheckFunction": "AND",
+                "Items": [
+                    {
+                        "CheckFunction": "CheckModelRule",
+                        "ModelRuleId": "IND-PaymentTerms-C-001-M"
+                    },
+                    {
+                        "CheckFunction": "CheckModelRule",
+                        "ModelRuleId": "IND-PaymentTerms-C-002-M"
+                    },
+                    {
+                        "CheckFunction": "CheckModelRule",
+                        "ModelRuleId": "IND-PaymentTerms-C-003-M"
+                    },
+                    {
+                        "CheckFunction": "CheckModelRule",
+                        "ModelRuleId": "IND-PaymentTerms-C-004-M"
+                    }
+                ]
+            },
+            "Condition": {},
+            "Dependencies": [
+                "IND-PaymentTerms-C-001-M",
+                "IND-PaymentTerms-C-002-M",
+                "IND-PaymentTerms-C-003-M",
+                "IND-PaymentTerms-C-004-M"
+            ]
+        }
+    },
+    "IND-PaymentTerms-C-001-M": {
+        "Function": "Validation",
+        "Reference": "PaymentTerms",
+        "EntityType": "Column",
+        "EntityName": "Payment Terms",
+        "EntityId": "PaymentTerms",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.4",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Static",
+        "Order": 10,
+        "DatasetType": "IND",
+        "DatasetId": "InvoiceDetail",
+        "DatasetName": "Invoice Detail",
+        "ValidationCriteria": {
+            "MustSatisfy": "PaymentTerms MUST be of type String.",
+            "Keyword": "MUST",
+            "Requirement": {},
+            "Condition": {},
+            "Dependencies": []
+        }
+    },
+    "IND-PaymentTerms-C-002-M": {
+        "Function": "Validation",
+        "Reference": "PaymentTerms",
+        "EntityType": "Column",
+        "EntityName": "Payment Terms",
+        "EntityId": "PaymentTerms",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.4",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Dynamic",
+        "Order": 20,
+        "DatasetType": "IND",
+        "DatasetId": "InvoiceDetail",
+        "DatasetName": "Invoice Detail",
+        "ValidationCriteria": {
+            "MustSatisfy": "PaymentTerms MUST conform to StringHandling requirements.",
+            "Keyword": "MUST",
+            "Requirement": {},
+            "Condition": {},
+            "Dependencies": [
+                "ATT-StringHandling-A-000-M"
+            ]
+        }
+    },
+    "IND-PaymentTerms-C-003-M": {
+        "Function": "Validation",
+        "Reference": "PaymentTerms",
+        "EntityType": "Column",
+        "EntityName": "Payment Terms",
+        "EntityId": "PaymentTerms",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.4",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Static",
+        "Order": 30,
+        "DatasetType": "IND",
+        "DatasetId": "InvoiceDetail",
+        "DatasetName": "Invoice Detail",
+        "ValidationCriteria": {
+            "MustSatisfy": "PaymentTerms MUST NOT be null.",
+            "Keyword": "MUST NOT",
+            "Requirement": {},
+            "Condition": {},
+            "Dependencies": []
+        }
+    },
+    "IND-PaymentTerms-C-004-M": {
+        "Function": "Validation",
+        "Reference": "PaymentTerms",
+        "EntityType": "Column",
+        "EntityName": "Payment Terms",
+        "EntityId": "PaymentTerms",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.4",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Static",
+        "Order": 40,
+        "DatasetType": "IND",
+        "DatasetId": "InvoiceDetail",
+        "DatasetName": "Invoice Detail",
+        "ValidationCriteria": {
+            "MustSatisfy": "PaymentTerms MUST represent the payment terms (e.g., \"Net 30\") as defined on the corresponding invoice.",
+            "Keyword": "MUST",
+            "Requirement": {},
+            "Condition": {},
+            "Dependencies": []
+        }
+    }
+}

@@ -1,0 +1,116 @@
+{
+    "CAU-ServiceProviderName-C-000-M": {
+        "Function": "Composite",
+        "Reference": "ServiceProviderName",
+        "EntityType": "Column",
+        "EntityName": "Service Provider Name",
+        "EntityId": "ServiceProviderName",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.2",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Static",
+        "Order": 0,
+        "DatasetType": "CAU",
+        "DatasetId": "CostAndUsage",
+        "DatasetName": "Cost and Usage",
+        "ValidationCriteria": {
+            "MustSatisfy": "ServiceProviderName MUST adhere to the following requirements:",
+            "Keyword": "MUST",
+            "Requirement": {
+                "CheckFunction": "AND",
+                "Items": [
+                    {
+                        "CheckFunction": "CheckModelRule",
+                        "ModelRuleId": "CAU-ServiceProviderName-C-001-M"
+                    },
+                    {
+                        "CheckFunction": "CheckModelRule",
+                        "ModelRuleId": "CAU-ServiceProviderName-C-002-M"
+                    },
+                    {
+                        "CheckFunction": "CheckModelRule",
+                        "ModelRuleId": "CAU-ServiceProviderName-C-003-M"
+                    }
+                ]
+            },
+            "Condition": {},
+            "Dependencies": [
+                "CAU-ServiceProviderName-C-001-M",
+                "CAU-ServiceProviderName-C-002-M",
+                "CAU-ServiceProviderName-C-003-M"
+            ]
+        }
+    },
+    "CAU-ServiceProviderName-C-001-M": {
+        "Function": "Validation",
+        "Reference": "ServiceProviderName",
+        "EntityType": "Column",
+        "EntityName": "Service Provider Name",
+        "EntityId": "ServiceProviderName",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.2",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Static",
+        "Order": 10,
+        "DatasetType": "CAU",
+        "DatasetId": "CostAndUsage",
+        "DatasetName": "Cost and Usage",
+        "ValidationCriteria": {
+            "MustSatisfy": "ServiceProviderName MUST be of type String.",
+            "Keyword": "MUST",
+            "Requirement": {},
+            "Condition": {},
+            "Dependencies": []
+        }
+    },
+    "CAU-ServiceProviderName-C-002-M": {
+        "Function": "Validation",
+        "Reference": "ServiceProviderName",
+        "EntityType": "Column",
+        "EntityName": "Service Provider Name",
+        "EntityId": "ServiceProviderName",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.2",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Dynamic",
+        "Order": 20,
+        "DatasetType": "CAU",
+        "DatasetId": "CostAndUsage",
+        "DatasetName": "Cost and Usage",
+        "ValidationCriteria": {
+            "MustSatisfy": "ServiceProviderName MUST conform to StringHandling requirements.",
+            "Keyword": "MUST",
+            "Requirement": {},
+            "Condition": {},
+            "Dependencies": [
+                "ATT-StringHandling-A-000-M"
+            ]
+        }
+    },
+    "CAU-ServiceProviderName-C-003-M": {
+        "Function": "Validation",
+        "Reference": "ServiceProviderName",
+        "EntityType": "Column",
+        "EntityName": "Service Provider Name",
+        "EntityId": "ServiceProviderName",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.2",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Static",
+        "Order": 30,
+        "DatasetType": "CAU",
+        "DatasetId": "CostAndUsage",
+        "DatasetName": "Cost and Usage",
+        "ValidationCriteria": {
+            "MustSatisfy": "ServiceProviderName MUST NOT be null.",
+            "Keyword": "MUST NOT",
+            "Requirement": {},
+            "Condition": {},
+            "Dependencies": []
+        }
+    }
+}

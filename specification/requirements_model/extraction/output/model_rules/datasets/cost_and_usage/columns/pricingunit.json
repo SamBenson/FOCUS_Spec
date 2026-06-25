@@ -1,0 +1,294 @@
+{
+    "CAU-PricingUnit-C-000-M": {
+        "Function": "Composite",
+        "Reference": "PricingUnit",
+        "EntityType": "Column",
+        "EntityName": "Pricing Unit",
+        "EntityId": "PricingUnit",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.2",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Static",
+        "Order": 0,
+        "DatasetType": "CAU",
+        "DatasetId": "CostAndUsage",
+        "DatasetName": "Cost and Usage",
+        "ValidationCriteria": {
+            "MustSatisfy": "PricingUnit MUST adhere to the following requirements:",
+            "Keyword": "MUST",
+            "Requirement": {
+                "CheckFunction": "AND",
+                "Items": [
+                    {
+                        "CheckFunction": "CheckModelRule",
+                        "ModelRuleId": "CAU-PricingUnit-C-001-M"
+                    },
+                    {
+                        "CheckFunction": "CheckModelRule",
+                        "ModelRuleId": "CAU-PricingUnit-C-002-M"
+                    },
+                    {
+                        "CheckFunction": "CheckModelRule",
+                        "ModelRuleId": "CAU-PricingUnit-C-003-O"
+                    },
+                    {
+                        "CheckFunction": "CheckModelRule",
+                        "ModelRuleId": "CAU-PricingUnit-C-004-C"
+                    },
+                    {
+                        "CheckFunction": "CheckModelRule",
+                        "ModelRuleId": "CAU-PricingUnit-C-007-C"
+                    }
+                ]
+            },
+            "Condition": {},
+            "Dependencies": [
+                "CAU-PricingUnit-C-001-M",
+                "CAU-PricingUnit-C-002-M",
+                "CAU-PricingUnit-C-003-O",
+                "CAU-PricingUnit-C-004-C",
+                "CAU-PricingUnit-C-007-C"
+            ]
+        }
+    },
+    "CAU-PricingUnit-C-001-M": {
+        "Function": "Validation",
+        "Reference": "PricingUnit",
+        "EntityType": "Column",
+        "EntityName": "Pricing Unit",
+        "EntityId": "PricingUnit",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.2",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Static",
+        "Order": 10,
+        "DatasetType": "CAU",
+        "DatasetId": "CostAndUsage",
+        "DatasetName": "Cost and Usage",
+        "ValidationCriteria": {
+            "MustSatisfy": "PricingUnit MUST be of type String.",
+            "Keyword": "MUST",
+            "Requirement": {},
+            "Condition": {},
+            "Dependencies": []
+        }
+    },
+    "CAU-PricingUnit-C-002-M": {
+        "Function": "Validation",
+        "Reference": "PricingUnit",
+        "EntityType": "Column",
+        "EntityName": "Pricing Unit",
+        "EntityId": "PricingUnit",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.2",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Dynamic",
+        "Order": 20,
+        "DatasetType": "CAU",
+        "DatasetId": "CostAndUsage",
+        "DatasetName": "Cost and Usage",
+        "ValidationCriteria": {
+            "MustSatisfy": "PricingUnit MUST conform to StringHandling requirements.",
+            "Keyword": "MUST",
+            "Requirement": {},
+            "Condition": {},
+            "Dependencies": [
+                "ATT-StringHandling-A-000-M"
+            ]
+        }
+    },
+    "CAU-PricingUnit-C-003-O": {
+        "Function": "Validation",
+        "Reference": "PricingUnit",
+        "EntityType": "Column",
+        "EntityName": "Pricing Unit",
+        "EntityId": "PricingUnit",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.2",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Static",
+        "Order": 30,
+        "DatasetType": "CAU",
+        "DatasetId": "CostAndUsage",
+        "DatasetName": "Cost and Usage",
+        "ValidationCriteria": {
+            "MustSatisfy": "PricingUnit SHOULD conform to UnitFormat requirements.",
+            "Keyword": "SHOULD",
+            "Requirement": {},
+            "Condition": {},
+            "Dependencies": []
+        }
+    },
+    "CAU-PricingUnit-C-004-C": {
+        "Function": "Composite",
+        "Reference": "PricingUnit",
+        "EntityType": "Column",
+        "EntityName": "Pricing Unit",
+        "EntityId": "PricingUnit",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.2",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Static",
+        "Order": 40,
+        "DatasetType": "CAU",
+        "DatasetId": "CostAndUsage",
+        "DatasetName": "Cost and Usage",
+        "ValidationCriteria": {
+            "MustSatisfy": "PricingUnit MUST adhere to the following nullability requirements:",
+            "Keyword": "MUST",
+            "Requirement": {
+                "CheckFunction": "AND",
+                "Items": [
+                    {
+                        "CheckFunction": "CheckModelRule",
+                        "ModelRuleId": "CAU-PricingUnit-C-005-C"
+                    },
+                    {
+                        "CheckFunction": "CheckModelRule",
+                        "ModelRuleId": "CAU-PricingUnit-C-006-C"
+                    }
+                ]
+            },
+            "Condition": {},
+            "Dependencies": [
+                "CAU-PricingUnit-C-005-C",
+                "CAU-PricingUnit-C-006-C"
+            ]
+        }
+    },
+    "CAU-PricingUnit-C-005-C": {
+        "Function": "Validation",
+        "Reference": "PricingUnit",
+        "EntityType": "Column",
+        "EntityName": "Pricing Unit",
+        "EntityId": "PricingUnit",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.2",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Dynamic",
+        "Order": 50,
+        "DatasetType": "CAU",
+        "DatasetId": "CostAndUsage",
+        "DatasetName": "Cost and Usage",
+        "ValidationCriteria": {
+            "MustSatisfy": "PricingUnit MUST be null when PricingQuantity is null.",
+            "Keyword": "MUST",
+            "Requirement": {},
+            "Condition": {},
+            "Dependencies": []
+        }
+    },
+    "CAU-PricingUnit-C-006-C": {
+        "Function": "Validation",
+        "Reference": "PricingUnit",
+        "EntityType": "Column",
+        "EntityName": "Pricing Unit",
+        "EntityId": "PricingUnit",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.2",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Dynamic",
+        "Order": 60,
+        "DatasetType": "CAU",
+        "DatasetId": "CostAndUsage",
+        "DatasetName": "Cost and Usage",
+        "ValidationCriteria": {
+            "MustSatisfy": "PricingUnit MUST NOT be null when PricingQuantity is not null.",
+            "Keyword": "MUST NOT",
+            "Requirement": {},
+            "Condition": {},
+            "Dependencies": []
+        }
+    },
+    "CAU-PricingUnit-C-007-C": {
+        "Function": "Composite",
+        "Reference": "PricingUnit",
+        "EntityType": "Column",
+        "EntityName": "Pricing Unit",
+        "EntityId": "PricingUnit",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.2",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Static",
+        "Order": 70,
+        "DatasetType": "CAU",
+        "DatasetId": "CostAndUsage",
+        "DatasetName": "Cost and Usage",
+        "ValidationCriteria": {
+            "MustSatisfy": "When PricingUnit is not null, PricingUnit MUST adhere to the following requirements:",
+            "Keyword": "MUST",
+            "Requirement": {
+                "CheckFunction": "AND",
+                "Items": [
+                    {
+                        "CheckFunction": "CheckModelRule",
+                        "ModelRuleId": "CAU-PricingUnit-C-008-M"
+                    },
+                    {
+                        "CheckFunction": "CheckModelRule",
+                        "ModelRuleId": "CAU-PricingUnit-C-009-C"
+                    }
+                ]
+            },
+            "Condition": {},
+            "Dependencies": [
+                "CAU-PricingUnit-C-008-M",
+                "CAU-PricingUnit-C-009-C"
+            ]
+        }
+    },
+    "CAU-PricingUnit-C-008-M": {
+        "Function": "Validation",
+        "Reference": "PricingUnit",
+        "EntityType": "Column",
+        "EntityName": "Pricing Unit",
+        "EntityId": "PricingUnit",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.2",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Static",
+        "Order": 80,
+        "DatasetType": "CAU",
+        "DatasetId": "CostAndUsage",
+        "DatasetName": "Cost and Usage",
+        "ValidationCriteria": {
+            "MustSatisfy": "PricingUnit MUST be semantically equal to the corresponding pricing measurement unit provided in service-provider-published price list.",
+            "Keyword": "MUST",
+            "Requirement": {},
+            "Condition": {},
+            "Dependencies": []
+        }
+    },
+    "CAU-PricingUnit-C-009-C": {
+        "Function": "Validation",
+        "Reference": "PricingUnit",
+        "EntityType": "Column",
+        "EntityName": "Pricing Unit",
+        "EntityId": "PricingUnit",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.2",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Dynamic",
+        "Order": 90,
+        "DatasetType": "CAU",
+        "DatasetId": "CostAndUsage",
+        "DatasetName": "Cost and Usage",
+        "ValidationCriteria": {
+            "MustSatisfy": "PricingUnit MUST be semantically equal to the corresponding pricing measurement unit provided in invoice, when the invoice includes a pricing measurement unit.",
+            "Keyword": "MUST",
+            "Requirement": {},
+            "Condition": {},
+            "Dependencies": []
+        }
+    }
+}

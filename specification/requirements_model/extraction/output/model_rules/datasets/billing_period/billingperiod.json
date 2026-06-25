@@ -539,7 +539,7 @@
             "Requirement": {},
             "Condition": {},
             "Dependencies": [
-                "ATT-NullHandling-A-000-M"
+                "ATT-NullHandling-A-000-C"
             ]
         }
     },

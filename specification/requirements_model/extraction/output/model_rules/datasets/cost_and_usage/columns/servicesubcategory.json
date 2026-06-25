@@ -1,0 +1,142 @@
+{
+    "CAU-ServiceSubcategory-C-000-O": {
+        "Function": "Composite",
+        "Reference": "ServiceSubcategory",
+        "EntityType": "Column",
+        "EntityName": "Service Subcategory",
+        "EntityId": "ServiceSubcategory",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.2",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Static",
+        "Order": 0,
+        "DatasetType": "CAU",
+        "DatasetId": "CostAndUsage",
+        "DatasetName": "Cost and Usage",
+        "ValidationCriteria": {
+            "MustSatisfy": "ServiceSubcategory MUST adhere to the following requirements:",
+            "Keyword": "MUST",
+            "Requirement": {
+                "CheckFunction": "AND",
+                "Items": [
+                    {
+                        "CheckFunction": "CheckModelRule",
+                        "ModelRuleId": "CAU-ServiceSubcategory-C-001-M"
+                    },
+                    {
+                        "CheckFunction": "CheckModelRule",
+                        "ModelRuleId": "CAU-ServiceSubcategory-C-002-M"
+                    },
+                    {
+                        "CheckFunction": "CheckModelRule",
+                        "ModelRuleId": "CAU-ServiceSubcategory-C-003-M"
+                    },
+                    {
+                        "CheckFunction": "CheckModelRule",
+                        "ModelRuleId": "CAU-ServiceSubcategory-C-004-M"
+                    }
+                ]
+            },
+            "Condition": {},
+            "Dependencies": [
+                "CAU-ServiceSubcategory-C-001-M",
+                "CAU-ServiceSubcategory-C-002-M",
+                "CAU-ServiceSubcategory-C-003-M",
+                "CAU-ServiceSubcategory-C-004-M"
+            ]
+        }
+    },
+    "CAU-ServiceSubcategory-C-001-M": {
+        "Function": "Validation",
+        "Reference": "ServiceSubcategory",
+        "EntityType": "Column",
+        "EntityName": "Service Subcategory",
+        "EntityId": "ServiceSubcategory",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.2",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Static",
+        "Order": 10,
+        "DatasetType": "CAU",
+        "DatasetId": "CostAndUsage",
+        "DatasetName": "Cost and Usage",
+        "ValidationCriteria": {
+            "MustSatisfy": "ServiceSubcategory MUST be of type String.",
+            "Keyword": "MUST",
+            "Requirement": {},
+            "Condition": {},
+            "Dependencies": []
+        }
+    },
+    "CAU-ServiceSubcategory-C-002-M": {
+        "Function": "Validation",
+        "Reference": "ServiceSubcategory",
+        "EntityType": "Column",
+        "EntityName": "Service Subcategory",
+        "EntityId": "ServiceSubcategory",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.2",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Static",
+        "Order": 20,
+        "DatasetType": "CAU",
+        "DatasetId": "CostAndUsage",
+        "DatasetName": "Cost and Usage",
+        "ValidationCriteria": {
+            "MustSatisfy": "ServiceSubcategory MUST NOT be null.",
+            "Keyword": "MUST NOT",
+            "Requirement": {},
+            "Condition": {},
+            "Dependencies": []
+        }
+    },
+    "CAU-ServiceSubcategory-C-003-M": {
+        "Function": "Validation",
+        "Reference": "ServiceSubcategory",
+        "EntityType": "Column",
+        "EntityName": "Service Subcategory",
+        "EntityId": "ServiceSubcategory",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.2",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Static",
+        "Order": 30,
+        "DatasetType": "CAU",
+        "DatasetId": "CostAndUsage",
+        "DatasetName": "Cost and Usage",
+        "ValidationCriteria": {
+            "MustSatisfy": "ServiceSubcategory MUST be one of the allowed values.",
+            "Keyword": "MUST",
+            "Requirement": {},
+            "Condition": {},
+            "Dependencies": []
+        }
+    },
+    "CAU-ServiceSubcategory-C-004-M": {
+        "Function": "Validation",
+        "Reference": "ServiceSubcategory",
+        "EntityType": "Column",
+        "EntityName": "Service Subcategory",
+        "EntityId": "ServiceSubcategory",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.2",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Static",
+        "Order": 40,
+        "DatasetType": "CAU",
+        "DatasetId": "CostAndUsage",
+        "DatasetName": "Cost and Usage",
+        "ValidationCriteria": {
+            "MustSatisfy": "ServiceSubcategory MUST have one and only one parent ServiceCategory as specified in the allowed values below.",
+            "Keyword": "MUST",
+            "Requirement": {},
+            "Condition": {},
+            "Dependencies": []
+        }
+    }
+}

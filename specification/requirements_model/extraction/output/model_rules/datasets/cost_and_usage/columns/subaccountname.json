@@ -1,0 +1,177 @@
+{
+    "CAU-SubAccountName-C-000-C": {
+        "Function": "Composite",
+        "Reference": "SubAccountName",
+        "EntityType": "Column",
+        "EntityName": "Sub Account Name",
+        "EntityId": "SubAccountName",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.2",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Static",
+        "Order": 0,
+        "DatasetType": "CAU",
+        "DatasetId": "CostAndUsage",
+        "DatasetName": "Cost and Usage",
+        "ValidationCriteria": {
+            "MustSatisfy": "SubAccountName MUST adhere to the following requirements:",
+            "Keyword": "MUST",
+            "Requirement": {
+                "CheckFunction": "AND",
+                "Items": [
+                    {
+                        "CheckFunction": "CheckModelRule",
+                        "ModelRuleId": "CAU-SubAccountName-C-001-M"
+                    },
+                    {
+                        "CheckFunction": "CheckModelRule",
+                        "ModelRuleId": "CAU-SubAccountName-C-002-M"
+                    },
+                    {
+                        "CheckFunction": "CheckModelRule",
+                        "ModelRuleId": "CAU-SubAccountName-C-003-C"
+                    }
+                ]
+            },
+            "Condition": {},
+            "Dependencies": [
+                "CAU-SubAccountName-C-001-M",
+                "CAU-SubAccountName-C-002-M",
+                "CAU-SubAccountName-C-003-C"
+            ]
+        }
+    },
+    "CAU-SubAccountName-C-001-M": {
+        "Function": "Validation",
+        "Reference": "SubAccountName",
+        "EntityType": "Column",
+        "EntityName": "Sub Account Name",
+        "EntityId": "SubAccountName",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.2",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Static",
+        "Order": 10,
+        "DatasetType": "CAU",
+        "DatasetId": "CostAndUsage",
+        "DatasetName": "Cost and Usage",
+        "ValidationCriteria": {
+            "MustSatisfy": "SubAccountName MUST be of type String.",
+            "Keyword": "MUST",
+            "Requirement": {},
+            "Condition": {},
+            "Dependencies": []
+        }
+    },
+    "CAU-SubAccountName-C-002-M": {
+        "Function": "Validation",
+        "Reference": "SubAccountName",
+        "EntityType": "Column",
+        "EntityName": "Sub Account Name",
+        "EntityId": "SubAccountName",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.2",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Dynamic",
+        "Order": 20,
+        "DatasetType": "CAU",
+        "DatasetId": "CostAndUsage",
+        "DatasetName": "Cost and Usage",
+        "ValidationCriteria": {
+            "MustSatisfy": "SubAccountName MUST conform to StringHandling requirements.",
+            "Keyword": "MUST",
+            "Requirement": {},
+            "Condition": {},
+            "Dependencies": [
+                "ATT-StringHandling-A-000-M"
+            ]
+        }
+    },
+    "CAU-SubAccountName-C-003-C": {
+        "Function": "Composite",
+        "Reference": "SubAccountName",
+        "EntityType": "Column",
+        "EntityName": "Sub Account Name",
+        "EntityId": "SubAccountName",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.2",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Static",
+        "Order": 30,
+        "DatasetType": "CAU",
+        "DatasetId": "CostAndUsage",
+        "DatasetName": "Cost and Usage",
+        "ValidationCriteria": {
+            "MustSatisfy": "SubAccountName MUST adhere to the following nullability requirements:",
+            "Keyword": "MUST",
+            "Requirement": {
+                "CheckFunction": "AND",
+                "Items": [
+                    {
+                        "CheckFunction": "CheckModelRule",
+                        "ModelRuleId": "CAU-SubAccountName-C-004-C"
+                    },
+                    {
+                        "CheckFunction": "CheckModelRule",
+                        "ModelRuleId": "CAU-SubAccountName-C-005-C"
+                    }
+                ]
+            },
+            "Condition": {},
+            "Dependencies": [
+                "CAU-SubAccountName-C-004-C",
+                "CAU-SubAccountName-C-005-C"
+            ]
+        }
+    },
+    "CAU-SubAccountName-C-004-C": {
+        "Function": "Validation",
+        "Reference": "SubAccountName",
+        "EntityType": "Column",
+        "EntityName": "Sub Account Name",
+        "EntityId": "SubAccountName",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.2",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Dynamic",
+        "Order": 40,
+        "DatasetType": "CAU",
+        "DatasetId": "CostAndUsage",
+        "DatasetName": "Cost and Usage",
+        "ValidationCriteria": {
+            "MustSatisfy": "SubAccountName MUST be null when SubAccountId is null.",
+            "Keyword": "MUST",
+            "Requirement": {},
+            "Condition": {},
+            "Dependencies": []
+        }
+    },
+    "CAU-SubAccountName-C-005-C": {
+        "Function": "Validation",
+        "Reference": "SubAccountName",
+        "EntityType": "Column",
+        "EntityName": "Sub Account Name",
+        "EntityId": "SubAccountName",
+        "Notes": "",
+        "ModelVersionIntroduced": "1.2",
+        "Status": "Active",
+        "ApplicabilityCriteria": [],
+        "Type": "Dynamic",
+        "Order": 50,
+        "DatasetType": "CAU",
+        "DatasetId": "CostAndUsage",
+        "DatasetName": "Cost and Usage",
+        "ValidationCriteria": {
+            "MustSatisfy": "SubAccountName MUST NOT be null when SubAccountId is not null.",
+            "Keyword": "MUST NOT",
+            "Requirement": {},
+            "Condition": {},
+            "Dependencies": []
+        }
+    }
+}
