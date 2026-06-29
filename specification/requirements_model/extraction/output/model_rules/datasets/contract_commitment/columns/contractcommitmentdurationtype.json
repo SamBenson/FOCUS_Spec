@@ -8,7 +8,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Static",
         "Order": 0,
         "DatasetType": "CCT",
@@ -63,7 +63,7 @@
         }
     },
     "CCT-ContractCommitmentDurationType-C-001-M": {
-        "Function": "Validation",
+        "Function": "Type",
         "Reference": "ContractCommitmentDurationType",
         "EntityType": "Column",
         "EntityName": "Contract Commitment Duration Type",
@@ -71,7 +71,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Static",
         "Order": 10,
         "DatasetType": "CCT",
@@ -80,13 +80,16 @@
         "ValidationCriteria": {
             "MustSatisfy": "ContractCommitmentDurationType MUST be of type String.",
             "Keyword": "MUST",
-            "Requirement": {},
+            "Requirement": {
+                "CheckFunction": "TypeString",
+                "ColumnName": "ContractCommitmentDurationType"
+            },
             "Condition": {},
             "Dependencies": []
         }
     },
     "CCT-ContractCommitmentDurationType-C-002-M": {
-        "Function": "Validation",
+        "Function": "Format",
         "Reference": "ContractCommitmentDurationType",
         "EntityType": "Column",
         "EntityName": "Contract Commitment Duration Type",
@@ -94,8 +97,8 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
-        "Type": "Dynamic",
+        "Conditions": [],
+        "Type": "Static",
         "Order": 20,
         "DatasetType": "CCT",
         "DatasetId": "ContractCommitment",
@@ -103,15 +106,16 @@
         "ValidationCriteria": {
             "MustSatisfy": "ContractCommitmentDurationType MUST conform to StringHandling requirements.",
             "Keyword": "MUST",
-            "Requirement": {},
+            "Requirement": {
+                "CheckFunction": "FormatString",
+                "ColumnName": "ContractCommitmentDurationType"
+            },
             "Condition": {},
-            "Dependencies": [
-                "ATT-StringHandling-A-000-M"
-            ]
+            "Dependencies": []
         }
     },
     "CCT-ContractCommitmentDurationType-C-003-M": {
-        "Function": "Validation",
+        "Function": "Nullability",
         "Reference": "ContractCommitmentDurationType",
         "EntityType": "Column",
         "EntityName": "Contract Commitment Duration Type",
@@ -119,7 +123,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Static",
         "Order": 30,
         "DatasetType": "CCT",
@@ -128,7 +132,11 @@
         "ValidationCriteria": {
             "MustSatisfy": "ContractCommitmentDurationType MUST NOT be null.",
             "Keyword": "MUST NOT",
-            "Requirement": {},
+            "Requirement": {
+                "CheckFunction": "CheckNotValue",
+                "ColumnName": "ContractCommitmentDurationType",
+                "Value": null
+            },
             "Condition": {},
             "Dependencies": []
         }
@@ -142,8 +150,8 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
-        "Type": "Static",
+        "Conditions": [],
+        "Type": "Dynamic",
         "Order": 40,
         "DatasetType": "CCT",
         "DatasetId": "ContractCommitment",
@@ -165,8 +173,8 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
-        "Type": "Static",
+        "Conditions": [],
+        "Type": "Dynamic",
         "Order": 50,
         "DatasetType": "CCT",
         "DatasetId": "ContractCommitment",
@@ -188,8 +196,8 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
-        "Type": "Static",
+        "Conditions": [],
+        "Type": "Dynamic",
         "Order": 60,
         "DatasetType": "CCT",
         "DatasetId": "ContractCommitment",
@@ -211,8 +219,8 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
-        "Type": "Static",
+        "Conditions": [],
+        "Type": "Dynamic",
         "Order": 70,
         "DatasetType": "CCT",
         "DatasetId": "ContractCommitment",

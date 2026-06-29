@@ -8,7 +8,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Static",
         "Order": 0,
         "DatasetType": "CCT",
@@ -43,7 +43,7 @@
         }
     },
     "CCT-ContractCommitmentBenefitCategory-C-001-M": {
-        "Function": "Validation",
+        "Function": "Type",
         "Reference": "ContractCommitmentBenefitCategory",
         "EntityType": "Column",
         "EntityName": "Contract Commitment Benefit Category",
@@ -51,7 +51,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Static",
         "Order": 10,
         "DatasetType": "CCT",
@@ -60,13 +60,16 @@
         "ValidationCriteria": {
             "MustSatisfy": "ContractCommitmentBenefitCategory MUST be of type String.",
             "Keyword": "MUST",
-            "Requirement": {},
+            "Requirement": {
+                "CheckFunction": "TypeString",
+                "ColumnName": "ContractCommitmentBenefitCategory"
+            },
             "Condition": {},
             "Dependencies": []
         }
     },
     "CCT-ContractCommitmentBenefitCategory-C-002-M": {
-        "Function": "Validation",
+        "Function": "Nullability",
         "Reference": "ContractCommitmentBenefitCategory",
         "EntityType": "Column",
         "EntityName": "Contract Commitment Benefit Category",
@@ -74,7 +77,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Static",
         "Order": 20,
         "DatasetType": "CCT",
@@ -83,7 +86,11 @@
         "ValidationCriteria": {
             "MustSatisfy": "ContractCommitmentBenefitCategory MUST NOT be null.",
             "Keyword": "MUST NOT",
-            "Requirement": {},
+            "Requirement": {
+                "CheckFunction": "CheckNotValue",
+                "ColumnName": "ContractCommitmentBenefitCategory",
+                "Value": null
+            },
             "Condition": {},
             "Dependencies": []
         }
@@ -97,8 +104,8 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
-        "Type": "Static",
+        "Conditions": [],
+        "Type": "Dynamic",
         "Order": 30,
         "DatasetType": "CCT",
         "DatasetId": "ContractCommitment",

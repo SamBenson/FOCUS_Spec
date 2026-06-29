@@ -8,7 +8,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Static",
         "Order": 0,
         "DatasetType": "CAU",
@@ -81,8 +81,8 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
-        "Type": "Static",
+        "Conditions": [],
+        "Type": "Dynamic",
         "Order": 10,
         "DatasetType": "CAU",
         "DatasetId": "CostAndUsage",
@@ -96,7 +96,7 @@
         }
     },
     "CAU-CommitmentProgramEligibilityDetails-C-002-M": {
-        "Function": "Validation",
+        "Function": "Format",
         "Reference": "CommitmentProgramEligibilityDetails",
         "EntityType": "Column",
         "EntityName": "Commitment Program Eligibility Details",
@@ -104,8 +104,8 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
-        "Type": "Dynamic",
+        "Conditions": [],
+        "Type": "Static",
         "Order": 20,
         "DatasetType": "CAU",
         "DatasetId": "CostAndUsage",
@@ -113,15 +113,16 @@
         "ValidationCriteria": {
             "MustSatisfy": "CommitmentProgramEligibilityDetails MUST conform to StringHandling requirements.",
             "Keyword": "MUST",
-            "Requirement": {},
+            "Requirement": {
+                "CheckFunction": "FormatString",
+                "ColumnName": "CommitmentProgramEligibilityDetails"
+            },
             "Condition": {},
-            "Dependencies": [
-                "ATT-StringHandling-A-000-M"
-            ]
+            "Dependencies": []
         }
     },
     "CAU-CommitmentProgramEligibilityDetails-C-003-M": {
-        "Function": "Validation",
+        "Function": "Format",
         "Reference": "CommitmentProgramEligibilityDetails",
         "EntityType": "Column",
         "EntityName": "Commitment Program Eligibility Details",
@@ -129,8 +130,8 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
-        "Type": "Dynamic",
+        "Conditions": [],
+        "Type": "Static",
         "Order": 30,
         "DatasetType": "CAU",
         "DatasetId": "CostAndUsage",
@@ -138,11 +139,13 @@
         "ValidationCriteria": {
             "MustSatisfy": "CommitmentProgramEligibilityDetails MUST conform to JsonObjectFormat requirements.",
             "Keyword": "MUST",
-            "Requirement": {},
+            "Requirement": {
+                "CheckFunction": "FormatJSON",
+                "ColumnName": "CommitmentProgramEligibilityDetails",
+                "Path": "$"
+            },
             "Condition": {},
-            "Dependencies": [
-                "ATT-JsonObjectFormat-A-000-M"
-            ]
+            "Dependencies": []
         }
     },
     "CAU-CommitmentProgramEligibilityDetails-C-004-C": {
@@ -154,7 +157,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Dynamic",
         "Order": 40,
         "DatasetType": "CAU",
@@ -177,8 +180,8 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
-        "Type": "Static",
+        "Conditions": [],
+        "Type": "Dynamic",
         "Order": 50,
         "DatasetType": "CAU",
         "DatasetId": "CostAndUsage",
@@ -200,8 +203,8 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
-        "Type": "Static",
+        "Conditions": [],
+        "Type": "Dynamic",
         "Order": 60,
         "DatasetType": "CAU",
         "DatasetId": "CostAndUsage",
@@ -223,7 +226,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Dynamic",
         "Order": 70,
         "DatasetType": "CAU",
@@ -246,8 +249,8 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
-        "Type": "Static",
+        "Conditions": [],
+        "Type": "Dynamic",
         "Order": 80,
         "DatasetType": "CAU",
         "DatasetId": "CostAndUsage",
@@ -269,7 +272,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Dynamic",
         "Order": 90,
         "DatasetType": "CAU",

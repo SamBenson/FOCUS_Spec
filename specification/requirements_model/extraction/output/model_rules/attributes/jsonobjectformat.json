@@ -8,7 +8,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.3",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Static",
         "Order": 0,
         "ValidationCriteria": {
@@ -63,8 +63,8 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.3",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
-        "Type": "Static",
+        "Conditions": [],
+        "Type": "Dynamic",
         "Order": 10,
         "ValidationCriteria": {
             "MustSatisfy": "FOCUS dataset column MUST contain a serialized JSON string, consistent with the ECMA 404 definition of an object.",
@@ -84,7 +84,7 @@
         "ModelVersionIntroduced": "1.3",
         "ModelVersionRemoved": "1.4",
         "Status": "Removed",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Static",
         "Order": -1,
         "ValidationCriteria": {
@@ -119,8 +119,8 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.3",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
-        "Type": "Static",
+        "Conditions": [],
+        "Type": "Dynamic",
         "Order": 30,
         "ValidationCriteria": {
             "MustSatisfy": "Key in Object in FOCUS dataset column MUST be unique.",
@@ -139,8 +139,8 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.3",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
-        "Type": "Static",
+        "Conditions": [],
+        "Type": "Dynamic",
         "Order": 40,
         "ValidationCriteria": {
             "MustSatisfy": "Key value in Object in FOCUS dataset column MUST be of type number, string, boolean (true or false), array, object, or null.",
@@ -159,7 +159,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.3",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Static",
         "Order": 50,
         "ValidationCriteria": {
@@ -199,8 +199,8 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.3",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
-        "Type": "Static",
+        "Conditions": [],
+        "Type": "Dynamic",
         "Order": 60,
         "ValidationCriteria": {
             "MustSatisfy": "Object in array in FOCUS dataset column MUST be of a consistent type.",
@@ -219,8 +219,8 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.3",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
-        "Type": "Static",
+        "Conditions": [],
+        "Type": "Dynamic",
         "Order": 70,
         "ValidationCriteria": {
             "MustSatisfy": "Object in array in FOCUS dataset column MUST NOT be repeated.",
@@ -239,8 +239,8 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.3",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
-        "Type": "Static",
+        "Conditions": [],
+        "Type": "Dynamic",
         "Order": 80,
         "ValidationCriteria": {
             "MustSatisfy": "Object in array in FOCUS dataset column MUST NOT be null.",
@@ -259,8 +259,8 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.3",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
-        "Type": "Static",
+        "Conditions": [],
+        "Type": "Dynamic",
         "Order": 90,
         "ValidationCriteria": {
             "MustSatisfy": "FOCUS dataset column MUST conform to all requirements of the corresponding column definition, which may specify or restrict the shape or contents of the object.",
@@ -280,7 +280,7 @@
         "ModelVersionIntroduced": "1.3",
         "ModelVersionRemoved": "1.4",
         "Status": "Removed",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Dynamic",
         "Order": -1,
         "ValidationCriteria": {
@@ -300,8 +300,8 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.3",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
-        "Type": "Static",
+        "Conditions": [],
+        "Type": "Dynamic",
         "Order": 110,
         "ValidationCriteria": {
             "MustSatisfy": "Object in FOCUS dataset column SHOULD NOT exceed 3 levels of nesting.",

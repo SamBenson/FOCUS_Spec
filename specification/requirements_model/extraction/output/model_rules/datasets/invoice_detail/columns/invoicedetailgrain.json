@@ -8,7 +8,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Static",
         "Order": 0,
         "DatasetType": "IND",
@@ -86,8 +86,8 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
-        "Type": "Static",
+        "Conditions": [],
+        "Type": "Dynamic",
         "Order": 10,
         "DatasetType": "IND",
         "DatasetId": "InvoiceDetail",
@@ -101,7 +101,7 @@
         }
     },
     "IND-InvoiceDetailGrain-C-002-M": {
-        "Function": "Validation",
+        "Function": "Format",
         "Reference": "InvoiceDetailGrain",
         "EntityType": "Column",
         "EntityName": "Invoice Detail Grain",
@@ -109,8 +109,8 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
-        "Type": "Dynamic",
+        "Conditions": [],
+        "Type": "Static",
         "Order": 20,
         "DatasetType": "IND",
         "DatasetId": "InvoiceDetail",
@@ -118,11 +118,12 @@
         "ValidationCriteria": {
             "MustSatisfy": "InvoiceDetailGrain MUST conform to KeyValueFormat requirements.",
             "Keyword": "MUST",
-            "Requirement": {},
+            "Requirement": {
+                "CheckFunction": "FormatKeyValue",
+                "ColumnName": "InvoiceDetailGrain"
+            },
             "Condition": {},
-            "Dependencies": [
-                "ATT-KeyValueFormat-A-000-M"
-            ]
+            "Dependencies": []
         }
     },
     "IND-InvoiceDetailGrain-C-003-C": {
@@ -134,7 +135,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Dynamic",
         "Order": 30,
         "DatasetType": "IND",
@@ -157,8 +158,8 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
-        "Type": "Static",
+        "Conditions": [],
+        "Type": "Dynamic",
         "Order": 40,
         "DatasetType": "IND",
         "DatasetId": "InvoiceDetail",
@@ -180,8 +181,8 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
-        "Type": "Static",
+        "Conditions": [],
+        "Type": "Dynamic",
         "Order": 50,
         "DatasetType": "IND",
         "DatasetId": "InvoiceDetail",
@@ -203,7 +204,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Dynamic",
         "Order": 60,
         "DatasetType": "IND",
@@ -226,8 +227,8 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
-        "Type": "Static",
+        "Conditions": [],
+        "Type": "Dynamic",
         "Order": 70,
         "DatasetType": "IND",
         "DatasetId": "InvoiceDetail",
@@ -249,8 +250,8 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
-        "Type": "Static",
+        "Conditions": [],
+        "Type": "Dynamic",
         "Order": 80,
         "DatasetType": "IND",
         "DatasetId": "InvoiceDetail",
@@ -272,7 +273,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Static",
         "Order": 90,
         "DatasetType": "IND",
@@ -310,8 +311,8 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
-        "Type": "Static",
+        "Conditions": [],
+        "Type": "Dynamic",
         "Order": 100,
         "DatasetType": "IND",
         "DatasetId": "InvoiceDetail",
@@ -333,8 +334,8 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
-        "Type": "Static",
+        "Conditions": [],
+        "Type": "Dynamic",
         "Order": 110,
         "DatasetType": "IND",
         "DatasetId": "InvoiceDetail",
@@ -348,7 +349,7 @@
         }
     },
     "IND-InvoiceDetailGrain-C-012-M": {
-        "Function": "Validation",
+        "Function": "Format",
         "Reference": "InvoiceDetailGrain",
         "EntityType": "Column",
         "EntityName": "Invoice Detail Grain",
@@ -356,8 +357,8 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
-        "Type": "Dynamic",
+        "Conditions": [],
+        "Type": "Static",
         "Order": 120,
         "DatasetType": "IND",
         "DatasetId": "InvoiceDetail",
@@ -365,11 +366,12 @@
         "ValidationCriteria": {
             "MustSatisfy": "InvoiceDetailGrain MUST conform to StringHandling requirements.",
             "Keyword": "MUST",
-            "Requirement": {},
+            "Requirement": {
+                "CheckFunction": "FormatString",
+                "ColumnName": "InvoiceDetailGrain"
+            },
             "Condition": {},
-            "Dependencies": [
-                "ATT-StringHandling-A-000-M"
-            ]
+            "Dependencies": []
         }
     }
 }

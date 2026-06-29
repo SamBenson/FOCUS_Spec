@@ -8,7 +8,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Static",
         "Order": 0,
         "DatasetType": "CAU",
@@ -53,7 +53,7 @@
         }
     },
     "CAU-InvoiceId-C-001-M": {
-        "Function": "Validation",
+        "Function": "Type",
         "Reference": "InvoiceId",
         "EntityType": "Column",
         "EntityName": "Invoice ID",
@@ -61,7 +61,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Static",
         "Order": 10,
         "DatasetType": "CAU",
@@ -70,13 +70,16 @@
         "ValidationCriteria": {
             "MustSatisfy": "InvoiceId MUST be of type String.",
             "Keyword": "MUST",
-            "Requirement": {},
+            "Requirement": {
+                "CheckFunction": "TypeString",
+                "ColumnName": "InvoiceId"
+            },
             "Condition": {},
             "Dependencies": []
         }
     },
     "CAU-InvoiceId-C-002-M": {
-        "Function": "Validation",
+        "Function": "Format",
         "Reference": "InvoiceId",
         "EntityType": "Column",
         "EntityName": "Invoice ID",
@@ -84,8 +87,8 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
-        "Type": "Dynamic",
+        "Conditions": [],
+        "Type": "Static",
         "Order": 20,
         "DatasetType": "CAU",
         "DatasetId": "CostAndUsage",
@@ -93,11 +96,12 @@
         "ValidationCriteria": {
             "MustSatisfy": "InvoiceId MUST conform to StringHandling requirements.",
             "Keyword": "MUST",
-            "Requirement": {},
+            "Requirement": {
+                "CheckFunction": "FormatString",
+                "ColumnName": "InvoiceId"
+            },
             "Condition": {},
-            "Dependencies": [
-                "ATT-StringHandling-A-000-M"
-            ]
+            "Dependencies": []
         }
     },
     "CAU-InvoiceId-C-003-C": {
@@ -109,7 +113,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Static",
         "Order": 30,
         "DatasetType": "CAU",
@@ -147,7 +151,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Dynamic",
         "Order": 40,
         "DatasetType": "CAU",
@@ -170,7 +174,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Dynamic",
         "Order": 50,
         "DatasetType": "CAU",
@@ -193,8 +197,8 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
-        "Type": "Static",
+        "Conditions": [],
+        "Type": "Dynamic",
         "Order": 60,
         "DatasetType": "CAU",
         "DatasetId": "CostAndUsage",
@@ -216,7 +220,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Dynamic",
         "Order": 70,
         "DatasetType": "CAU",
@@ -240,7 +244,7 @@
         "ModelVersionIntroduced": "1.3",
         "ModelVersionRemoved": "1.4",
         "Status": "Removed",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Order": 40,
         "DatasetType": "CAU",
         "DatasetId": "CostAndUsage",

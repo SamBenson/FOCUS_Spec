@@ -8,7 +8,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Static",
         "Order": 0,
         "ValidationCriteria": {
@@ -53,8 +53,8 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
-        "Type": "Static",
+        "Conditions": [],
+        "Type": "Dynamic",
         "Order": 10,
         "ValidationCriteria": {
             "MustSatisfy": "FOCUS dataset column MUST be a serialized JSON string, consistent with the ECMA 404 definition of an object.",
@@ -73,8 +73,8 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
-        "Type": "Static",
+        "Conditions": [],
+        "Type": "Dynamic",
         "Order": 20,
         "ValidationCriteria": {
             "MustSatisfy": "Keys in FOCUS dataset column MUST be unique within the object.",
@@ -93,8 +93,8 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
-        "Type": "Static",
+        "Conditions": [],
+        "Type": "Dynamic",
         "Order": 30,
         "ValidationCriteria": {
             "MustSatisfy": "Key values in FOCUS dataset column MUST be of type number, string, boolean (true or false), or null.",
@@ -113,8 +113,8 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
-        "Type": "Static",
+        "Conditions": [],
+        "Type": "Dynamic",
         "Order": 40,
         "ValidationCriteria": {
             "MustSatisfy": "Key values in FOCUS dataset column MUST NOT be objects or arrays.",

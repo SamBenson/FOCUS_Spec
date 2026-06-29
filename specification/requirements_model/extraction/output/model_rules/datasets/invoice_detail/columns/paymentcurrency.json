@@ -8,7 +8,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Static",
         "Order": 0,
         "DatasetType": "IND",
@@ -53,7 +53,7 @@
         }
     },
     "IND-PaymentCurrency-C-001-M": {
-        "Function": "Validation",
+        "Function": "Type",
         "Reference": "PaymentCurrency",
         "EntityType": "Column",
         "EntityName": "Payment Currency",
@@ -61,7 +61,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Static",
         "Order": 10,
         "DatasetType": "IND",
@@ -70,13 +70,16 @@
         "ValidationCriteria": {
             "MustSatisfy": "PaymentCurrency MUST be of type String.",
             "Keyword": "MUST",
-            "Requirement": {},
+            "Requirement": {
+                "CheckFunction": "TypeString",
+                "ColumnName": "PaymentCurrency"
+            },
             "Condition": {},
             "Dependencies": []
         }
     },
     "IND-PaymentCurrency-C-002-M": {
-        "Function": "Validation",
+        "Function": "Format",
         "Reference": "PaymentCurrency",
         "EntityType": "Column",
         "EntityName": "Payment Currency",
@@ -84,8 +87,8 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
-        "Type": "Dynamic",
+        "Conditions": [],
+        "Type": "Static",
         "Order": 20,
         "DatasetType": "IND",
         "DatasetId": "InvoiceDetail",
@@ -93,15 +96,16 @@
         "ValidationCriteria": {
             "MustSatisfy": "PaymentCurrency MUST conform to StringHandling requirements.",
             "Keyword": "MUST",
-            "Requirement": {},
+            "Requirement": {
+                "CheckFunction": "FormatString",
+                "ColumnName": "PaymentCurrency"
+            },
             "Condition": {},
-            "Dependencies": [
-                "ATT-StringHandling-A-000-M"
-            ]
+            "Dependencies": []
         }
     },
     "IND-PaymentCurrency-C-003-M": {
-        "Function": "Validation",
+        "Function": "Nullability",
         "Reference": "PaymentCurrency",
         "EntityType": "Column",
         "EntityName": "Payment Currency",
@@ -109,7 +113,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Static",
         "Order": 30,
         "DatasetType": "IND",
@@ -118,7 +122,11 @@
         "ValidationCriteria": {
             "MustSatisfy": "PaymentCurrency MUST NOT be null.",
             "Keyword": "MUST NOT",
-            "Requirement": {},
+            "Requirement": {
+                "CheckFunction": "CheckNotValue",
+                "ColumnName": "PaymentCurrency",
+                "Value": null
+            },
             "Condition": {},
             "Dependencies": []
         }
@@ -132,8 +140,8 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
-        "Type": "Static",
+        "Conditions": [],
+        "Type": "Dynamic",
         "Order": 40,
         "DatasetType": "IND",
         "DatasetId": "InvoiceDetail",
@@ -155,8 +163,8 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
-        "Type": "Static",
+        "Conditions": [],
+        "Type": "Dynamic",
         "Order": 50,
         "DatasetType": "IND",
         "DatasetId": "InvoiceDetail",

@@ -8,7 +8,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Static",
         "Order": 0,
         "DatasetType": "CAU",
@@ -53,7 +53,7 @@
         }
     },
     "CAU-PricingCurrencyEffectiveCost-C-001-M": {
-        "Function": "Validation",
+        "Function": "Type",
         "Reference": "PricingCurrencyEffectiveCost",
         "EntityType": "Column",
         "EntityName": "Pricing Currency Effective Cost",
@@ -61,7 +61,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Static",
         "Order": 10,
         "DatasetType": "CAU",
@@ -70,13 +70,16 @@
         "ValidationCriteria": {
             "MustSatisfy": "PricingCurrencyEffectiveCost MUST be of type Decimal.",
             "Keyword": "MUST",
-            "Requirement": {},
+            "Requirement": {
+                "CheckFunction": "TypeDecimal",
+                "ColumnName": "PricingCurrencyEffectiveCost"
+            },
             "Condition": {},
             "Dependencies": []
         }
     },
     "CAU-PricingCurrencyEffectiveCost-C-002-M": {
-        "Function": "Validation",
+        "Function": "Format",
         "Reference": "PricingCurrencyEffectiveCost",
         "EntityType": "Column",
         "EntityName": "Pricing Currency Effective Cost",
@@ -84,8 +87,8 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
-        "Type": "Dynamic",
+        "Conditions": [],
+        "Type": "Static",
         "Order": 20,
         "DatasetType": "CAU",
         "DatasetId": "CostAndUsage",
@@ -93,15 +96,16 @@
         "ValidationCriteria": {
             "MustSatisfy": "PricingCurrencyEffectiveCost MUST conform to NumericFormat requirements.",
             "Keyword": "MUST",
-            "Requirement": {},
+            "Requirement": {
+                "CheckFunction": "FormatNumeric",
+                "ColumnName": "PricingCurrencyEffectiveCost"
+            },
             "Condition": {},
-            "Dependencies": [
-                "ATT-NumericFormat-A-000-M"
-            ]
+            "Dependencies": []
         }
     },
     "CAU-PricingCurrencyEffectiveCost-C-003-M": {
-        "Function": "Validation",
+        "Function": "Nullability",
         "Reference": "PricingCurrencyEffectiveCost",
         "EntityType": "Column",
         "EntityName": "Pricing Currency Effective Cost",
@@ -109,7 +113,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Static",
         "Order": 30,
         "DatasetType": "CAU",
@@ -118,7 +122,11 @@
         "ValidationCriteria": {
             "MustSatisfy": "PricingCurrencyEffectiveCost MUST NOT be null.",
             "Keyword": "MUST NOT",
-            "Requirement": {},
+            "Requirement": {
+                "CheckFunction": "CheckNotValue",
+                "ColumnName": "PricingCurrencyEffectiveCost",
+                "Value": null
+            },
             "Condition": {},
             "Dependencies": []
         }
@@ -133,7 +141,7 @@
         "ModelVersionIntroduced": "1.2",
         "ModelVersionRemoved": "1.4",
         "Status": "Removed",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Order": 80,
         "DatasetType": "CAU",
         "DatasetId": "CostAndUsage",
@@ -160,7 +168,7 @@
         "ModelVersionIntroduced": "1.2",
         "Status": "Removed",
         "ModelVersionRemoved": "1.4",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Order": -1,
         "DatasetType": "CAU",
         "DatasetId": "CostAndUsage",
@@ -183,8 +191,8 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
-        "Type": "Static",
+        "Conditions": [],
+        "Type": "Dynamic",
         "Order": 60,
         "DatasetType": "CAU",
         "DatasetId": "CostAndUsage",
@@ -206,8 +214,8 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
-        "Type": "Static",
+        "Conditions": [],
+        "Type": "Dynamic",
         "Order": 70,
         "DatasetType": "CAU",
         "DatasetId": "CostAndUsage",

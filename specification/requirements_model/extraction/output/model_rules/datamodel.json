@@ -1,5 +1,5 @@
 {
-    "DataModel-M-000-M": {
+    "DMO-DataModel-M-000-M": {
         "Function": "Composite",
         "Reference": "DataModel",
         "EntityType": "DataModel",
@@ -8,7 +8,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.5",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Static",
         "Order": 0,
         "ValidationCriteria": {
@@ -19,32 +19,32 @@
                 "Items": [
                     {
                         "CheckFunction": "CheckModelRule",
-                        "ModelRuleId": "DataModel-M-001-M"
+                        "ModelRuleId": "DMO-DataModel-M-001-M"
                     },
                     {
                         "CheckFunction": "CheckModelRule",
-                        "ModelRuleId": "DataModel-M-002-C"
+                        "ModelRuleId": "DMO-DataModel-M-002-C"
                     },
                     {
                         "CheckFunction": "CheckModelRule",
-                        "ModelRuleId": "DataModel-M-003-C"
+                        "ModelRuleId": "DMO-DataModel-M-003-C"
                     },
                     {
                         "CheckFunction": "CheckModelRule",
-                        "ModelRuleId": "DataModel-M-004-C"
+                        "ModelRuleId": "DMO-DataModel-M-004-C"
                     }
                 ]
             },
             "Condition": {},
             "Dependencies": [
-                "DataModel-M-001-M",
-                "DataModel-M-002-C",
-                "DataModel-M-003-C",
-                "DataModel-M-004-C"
+                "DMO-DataModel-M-001-M",
+                "DMO-DataModel-M-002-C",
+                "DMO-DataModel-M-003-C",
+                "DMO-DataModel-M-004-C"
             ]
         }
     },
-    "DataModel-M-001-M": {
+    "DMO-DataModel-M-001-M": {
         "Function": "Presence",
         "Reference": "CostAndUsage",
         "EntityType": "DataModel",
@@ -53,8 +53,8 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.5",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
-        "Type": "Static",
+        "Conditions": [],
+        "Type": "Dynamic",
         "Order": 10,
         "ValidationCriteria": {
             "MustSatisfy": "DataModel MUST include CostAndUsage.",
@@ -64,7 +64,7 @@
             "Dependencies": []
         }
     },
-    "DataModel-M-002-C": {
+    "DMO-DataModel-M-002-C": {
         "Function": "Presence",
         "Reference": "BillingPeriod",
         "EntityType": "DataModel",
@@ -73,7 +73,9 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.5",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [
+            "IncludesPayableInvoices"
+        ],
         "Type": "Dynamic",
         "Order": 20,
         "ValidationCriteria": {
@@ -84,7 +86,7 @@
             "Dependencies": []
         }
     },
-    "DataModel-M-003-C": {
+    "DMO-DataModel-M-003-C": {
         "Function": "Presence",
         "Reference": "ContractCommitment",
         "EntityType": "DataModel",
@@ -93,7 +95,9 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.5",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [
+            "IncludesContractCommitments"
+        ],
         "Type": "Dynamic",
         "Order": 30,
         "ValidationCriteria": {
@@ -104,7 +108,7 @@
             "Dependencies": []
         }
     },
-    "DataModel-M-004-C": {
+    "DMO-DataModel-M-004-C": {
         "Function": "Presence",
         "Reference": "InvoiceDetail",
         "EntityType": "DataModel",
@@ -113,7 +117,9 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.5",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [
+            "IncludesPayableInvoices"
+        ],
         "Type": "Dynamic",
         "Order": 40,
         "ValidationCriteria": {

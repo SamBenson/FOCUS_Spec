@@ -8,7 +8,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Static",
         "Order": 0,
         "ValidationCriteria": {
@@ -48,7 +48,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Dynamic",
         "Order": 10,
         "ValidationCriteria": {
@@ -68,7 +68,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Dynamic",
         "Order": 20,
         "ValidationCriteria": {
@@ -88,7 +88,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Dynamic",
         "Order": 30,
         "ValidationCriteria": {

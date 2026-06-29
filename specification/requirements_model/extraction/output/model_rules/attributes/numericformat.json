@@ -8,7 +8,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Static",
         "Order": 0,
         "ValidationCriteria": {
@@ -84,7 +84,7 @@
         "ModelVersionRemoved": "1.4",
         "Status": "Removed",
         "Notes": "",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Order": -1,
         "Type": "Dynamic",
         "ValidationCriteria": {
@@ -104,8 +104,8 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
-        "Type": "Static",
+        "Conditions": [],
+        "Type": "Dynamic",
         "Order": 20,
         "ValidationCriteria": {
             "MustSatisfy": "FOCUS dataset column MUST contain a single numeric value.",
@@ -124,8 +124,8 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
-        "Type": "Static",
+        "Conditions": [],
+        "Type": "Dynamic",
         "Order": 30,
         "ValidationCriteria": {
             "MustSatisfy": "FOCUS dataset column MUST have values of type integer, decimal, or scientific notation.",
@@ -145,7 +145,7 @@
         "ModelVersionRemoved": "1.4",
         "Status": "Removed",
         "Notes": "",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Order": -1,
         "Type": "Dynamic",
         "ValidationCriteria": {
@@ -165,8 +165,8 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
-        "Type": "Static",
+        "Conditions": [],
+        "Type": "Dynamic",
         "Order": 50,
         "ValidationCriteria": {
             "MustSatisfy": "FOCUS dataset column MUST use E notation \"mEn\", where m is a real number and n is an integer exponent.",
@@ -185,8 +185,8 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
-        "Type": "Static",
+        "Conditions": [],
+        "Type": "Dynamic",
         "Order": 60,
         "ValidationCriteria": {
             "MustSatisfy": "FOCUS dataset column MUST use a negative sign (-) to indicate a negative exponent.",
@@ -205,8 +205,8 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
-        "Type": "Static",
+        "Conditions": [],
+        "Type": "Dynamic",
         "Order": 70,
         "ValidationCriteria": {
             "MustSatisfy": "FOCUS dataset column MUST NOT include a positive sign (+) for a positive exponent.",
@@ -225,8 +225,8 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
-        "Type": "Static",
+        "Conditions": [],
+        "Type": "Dynamic",
         "Order": 80,
         "ValidationCriteria": {
             "MustSatisfy": "FOCUS dataset column MUST NOT include additional characters or qualifiers (e.g., currency symbols, units of measure).",
@@ -245,7 +245,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Dynamic",
         "Order": 90,
         "ValidationCriteria": {
@@ -265,8 +265,8 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
-        "Type": "Static",
+        "Conditions": [],
+        "Type": "Dynamic",
         "Order": 100,
         "ValidationCriteria": {
             "MustSatisfy": "FOCUS dataset column MUST NOT include a positive sign (+) for a positive value.",
@@ -285,8 +285,8 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
-        "Type": "Static",
+        "Conditions": [],
+        "Type": "Dynamic",
         "Order": 110,
         "ValidationCriteria": {
             "MustSatisfy": "FOCUS dataset column MUST use a negative sign (-) to indicate a negative value.",
@@ -305,7 +305,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Dynamic",
         "Order": 120,
         "ValidationCriteria": {
@@ -325,7 +325,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Dynamic",
         "Order": 130,
         "ValidationCriteria": {
@@ -345,7 +345,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Static",
         "Order": 140,
         "ValidationCriteria": {
@@ -385,8 +385,8 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
-        "Type": "Static",
+        "Conditions": [],
+        "Type": "Dynamic",
         "Order": 150,
         "ValidationCriteria": {
             "MustSatisfy": "FOCUS dataset column MUST NOT use mathematical symbols, functions, or operators, except for a negative sign (-) to indicate a negative value or a negative exponent in scientific notation.",

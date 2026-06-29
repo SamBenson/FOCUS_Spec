@@ -8,7 +8,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Static",
         "Order": 0,
         "DatasetType": "CAU",
@@ -48,7 +48,7 @@
         }
     },
     "CAU-PricingCurrency-C-001-M": {
-        "Function": "Validation",
+        "Function": "Type",
         "Reference": "PricingCurrency",
         "EntityType": "Column",
         "EntityName": "Pricing Currency",
@@ -56,7 +56,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Static",
         "Order": 10,
         "DatasetType": "CAU",
@@ -65,13 +65,16 @@
         "ValidationCriteria": {
             "MustSatisfy": "PricingCurrency MUST be of type String.",
             "Keyword": "MUST",
-            "Requirement": {},
+            "Requirement": {
+                "CheckFunction": "TypeString",
+                "ColumnName": "PricingCurrency"
+            },
             "Condition": {},
             "Dependencies": []
         }
     },
     "CAU-PricingCurrency-C-002-M": {
-        "Function": "Validation",
+        "Function": "Format",
         "Reference": "PricingCurrency",
         "EntityType": "Column",
         "EntityName": "Pricing Currency",
@@ -79,8 +82,8 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
-        "Type": "Dynamic",
+        "Conditions": [],
+        "Type": "Static",
         "Order": 20,
         "DatasetType": "CAU",
         "DatasetId": "CostAndUsage",
@@ -88,15 +91,16 @@
         "ValidationCriteria": {
             "MustSatisfy": "PricingCurrency MUST conform to StringHandling requirements.",
             "Keyword": "MUST",
-            "Requirement": {},
+            "Requirement": {
+                "CheckFunction": "FormatString",
+                "ColumnName": "PricingCurrency"
+            },
             "Condition": {},
-            "Dependencies": [
-                "ATT-StringHandling-A-000-M"
-            ]
+            "Dependencies": []
         }
     },
     "CAU-PricingCurrency-C-003-M": {
-        "Function": "Validation",
+        "Function": "Format",
         "Reference": "PricingCurrency",
         "EntityType": "Column",
         "EntityName": "Pricing Currency",
@@ -104,8 +108,8 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
-        "Type": "Dynamic",
+        "Conditions": [],
+        "Type": "Static",
         "Order": 30,
         "DatasetType": "CAU",
         "DatasetId": "CostAndUsage",
@@ -113,15 +117,16 @@
         "ValidationCriteria": {
             "MustSatisfy": "PricingCurrency MUST conform to CurrencyFormat requirements.",
             "Keyword": "MUST",
-            "Requirement": {},
+            "Requirement": {
+                "CheckFunction": "FormatCurrency",
+                "ColumnName": "PricingCurrency"
+            },
             "Condition": {},
-            "Dependencies": [
-                "ATT-CurrencyFormat-A-000-M"
-            ]
+            "Dependencies": []
         }
     },
     "CAU-PricingCurrency-C-004-M": {
-        "Function": "Validation",
+        "Function": "Nullability",
         "Reference": "PricingCurrency",
         "EntityType": "Column",
         "EntityName": "Pricing Currency",
@@ -129,7 +134,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Static",
         "Order": 40,
         "DatasetType": "CAU",
@@ -138,7 +143,11 @@
         "ValidationCriteria": {
             "MustSatisfy": "PricingCurrency MUST NOT be null.",
             "Keyword": "MUST NOT",
-            "Requirement": {},
+            "Requirement": {
+                "CheckFunction": "CheckNotValue",
+                "ColumnName": "PricingCurrency",
+                "Value": null
+            },
             "Condition": {},
             "Dependencies": []
         }

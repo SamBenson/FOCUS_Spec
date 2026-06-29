@@ -8,7 +8,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Static",
         "Order": 0,
         "DatasetType": "CAU",
@@ -43,7 +43,7 @@
         }
     },
     "CAU-ServiceProviderName-C-001-M": {
-        "Function": "Validation",
+        "Function": "Type",
         "Reference": "ServiceProviderName",
         "EntityType": "Column",
         "EntityName": "Service Provider Name",
@@ -51,7 +51,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Static",
         "Order": 10,
         "DatasetType": "CAU",
@@ -60,13 +60,16 @@
         "ValidationCriteria": {
             "MustSatisfy": "ServiceProviderName MUST be of type String.",
             "Keyword": "MUST",
-            "Requirement": {},
+            "Requirement": {
+                "CheckFunction": "TypeString",
+                "ColumnName": "ServiceProviderName"
+            },
             "Condition": {},
             "Dependencies": []
         }
     },
     "CAU-ServiceProviderName-C-002-M": {
-        "Function": "Validation",
+        "Function": "Format",
         "Reference": "ServiceProviderName",
         "EntityType": "Column",
         "EntityName": "Service Provider Name",
@@ -74,8 +77,8 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
-        "Type": "Dynamic",
+        "Conditions": [],
+        "Type": "Static",
         "Order": 20,
         "DatasetType": "CAU",
         "DatasetId": "CostAndUsage",
@@ -83,15 +86,16 @@
         "ValidationCriteria": {
             "MustSatisfy": "ServiceProviderName MUST conform to StringHandling requirements.",
             "Keyword": "MUST",
-            "Requirement": {},
+            "Requirement": {
+                "CheckFunction": "FormatString",
+                "ColumnName": "ServiceProviderName"
+            },
             "Condition": {},
-            "Dependencies": [
-                "ATT-StringHandling-A-000-M"
-            ]
+            "Dependencies": []
         }
     },
     "CAU-ServiceProviderName-C-003-M": {
-        "Function": "Validation",
+        "Function": "Nullability",
         "Reference": "ServiceProviderName",
         "EntityType": "Column",
         "EntityName": "Service Provider Name",
@@ -99,7 +103,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Static",
         "Order": 30,
         "DatasetType": "CAU",
@@ -108,7 +112,11 @@
         "ValidationCriteria": {
             "MustSatisfy": "ServiceProviderName MUST NOT be null.",
             "Keyword": "MUST NOT",
-            "Requirement": {},
+            "Requirement": {
+                "CheckFunction": "CheckNotValue",
+                "ColumnName": "ServiceProviderName",
+                "Value": null
+            },
             "Condition": {},
             "Dependencies": []
         }

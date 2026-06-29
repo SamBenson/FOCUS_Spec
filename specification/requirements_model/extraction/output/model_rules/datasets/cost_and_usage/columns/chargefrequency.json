@@ -8,7 +8,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Static",
         "Order": 0,
         "DatasetType": "CAU",
@@ -48,7 +48,7 @@
         }
     },
     "CAU-ChargeFrequency-C-001-M": {
-        "Function": "Validation",
+        "Function": "Type",
         "Reference": "ChargeFrequency",
         "EntityType": "Column",
         "EntityName": "Charge Frequency",
@@ -56,7 +56,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Static",
         "Order": 10,
         "DatasetType": "CAU",
@@ -65,13 +65,16 @@
         "ValidationCriteria": {
             "MustSatisfy": "ChargeFrequency MUST be of type String.",
             "Keyword": "MUST",
-            "Requirement": {},
+            "Requirement": {
+                "CheckFunction": "TypeString",
+                "ColumnName": "ChargeFrequency"
+            },
             "Condition": {},
             "Dependencies": []
         }
     },
     "CAU-ChargeFrequency-C-002-M": {
-        "Function": "Validation",
+        "Function": "Nullability",
         "Reference": "ChargeFrequency",
         "EntityType": "Column",
         "EntityName": "Charge Frequency",
@@ -79,7 +82,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Static",
         "Order": 20,
         "DatasetType": "CAU",
@@ -88,7 +91,11 @@
         "ValidationCriteria": {
             "MustSatisfy": "ChargeFrequency MUST NOT be null.",
             "Keyword": "MUST NOT",
-            "Requirement": {},
+            "Requirement": {
+                "CheckFunction": "CheckNotValue",
+                "ColumnName": "ChargeFrequency",
+                "Value": null
+            },
             "Condition": {},
             "Dependencies": []
         }
@@ -102,8 +109,8 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
-        "Type": "Static",
+        "Conditions": [],
+        "Type": "Dynamic",
         "Order": 30,
         "DatasetType": "CAU",
         "DatasetId": "CostAndUsage",
@@ -125,7 +132,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Dynamic",
         "Order": 40,
         "DatasetType": "CAU",

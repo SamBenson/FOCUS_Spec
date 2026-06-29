@@ -8,7 +8,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Static",
         "Order": 0,
         "ValidationCriteria": {
@@ -64,7 +64,7 @@
         "ModelVersionRemoved": "1.3",
         "Status": "Removed",
         "Notes": "",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Order": -1,
         "Type": "Dynamic",
         "ValidationCriteria": {
@@ -85,7 +85,7 @@
         "ModelVersionRemoved": "1.4",
         "Status": "Removed",
         "Notes": "",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Order": -1,
         "Type": "Dynamic",
         "ValidationCriteria": {
@@ -105,8 +105,8 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
-        "Type": "Static",
+        "Conditions": [],
+        "Type": "Dynamic",
         "Order": 30,
         "ValidationCriteria": {
             "MustSatisfy": "FOCUS dataset column MUST preserve the original casing of string values.",
@@ -125,8 +125,8 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
-        "Type": "Static",
+        "Conditions": [],
+        "Type": "Dynamic",
         "Order": 40,
         "ValidationCriteria": {
             "MustSatisfy": "FOCUS dataset column MUST reflect the altered value in all records pertaining to a period after the change.",
@@ -146,7 +146,7 @@
         "ModelVersionRemoved": "1.4",
         "Status": "Removed",
         "Notes": "",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Order": -1,
         "Type": "Dynamic",
         "ValidationCriteria": {
@@ -167,7 +167,7 @@
         "ModelVersionRemoved": "1.4",
         "Status": "Removed",
         "Notes": "",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Order": -1,
         "Type": "Dynamic",
         "ValidationCriteria": {
@@ -187,8 +187,8 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
-        "Type": "Static",
+        "Conditions": [],
+        "Type": "Dynamic",
         "Order": 70,
         "ValidationCriteria": {
             "MustSatisfy": "FOCUS dataset column SHOULD NOT contain empty strings.",
@@ -207,7 +207,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Dynamic",
         "Order": 80,
         "ValidationCriteria": {
@@ -227,8 +227,8 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
-        "Type": "Static",
+        "Conditions": [],
+        "Type": "Dynamic",
         "Order": 90,
         "ValidationCriteria": {
             "MustSatisfy": "FOCUS dataset column MUST preserve the original spacing of string values.",
@@ -247,8 +247,8 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
-        "Type": "Static",
+        "Conditions": [],
+        "Type": "Dynamic",
         "Order": 100,
         "ValidationCriteria": {
             "MustSatisfy": "FOCUS dataset column MUST preserve other relevant consistency factors as specified by the data generator or end-user.",
@@ -267,7 +267,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Dynamic",
         "Order": 110,
         "ValidationCriteria": {
@@ -287,7 +287,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Static",
         "Order": 120,
         "ValidationCriteria": {
@@ -327,7 +327,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Dynamic",
         "Order": 130,
         "ValidationCriteria": {
@@ -347,7 +347,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Static",
         "Order": 140,
         "ValidationCriteria": {
@@ -382,8 +382,8 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
-        "Type": "Static",
+        "Conditions": [],
+        "Type": "Dynamic",
         "Order": 150,
         "ValidationCriteria": {
             "MustSatisfy": "FOCUS dataset column SHOULD NOT contain strings consisting solely of whitespace characters.",

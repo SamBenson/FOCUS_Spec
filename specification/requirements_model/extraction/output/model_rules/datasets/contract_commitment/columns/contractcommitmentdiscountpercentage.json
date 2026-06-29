@@ -8,7 +8,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Static",
         "Order": 0,
         "DatasetType": "CCT",
@@ -58,7 +58,7 @@
         }
     },
     "CCT-ContractCommitmentDiscountPercentage-C-001-M": {
-        "Function": "Validation",
+        "Function": "Type",
         "Reference": "ContractCommitmentDiscountPercentage",
         "EntityType": "Column",
         "EntityName": "Contract Commitment Discount Percentage",
@@ -66,7 +66,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Static",
         "Order": 10,
         "DatasetType": "CCT",
@@ -75,13 +75,16 @@
         "ValidationCriteria": {
             "MustSatisfy": "ContractCommitmentDiscountPercentage MUST be of type Decimal.",
             "Keyword": "MUST",
-            "Requirement": {},
+            "Requirement": {
+                "CheckFunction": "TypeDecimal",
+                "ColumnName": "ContractCommitmentDiscountPercentage"
+            },
             "Condition": {},
             "Dependencies": []
         }
     },
     "CCT-ContractCommitmentDiscountPercentage-C-002-M": {
-        "Function": "Validation",
+        "Function": "Format",
         "Reference": "ContractCommitmentDiscountPercentage",
         "EntityType": "Column",
         "EntityName": "Contract Commitment Discount Percentage",
@@ -89,8 +92,8 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
-        "Type": "Dynamic",
+        "Conditions": [],
+        "Type": "Static",
         "Order": 20,
         "DatasetType": "CCT",
         "DatasetId": "ContractCommitment",
@@ -98,11 +101,12 @@
         "ValidationCriteria": {
             "MustSatisfy": "ContractCommitmentDiscountPercentage MUST conform to NumericFormat requirements.",
             "Keyword": "MUST",
-            "Requirement": {},
+            "Requirement": {
+                "CheckFunction": "FormatNumeric",
+                "ColumnName": "ContractCommitmentDiscountPercentage"
+            },
             "Condition": {},
-            "Dependencies": [
-                "ATT-NumericFormat-A-000-M"
-            ]
+            "Dependencies": []
         }
     },
     "CCT-ContractCommitmentDiscountPercentage-C-003-C": {
@@ -114,7 +118,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Static",
         "Order": 30,
         "DatasetType": "CCT",
@@ -152,7 +156,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Dynamic",
         "Order": 40,
         "DatasetType": "CCT",
@@ -175,7 +179,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Dynamic",
         "Order": 50,
         "DatasetType": "CCT",
@@ -198,8 +202,8 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
-        "Type": "Static",
+        "Conditions": [],
+        "Type": "Dynamic",
         "Order": 60,
         "DatasetType": "CCT",
         "DatasetId": "ContractCommitment",
@@ -221,7 +225,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Static",
         "Order": 70,
         "DatasetType": "CCT",
@@ -259,8 +263,8 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
-        "Type": "Static",
+        "Conditions": [],
+        "Type": "Dynamic",
         "Order": 80,
         "DatasetType": "CCT",
         "DatasetId": "ContractCommitment",
@@ -282,8 +286,8 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
-        "Type": "Static",
+        "Conditions": [],
+        "Type": "Dynamic",
         "Order": 90,
         "DatasetType": "CCT",
         "DatasetId": "ContractCommitment",
@@ -305,7 +309,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Dynamic",
         "Order": 100,
         "DatasetType": "CCT",

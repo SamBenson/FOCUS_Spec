@@ -8,7 +8,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Static",
         "Order": 0,
         "DatasetType": "IND",
@@ -63,7 +63,7 @@
         }
     },
     "IND-PaymentCurrencyBilledCost-C-001-M": {
-        "Function": "Validation",
+        "Function": "Type",
         "Reference": "PaymentCurrencyBilledCost",
         "EntityType": "Column",
         "EntityName": "Payment Currency Billed Cost",
@@ -71,7 +71,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Static",
         "Order": 10,
         "DatasetType": "IND",
@@ -80,13 +80,16 @@
         "ValidationCriteria": {
             "MustSatisfy": "PaymentCurrencyBilledCost MUST be of type Decimal.",
             "Keyword": "MUST",
-            "Requirement": {},
+            "Requirement": {
+                "CheckFunction": "TypeDecimal",
+                "ColumnName": "PaymentCurrencyBilledCost"
+            },
             "Condition": {},
             "Dependencies": []
         }
     },
     "IND-PaymentCurrencyBilledCost-C-002-M": {
-        "Function": "Validation",
+        "Function": "Format",
         "Reference": "PaymentCurrencyBilledCost",
         "EntityType": "Column",
         "EntityName": "Payment Currency Billed Cost",
@@ -94,8 +97,8 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
-        "Type": "Dynamic",
+        "Conditions": [],
+        "Type": "Static",
         "Order": 20,
         "DatasetType": "IND",
         "DatasetId": "InvoiceDetail",
@@ -103,15 +106,16 @@
         "ValidationCriteria": {
             "MustSatisfy": "PaymentCurrencyBilledCost MUST conform to NumericFormat requirements.",
             "Keyword": "MUST",
-            "Requirement": {},
+            "Requirement": {
+                "CheckFunction": "FormatNumeric",
+                "ColumnName": "PaymentCurrencyBilledCost"
+            },
             "Condition": {},
-            "Dependencies": [
-                "ATT-NumericFormat-A-000-M"
-            ]
+            "Dependencies": []
         }
     },
     "IND-PaymentCurrencyBilledCost-C-003-M": {
-        "Function": "Validation",
+        "Function": "Nullability",
         "Reference": "PaymentCurrencyBilledCost",
         "EntityType": "Column",
         "EntityName": "Payment Currency Billed Cost",
@@ -119,7 +123,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Static",
         "Order": 30,
         "DatasetType": "IND",
@@ -128,7 +132,11 @@
         "ValidationCriteria": {
             "MustSatisfy": "PaymentCurrencyBilledCost MUST NOT be null.",
             "Keyword": "MUST NOT",
-            "Requirement": {},
+            "Requirement": {
+                "CheckFunction": "CheckNotValue",
+                "ColumnName": "PaymentCurrencyBilledCost",
+                "Value": null
+            },
             "Condition": {},
             "Dependencies": []
         }
@@ -142,8 +150,8 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
-        "Type": "Static",
+        "Conditions": [],
+        "Type": "Dynamic",
         "Order": 40,
         "DatasetType": "IND",
         "DatasetId": "InvoiceDetail",
@@ -165,8 +173,8 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
-        "Type": "Static",
+        "Conditions": [],
+        "Type": "Dynamic",
         "Order": 50,
         "DatasetType": "IND",
         "DatasetId": "InvoiceDetail",
@@ -188,7 +196,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Dynamic",
         "Order": 60,
         "DatasetType": "IND",
@@ -211,7 +219,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Dynamic",
         "Order": 70,
         "DatasetType": "IND",

@@ -8,7 +8,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Static",
         "Order": 0,
         "DatasetType": "CAU",
@@ -43,7 +43,7 @@
         }
     },
     "CAU-BillingAccountName-C-001-M": {
-        "Function": "Validation",
+        "Function": "Type",
         "Reference": "BillingAccountName",
         "EntityType": "Column",
         "EntityName": "Billing Account Name",
@@ -51,7 +51,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Static",
         "Order": 10,
         "DatasetType": "CAU",
@@ -60,13 +60,16 @@
         "ValidationCriteria": {
             "MustSatisfy": "BillingAccountName MUST be of type String.",
             "Keyword": "MUST",
-            "Requirement": {},
+            "Requirement": {
+                "CheckFunction": "TypeString",
+                "ColumnName": "BillingAccountName"
+            },
             "Condition": {},
             "Dependencies": []
         }
     },
     "CAU-BillingAccountName-C-002-M": {
-        "Function": "Validation",
+        "Function": "Format",
         "Reference": "BillingAccountName",
         "EntityType": "Column",
         "EntityName": "Billing Account Name",
@@ -74,8 +77,8 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
-        "Type": "Dynamic",
+        "Conditions": [],
+        "Type": "Static",
         "Order": 20,
         "DatasetType": "CAU",
         "DatasetId": "CostAndUsage",
@@ -83,11 +86,12 @@
         "ValidationCriteria": {
             "MustSatisfy": "BillingAccountName MUST conform to StringHandling requirements.",
             "Keyword": "MUST",
-            "Requirement": {},
+            "Requirement": {
+                "CheckFunction": "FormatString",
+                "ColumnName": "BillingAccountName"
+            },
             "Condition": {},
-            "Dependencies": [
-                "ATT-StringHandling-A-000-M"
-            ]
+            "Dependencies": []
         }
     },
     "CAU-BillingAccountName-C-003-C": {
@@ -99,7 +103,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Dynamic",
         "Order": 30,
         "DatasetType": "CAU",

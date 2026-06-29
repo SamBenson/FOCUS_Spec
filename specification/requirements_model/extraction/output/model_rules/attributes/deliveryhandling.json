@@ -8,7 +8,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Static",
         "Order": 0,
         "ValidationCriteria": {
@@ -58,8 +58,8 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
-        "Type": "Static",
+        "Conditions": [],
+        "Type": "Dynamic",
         "Order": 10,
         "ValidationCriteria": {
             "MustSatisfy": "FOCUS dataset MUST NOT require practitioners to deduplicate records within or across delivered dataset artifacts.",
@@ -78,7 +78,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Static",
         "Order": 20,
         "ValidationCriteria": {
@@ -113,8 +113,8 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
-        "Type": "Static",
+        "Conditions": [],
+        "Type": "Dynamic",
         "Order": 30,
         "ValidationCriteria": {
             "MustSatisfy": "FOCUS dataset MUST represent a complete snapshot for a given delivery scope.",
@@ -133,8 +133,8 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
-        "Type": "Static",
+        "Conditions": [],
+        "Type": "Dynamic",
         "Order": 40,
         "ValidationCriteria": {
             "MustSatisfy": "FOCUS dataset MUST supersede all previously delivered dataset artifacts for the same delivery scope.",
@@ -153,7 +153,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Dynamic",
         "Order": 50,
         "ValidationCriteria": {
@@ -173,8 +173,8 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
-        "Type": "Static",
+        "Conditions": [],
+        "Type": "Dynamic",
         "Order": 60,
         "ValidationCriteria": {
             "MustSatisfy": "FOCUS dataset SHOULD have delivered dataset artifacts accompanied by corresponding FOCUS Metadata.",
@@ -193,7 +193,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Static",
         "Order": 70,
         "ValidationCriteria": {
@@ -238,8 +238,8 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
-        "Type": "Static",
+        "Conditions": [],
+        "Type": "Dynamic",
         "Order": 80,
         "ValidationCriteria": {
             "MustSatisfy": "FOCUS dataset delivery mechanism documentation MUST include the delivery mechanism used (Overwrite or Append).",
@@ -258,7 +258,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Dynamic",
         "Order": 90,
         "ValidationCriteria": {
@@ -278,7 +278,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Dynamic",
         "Order": 100,
         "ValidationCriteria": {
@@ -298,8 +298,8 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
-        "Type": "Static",
+        "Conditions": [],
+        "Type": "Dynamic",
         "Order": 110,
         "ValidationCriteria": {
             "MustSatisfy": "FOCUS dataset delivery mechanism documentation MUST be accessible to practitioners.",

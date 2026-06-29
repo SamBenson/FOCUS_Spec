@@ -8,7 +8,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Static",
         "Order": 0,
         "DatasetType": "CAU",
@@ -43,7 +43,7 @@
         }
     },
     "CAU-ServiceCategory-C-001-M": {
-        "Function": "Validation",
+        "Function": "Type",
         "Reference": "ServiceCategory",
         "EntityType": "Column",
         "EntityName": "Service Category",
@@ -51,7 +51,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Static",
         "Order": 10,
         "DatasetType": "CAU",
@@ -60,13 +60,16 @@
         "ValidationCriteria": {
             "MustSatisfy": "ServiceCategory MUST be of type String.",
             "Keyword": "MUST",
-            "Requirement": {},
+            "Requirement": {
+                "CheckFunction": "TypeString",
+                "ColumnName": "ServiceCategory"
+            },
             "Condition": {},
             "Dependencies": []
         }
     },
     "CAU-ServiceCategory-C-002-M": {
-        "Function": "Validation",
+        "Function": "Nullability",
         "Reference": "ServiceCategory",
         "EntityType": "Column",
         "EntityName": "Service Category",
@@ -74,7 +77,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Static",
         "Order": 20,
         "DatasetType": "CAU",
@@ -83,7 +86,11 @@
         "ValidationCriteria": {
             "MustSatisfy": "ServiceCategory MUST NOT be null.",
             "Keyword": "MUST NOT",
-            "Requirement": {},
+            "Requirement": {
+                "CheckFunction": "CheckNotValue",
+                "ColumnName": "ServiceCategory",
+                "Value": null
+            },
             "Condition": {},
             "Dependencies": []
         }
@@ -97,8 +104,8 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
-        "Type": "Static",
+        "Conditions": [],
+        "Type": "Dynamic",
         "Order": 30,
         "DatasetType": "CAU",
         "DatasetId": "CostAndUsage",

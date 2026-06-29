@@ -8,7 +8,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Static",
         "Order": 0,
         "DatasetType": "CAU",
@@ -58,7 +58,7 @@
         }
     },
     "CAU-ListCost-C-001-M": {
-        "Function": "Validation",
+        "Function": "Type",
         "Reference": "ListCost",
         "EntityType": "Column",
         "EntityName": "List Cost",
@@ -66,7 +66,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Static",
         "Order": 10,
         "DatasetType": "CAU",
@@ -75,13 +75,16 @@
         "ValidationCriteria": {
             "MustSatisfy": "ListCost MUST be of type Decimal.",
             "Keyword": "MUST",
-            "Requirement": {},
+            "Requirement": {
+                "CheckFunction": "TypeDecimal",
+                "ColumnName": "ListCost"
+            },
             "Condition": {},
             "Dependencies": []
         }
     },
     "CAU-ListCost-C-002-M": {
-        "Function": "Validation",
+        "Function": "Format",
         "Reference": "ListCost",
         "EntityType": "Column",
         "EntityName": "List Cost",
@@ -89,8 +92,8 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
-        "Type": "Dynamic",
+        "Conditions": [],
+        "Type": "Static",
         "Order": 20,
         "DatasetType": "CAU",
         "DatasetId": "CostAndUsage",
@@ -98,15 +101,16 @@
         "ValidationCriteria": {
             "MustSatisfy": "ListCost MUST conform to NumericFormat requirements.",
             "Keyword": "MUST",
-            "Requirement": {},
+            "Requirement": {
+                "CheckFunction": "FormatNumeric",
+                "ColumnName": "ListCost"
+            },
             "Condition": {},
-            "Dependencies": [
-                "ATT-NumericFormat-A-000-M"
-            ]
+            "Dependencies": []
         }
     },
     "CAU-ListCost-C-003-M": {
-        "Function": "Validation",
+        "Function": "Nullability",
         "Reference": "ListCost",
         "EntityType": "Column",
         "EntityName": "List Cost",
@@ -114,7 +118,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Static",
         "Order": 30,
         "DatasetType": "CAU",
@@ -123,7 +127,11 @@
         "ValidationCriteria": {
             "MustSatisfy": "ListCost MUST NOT be null.",
             "Keyword": "MUST NOT",
-            "Requirement": {},
+            "Requirement": {
+                "CheckFunction": "CheckNotValue",
+                "ColumnName": "ListCost",
+                "Value": null
+            },
             "Condition": {},
             "Dependencies": []
         }
@@ -138,7 +146,7 @@
         "ModelVersionIntroduced": "1.2",
         "ModelVersionRemoved": "1.4",
         "Status": "Removed",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Order": 50,
         "DatasetType": "CAU",
         "DatasetId": "CostAndUsage",
@@ -165,8 +173,8 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
-        "Type": "Static",
+        "Conditions": [],
+        "Type": "Dynamic",
         "Order": 50,
         "DatasetType": "CAU",
         "DatasetId": "CostAndUsage",
@@ -188,7 +196,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Static",
         "Order": 60,
         "DatasetType": "CAU",
@@ -226,7 +234,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Dynamic",
         "Order": 70,
         "DatasetType": "CAU",
@@ -249,7 +257,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Dynamic",
         "Order": 80,
         "DatasetType": "CAU",
@@ -273,7 +281,7 @@
         "ModelVersionIntroduced": "1.2",
         "Status": "Removed",
         "ModelVersionRemoved": "1.3",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Static",
         "DatasetType": "CAU",
         "DatasetId": "CostAndUsage",
@@ -324,7 +332,7 @@
         "ModelVersionIntroduced": "1.2",
         "Status": "Removed",
         "ModelVersionRemoved": "1.3",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Dynamic",
         "DatasetType": "CAU",
         "DatasetId": "CostAndUsage",
@@ -348,7 +356,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.3",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Dynamic",
         "Order": 110,
         "DatasetType": "CAU",

@@ -8,7 +8,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Static",
         "Order": 0,
         "DatasetType": "CAU",
@@ -53,7 +53,7 @@
         }
     },
     "CAU-ServiceName-C-001-M": {
-        "Function": "Validation",
+        "Function": "Type",
         "Reference": "ServiceName",
         "EntityType": "Column",
         "EntityName": "Service Name",
@@ -61,7 +61,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Static",
         "Order": 10,
         "DatasetType": "CAU",
@@ -70,13 +70,16 @@
         "ValidationCriteria": {
             "MustSatisfy": "ServiceName MUST be of type String.",
             "Keyword": "MUST",
-            "Requirement": {},
+            "Requirement": {
+                "CheckFunction": "TypeString",
+                "ColumnName": "ServiceName"
+            },
             "Condition": {},
             "Dependencies": []
         }
     },
     "CAU-ServiceName-C-002-M": {
-        "Function": "Validation",
+        "Function": "Format",
         "Reference": "ServiceName",
         "EntityType": "Column",
         "EntityName": "Service Name",
@@ -84,8 +87,8 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
-        "Type": "Dynamic",
+        "Conditions": [],
+        "Type": "Static",
         "Order": 20,
         "DatasetType": "CAU",
         "DatasetId": "CostAndUsage",
@@ -93,15 +96,16 @@
         "ValidationCriteria": {
             "MustSatisfy": "ServiceName MUST conform to StringHandling requirements.",
             "Keyword": "MUST",
-            "Requirement": {},
+            "Requirement": {
+                "CheckFunction": "FormatString",
+                "ColumnName": "ServiceName"
+            },
             "Condition": {},
-            "Dependencies": [
-                "ATT-StringHandling-A-000-M"
-            ]
+            "Dependencies": []
         }
     },
     "CAU-ServiceName-C-003-M": {
-        "Function": "Validation",
+        "Function": "Nullability",
         "Reference": "ServiceName",
         "EntityType": "Column",
         "EntityName": "Service Name",
@@ -109,7 +113,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Static",
         "Order": 30,
         "DatasetType": "CAU",
@@ -118,7 +122,11 @@
         "ValidationCriteria": {
             "MustSatisfy": "ServiceName MUST NOT be null.",
             "Keyword": "MUST NOT",
-            "Requirement": {},
+            "Requirement": {
+                "CheckFunction": "CheckNotValue",
+                "ColumnName": "ServiceName",
+                "Value": null
+            },
             "Condition": {},
             "Dependencies": []
         }
@@ -132,7 +140,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Static",
         "Order": 40,
         "DatasetType": "CAU",
@@ -170,7 +178,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Dynamic",
         "Order": 50,
         "DatasetType": "CAU",
@@ -193,7 +201,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Dynamic",
         "Order": 60,
         "DatasetType": "CAU",
@@ -216,7 +224,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Static",
         "Order": 70,
         "DatasetType": "CAU",
@@ -254,7 +262,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Dynamic",
         "Order": 80,
         "DatasetType": "CAU",
@@ -277,7 +285,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Dynamic",
         "Order": 90,
         "DatasetType": "CAU",

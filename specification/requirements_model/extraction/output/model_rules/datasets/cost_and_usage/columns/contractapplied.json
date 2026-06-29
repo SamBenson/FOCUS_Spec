@@ -8,7 +8,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.3",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Static",
         "Order": 0,
         "DatasetType": "CAU",
@@ -53,7 +53,7 @@
         }
     },
     "CAU-ContractApplied-C-001-M": {
-        "Function": "Validation",
+        "Function": "Format",
         "Reference": "ContractApplied",
         "EntityType": "Column",
         "EntityName": "Contract Applied",
@@ -61,8 +61,8 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.3",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
-        "Type": "Dynamic",
+        "Conditions": [],
+        "Type": "Static",
         "Order": 10,
         "DatasetType": "CAU",
         "DatasetId": "CostAndUsage",
@@ -70,11 +70,13 @@
         "ValidationCriteria": {
             "MustSatisfy": "ContractApplied MUST conform to JsonObjectFormat requirements.",
             "Keyword": "MUST",
-            "Requirement": {},
+            "Requirement": {
+                "CheckFunction": "FormatJSON",
+                "ColumnName": "ContractApplied",
+                "Path": "$"
+            },
             "Condition": {},
-            "Dependencies": [
-                "ATT-JsonObjectFormat-A-000-M"
-            ]
+            "Dependencies": []
         }
     },
     "CAU-ContractApplied-C-002-C": {
@@ -86,7 +88,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.3",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Dynamic",
         "Order": 20,
         "DatasetType": "CAU",
@@ -109,7 +111,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.3",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Dynamic",
         "Order": 30,
         "DatasetType": "CAU",
@@ -132,8 +134,8 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.3",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
-        "Type": "Static",
+        "Conditions": [],
+        "Type": "Dynamic",
         "Order": 40,
         "DatasetType": "CAU",
         "DatasetId": "CostAndUsage",
@@ -147,7 +149,7 @@
         }
     },
     "CAU-ContractApplied-C-005-M": {
-        "Function": "Validation",
+        "Function": "Format",
         "Reference": "ContractApplied",
         "EntityType": "Column",
         "EntityName": "Contract Applied",
@@ -155,8 +157,8 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.3",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
-        "Type": "Dynamic",
+        "Conditions": [],
+        "Type": "Static",
         "Order": 50,
         "DatasetType": "CAU",
         "DatasetId": "CostAndUsage",
@@ -164,11 +166,12 @@
         "ValidationCriteria": {
             "MustSatisfy": "ContractApplied MUST conform to StringHandling requirements.",
             "Keyword": "MUST",
-            "Requirement": {},
+            "Requirement": {
+                "CheckFunction": "FormatString",
+                "ColumnName": "ContractApplied"
+            },
             "Condition": {},
-            "Dependencies": [
-                "ATT-StringHandling-A-000-M"
-            ]
+            "Dependencies": []
         }
     }
 }

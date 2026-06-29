@@ -1,14 +1,19 @@
 {
   "DatasetTypes": {
-    "BillingPeriod": "BIP"
+    "BillingPeriod": "BIP",
+    "CostAndUsage": "CAU",
+    "ContractCommitment": "CCT",
+    "InvoiceDetail": "IND"
   },
   "DataModel": {
     "Location": "specification/datasets/data_model.md",
     "EntityType": "DataModel",
     "ArtifactType": "M",
+    "IdPrefix": "DMO",
     "Headings": {
       "Requirements": "Requirements",
-      "Id": "Data Model ID"
+      "Id": "Data Model ID",
+      "DisplayName": "Display Name"
     }
   },
   "Datasets": {
@@ -17,7 +22,8 @@
     "ArtifactType": "D",
     "Headings": {
       "Requirements": "Requirements",
-      "Id": "Dataset ID"
+      "Id": "Dataset ID",
+      "DisplayName": "Display Name"
     }
   },
   "Columns": {
@@ -26,7 +32,26 @@
     "ArtifactType": "C",
     "Headings": {
       "Requirements": "Requirements",
-      "Id": "Column ID"
+      "Id": "Column ID",
+      "DisplayName": "Display Name"
+    }
+  },
+  "Attributes": {
+    "Location": "specification/attributes/",
+    "EntityType": "Attribute",
+    "ArtifactType": "A",
+    "IdPrefix": "ATT",
+    "Headings": {
+      "Requirements": "Requirements",
+      "Id": "Attribute ID",
+      "DisplayName": "Attribute Name"
+    }
+  },
+  "Conditions": {
+    "Location": "specification/conditions/",
+    "EntityType": "Condition",
+    "Headings": {
+      "Id": "Condition ID"
     }
   }
 }

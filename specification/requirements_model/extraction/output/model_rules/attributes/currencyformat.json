@@ -8,7 +8,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Static",
         "Order": 0,
         "ValidationCriteria": {
@@ -43,8 +43,8 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
-        "Type": "Static",
+        "Conditions": [],
+        "Type": "Dynamic",
         "Order": 10,
         "ValidationCriteria": {
             "MustSatisfy": "FOCUS dataset column MUST use the three-letter alphabetic code defined in ISO 4217:2015 (e.g., USD, EUR).",
@@ -64,7 +64,7 @@
         "ModelVersionIntroduced": "1.2",
         "ModelVersionRemoved": "1.4",
         "Status": "Removed",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Order": -1,
         "Type": "Dynamic",
         "ValidationCriteria": {
@@ -85,7 +85,7 @@
         "ModelVersionIntroduced": "1.2",
         "ModelVersionRemoved": "1.4",
         "Status": "Removed",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Order": -1,
         "Type": "Dynamic",
         "ValidationCriteria": {
@@ -105,8 +105,8 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
-        "Type": "Static",
+        "Conditions": [],
+        "Type": "Dynamic",
         "Order": 40,
         "ValidationCriteria": {
             "MustSatisfy": "FOCUS dataset column MUST conform to ISO 4217:2015 standard.",

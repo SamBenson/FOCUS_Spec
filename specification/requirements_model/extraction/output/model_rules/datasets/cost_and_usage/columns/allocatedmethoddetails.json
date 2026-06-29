@@ -8,7 +8,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.3",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Static",
         "Order": 0,
         "DatasetType": "CAU",
@@ -61,8 +61,8 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.3",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
-        "Type": "Static",
+        "Conditions": [],
+        "Type": "Dynamic",
         "Order": 10,
         "DatasetType": "CAU",
         "DatasetId": "CostAndUsage",
@@ -76,7 +76,7 @@
         }
     },
     "CAU-AllocatedMethodDetails-C-002-M": {
-        "Function": "Validation",
+        "Function": "Format",
         "Reference": "AllocatedMethodDetails",
         "EntityType": "Column",
         "EntityName": "Allocated Method Details",
@@ -84,8 +84,8 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.3",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
-        "Type": "Dynamic",
+        "Conditions": [],
+        "Type": "Static",
         "Order": 20,
         "DatasetType": "CAU",
         "DatasetId": "CostAndUsage",
@@ -93,15 +93,16 @@
         "ValidationCriteria": {
             "MustSatisfy": "AllocatedMethodDetails MUST conform to StringHandling requirements.",
             "Keyword": "MUST",
-            "Requirement": {},
+            "Requirement": {
+                "CheckFunction": "FormatString",
+                "ColumnName": "AllocatedMethodDetails"
+            },
             "Condition": {},
-            "Dependencies": [
-                "ATT-StringHandling-A-000-M"
-            ]
+            "Dependencies": []
         }
     },
     "CAU-AllocatedMethodDetails-C-003-M": {
-        "Function": "Validation",
+        "Function": "Format",
         "Reference": "AllocatedMethodDetails",
         "EntityType": "Column",
         "EntityName": "Allocated Method Details",
@@ -109,8 +110,8 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.3",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
-        "Type": "Dynamic",
+        "Conditions": [],
+        "Type": "Static",
         "Order": 30,
         "DatasetType": "CAU",
         "DatasetId": "CostAndUsage",
@@ -118,11 +119,13 @@
         "ValidationCriteria": {
             "MustSatisfy": "AllocatedMethodDetails MUST conform to JsonObjectFormat requirements.",
             "Keyword": "MUST",
-            "Requirement": {},
+            "Requirement": {
+                "CheckFunction": "FormatJSON",
+                "ColumnName": "AllocatedMethodDetails",
+                "Path": "$"
+            },
             "Condition": {},
-            "Dependencies": [
-                "ATT-JsonObjectFormat-A-000-M"
-            ]
+            "Dependencies": []
         }
     },
     "CAU-AllocatedMethodDetails-C-004-C": {
@@ -134,7 +137,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.3",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Static",
         "Order": 40,
         "DatasetType": "CAU",
@@ -172,7 +175,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.3",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Dynamic",
         "Order": 50,
         "DatasetType": "CAU",
@@ -195,7 +198,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.3",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Dynamic",
         "Order": 60,
         "DatasetType": "CAU",
@@ -218,7 +221,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.3",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Dynamic",
         "Order": 70,
         "DatasetType": "CAU",

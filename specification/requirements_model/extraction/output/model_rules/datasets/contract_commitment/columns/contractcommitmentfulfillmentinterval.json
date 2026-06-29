@@ -8,7 +8,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Static",
         "Order": 0,
         "DatasetType": "CCT",
@@ -48,7 +48,7 @@
         }
     },
     "CCT-ContractCommitmentFulfillmentInterval-C-001-M": {
-        "Function": "Validation",
+        "Function": "Type",
         "Reference": "ContractCommitmentFulfillmentInterval",
         "EntityType": "Column",
         "EntityName": "Contract Commitment Fulfillment Interval",
@@ -56,7 +56,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Static",
         "Order": 10,
         "DatasetType": "CCT",
@@ -65,13 +65,16 @@
         "ValidationCriteria": {
             "MustSatisfy": "ContractCommitmentFulfillmentInterval MUST be of type String.",
             "Keyword": "MUST",
-            "Requirement": {},
+            "Requirement": {
+                "CheckFunction": "TypeString",
+                "ColumnName": "ContractCommitmentFulfillmentInterval"
+            },
             "Condition": {},
             "Dependencies": []
         }
     },
     "CCT-ContractCommitmentFulfillmentInterval-C-002-M": {
-        "Function": "Validation",
+        "Function": "Nullability",
         "Reference": "ContractCommitmentFulfillmentInterval",
         "EntityType": "Column",
         "EntityName": "Contract Commitment Fulfillment Interval",
@@ -79,7 +82,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Static",
         "Order": 20,
         "DatasetType": "CCT",
@@ -88,7 +91,11 @@
         "ValidationCriteria": {
             "MustSatisfy": "ContractCommitmentFulfillmentInterval MUST NOT be null.",
             "Keyword": "MUST NOT",
-            "Requirement": {},
+            "Requirement": {
+                "CheckFunction": "CheckNotValue",
+                "ColumnName": "ContractCommitmentFulfillmentInterval",
+                "Value": null
+            },
             "Condition": {},
             "Dependencies": []
         }
@@ -102,8 +109,8 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
-        "Type": "Static",
+        "Conditions": [],
+        "Type": "Dynamic",
         "Order": 30,
         "DatasetType": "CCT",
         "DatasetId": "ContractCommitment",
@@ -125,7 +132,7 @@
         "Notes": "",
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
-        "ApplicabilityCriteria": [],
+        "Conditions": [],
         "Type": "Dynamic",
         "Order": 40,
         "DatasetType": "CCT",
