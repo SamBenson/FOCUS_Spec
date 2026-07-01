@@ -1,0 +1,54 @@
+{
+    "{entity} MUST be of type String.": {
+        "function": "Type",
+        "requirement": { "CheckFunction": "TypeString", "ColumnName": "{entity}" }
+    },
+    "{entity} MUST be of type Date/Time.": {
+        "function": "Type",
+        "requirement": { "CheckFunction": "TypeDateTime", "ColumnName": "{entity}" }
+    },
+    "{entity} MUST be of type Decimal.": {
+        "function": "Type",
+        "requirement": { "CheckFunction": "TypeDecimal", "ColumnName": "{entity}" }
+    },
+    "{entity} MUST NOT be null.": {
+        "function": "Nullability",
+        "requirement": { "CheckFunction": "CheckNotValue", "ColumnName": "{entity}", "Value": null }
+    },
+    "{entity} SHOULD NOT be null.": {
+        "function": "Nullability",
+        "requirement": { "CheckFunction": "CheckNotValue", "ColumnName": "{entity}", "Value": null }
+    },
+    "{entity} MAY be null.": {
+        "function": "Nullability",
+        "requirement": { "CheckFunction": "CheckValue", "ColumnName": "{entity}", "Value": null }
+    },
+    "{entity} MUST conform to StringHandling requirements.": {
+        "function": "Format",
+        "requirement": { "CheckFunction": "FormatString", "ColumnName": "{entity}" }
+    },
+    "{entity} MUST conform to DateTimeFormat requirements.": {
+        "function": "Format",
+        "requirement": { "CheckFunction": "FormatDateTime", "ColumnName": "{entity}" }
+    },
+    "{entity} MUST conform to NumericFormat requirements.": {
+        "function": "Format",
+        "requirement": { "CheckFunction": "FormatNumeric", "ColumnName": "{entity}" }
+    },
+    "{entity} MUST conform to CurrencyFormat requirements.": {
+        "function": "Format",
+        "requirement": { "CheckFunction": "FormatCurrency", "ColumnName": "{entity}" }
+    },
+    "{entity} MUST conform to JsonObjectFormat requirements.": {
+        "function": "Format",
+        "requirement": { "CheckFunction": "FormatJSON", "ColumnName": "{entity}", "Path": "$" }
+    },
+    "{entity} MUST conform to KeyValueFormat requirements.": {
+        "function": "Format",
+        "requirement": { "CheckFunction": "FormatKeyValue", "ColumnName": "{entity}" }
+    },
+    "{entity} SHOULD conform to UnitFormat requirements.": {
+        "function": "Format",
+        "requirement": { "CheckFunction": "FormatUnit", "ColumnName": "{entity}" }
+    }
+}
