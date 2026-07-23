@@ -110,7 +110,7 @@
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
         "Conditions": [],
-        "Type": "Dynamic",
+        "Type": "Static",
         "Order": 30,
         "DatasetType": "CCT",
         "DatasetId": "ContractCommitment",
@@ -118,7 +118,21 @@
         "ValidationCriteria": {
             "MustSatisfy": "ContractCommitmentModel MUST be one of the allowed values.",
             "Keyword": "MUST",
-            "Requirement": {},
+            "Requirement": {
+                "CheckFunction": "OR",
+                "Items": [
+                    {
+                        "CheckFunction": "CheckValue",
+                        "ColumnName": "ContractCommitmentModel",
+                        "Value": "Continuous"
+                    },
+                    {
+                        "CheckFunction": "CheckValue",
+                        "ColumnName": "ContractCommitmentModel",
+                        "Value": "Discontinuous"
+                    }
+                ]
+            },
             "Condition": {},
             "Dependencies": []
         }
@@ -133,7 +147,7 @@
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
         "Conditions": [],
-        "Type": "Dynamic",
+        "Type": "Static",
         "Order": 40,
         "DatasetType": "CCT",
         "DatasetId": "ContractCommitment",
@@ -141,9 +155,19 @@
         "ValidationCriteria": {
             "MustSatisfy": "ContractCommitmentModel MUST be \"Discontinuous\" when ContractCommitmentFulfillmentInterval is \"Full Period\".",
             "Keyword": "MUST",
-            "Requirement": {},
-            "Condition": {},
-            "Dependencies": []
+            "Requirement": {
+                "CheckFunction": "CheckValue",
+                "ColumnName": "ContractCommitmentModel",
+                "Value": "Discontinuous"
+            },
+            "Condition": {
+                "CheckFunction": "CheckValue",
+                "ColumnName": "ContractCommitmentFulfillmentInterval",
+                "Value": "Full Period"
+            },
+            "Dependencies": [
+                "CCT-ContractCommitmentFulfillmentInterval-C-003-M"
+            ]
         }
     }
 }

@@ -18,9 +18,11 @@
  * for dataset-scoped entities (DatasetType prefix from the contract's DatasetTypes
  * map) and <ArtifactName>-<ArtifactType>-<NumericId>-<Status> otherwise (e.g. the
  * data model). IDs are STABLE: existing IDs are read from the previous release and
- * reused when a derived rule's MustSatisfy matches; new rules take the next free
- * NumericId; previous rules absent from the markdown are tombstoned (Status
- * "Removed"). Status (M/O/C) is derived from the keyword and conditional phrasing.
+ * reused when a derived rule's MustSatisfy exactly matches an Active previous rule;
+ * anything else (no match, or a match against only a non-Active previous rule) takes
+ * the next free NumericId as a new rule; previous rules absent from the markdown are
+ * tombstoned (Status "Removed"). Status (M/O/C) is derived from the keyword and
+ * conditional phrasing.
  *
  * Leaf classification: composites become an AND over their children; "MUST include"
  * becomes a presence rule (ColumnPresent for datasets); leaves whose sentence matches
@@ -55,7 +57,8 @@ const CONDITIONAL_RE = /\bwhen\b/;
 // condition anchor -> ConditionId map, and a dedup'd set of unmapped sentences.
 let CHECK_LOOKUP = {};
 let CONDITIONS = {};
-const WARNINGS = new Map();
+const WARNINGS = [];
+const EMITTED = []; // { outPath, rules } per file, written after the carry-forward post-pass
 
 // ---------------------------------------------------------------------------
 // Text / id helpers
@@ -88,9 +91,14 @@ function numericIdOf(ruleId) {
   return m ? parseInt(m[1], 10) : -1;
 }
 
-/** Normalize MustSatisfy text for cross-version matching (trim + collapse whitespace). */
+/**
+ * Normalize MustSatisfy text for cross-version matching: strip inline-code backticks
+ * (the extractor emits plain text, but older baselines stored the markdown backticks),
+ * then trim and collapse whitespace. Applied to both sides of a comparison, so it only
+ * affects ID reuse, never the stored MustSatisfy value.
+ */
 function normalizeMustSatisfy(text) {
-  return text.trim().replace(/\s+/g, ' ');
+  return text.replace(/`/g, '').trim().replace(/\s+/g, ' ');
 }
 
 // ---------------------------------------------------------------------------
@@ -221,16 +229,34 @@ function classify(node, childKeys, ctx) {
 }
 
 /** Construct a single model rule object from a requirement-tree node. */
-function makeRule(node, numericId, childKeys, ctx, modelVersionIntroduced, status) {
+function makeRule(node, numericId, childKeys, ctx, modelVersionIntroduced, status, prevRule) {
   const c = classify(node, childKeys, ctx);
   const keyword = node.text.match(BCP14_KEYWORD);
+
+  // Carry forward a curated Requirement from the baseline when the current derivation
+  // produced none (the current lookup wins whenever it does resolve one). Enum value
+  // lists and functions like CheckNationalCurrency live only in the model and cannot be
+  // re-derived from the sentence text, so regenerating from the lookup alone would drop
+  // them. Reuse (matched MustSatisfy) is what makes the prior Requirement applicable here.
+  // Carry the curated Requirement forward optimistically. A carried Requirement may
+  // reference other rules (CheckModelRule / Dependencies) whose NumericId shifted between
+  // versions, so the global post-pass in main() reverts any carry whose references do not
+  // resolve. Everything that resolves is kept, recovering curation the lookup cannot derive.
+  const prevReq = prevRule && prevRule.ValidationCriteria && prevRule.ValidationCriteria.Requirement;
+  if (!Object.keys(c.Requirement).length && prevReq && Object.keys(prevReq).length) {
+    c.unclassified = false;
+    c.carried = true;
+    c.Function = prevRule.Function;
+    c.Reference = prevRule.Reference;
+    c.Requirement = JSON.parse(JSON.stringify(prevReq));
+    c.Dependencies = (prevRule.ValidationCriteria.Dependencies || []).slice();
+    c.carriedCondition = prevRule.ValidationCriteria.Condition && Object.keys(prevRule.ValidationCriteria.Condition).length
+      ? JSON.parse(JSON.stringify(prevRule.ValidationCriteria.Condition)) : null;
+  }
   const entityName = c.Reference === ctx.artifactName ? ctx.displayName : pascalToDisplay(c.Reference);
 
   if (c.unclassified) {
-    const norm = node.text.split(ctx.artifactName).join('{entity}');
-    const w = WARNINGS.get(norm) || { count: 0, sample: `${ctx.entityType} ${ctx.artifactName}` };
-    w.count++;
-    WARNINGS.set(norm, w);
+    WARNINGS.push({ entity: `${ctx.entityType} ${ctx.artifactName}`, text: node.text });
   }
 
   // A populated Requirement (a check-function template) is Static; an empty one is Dynamic.
@@ -259,9 +285,12 @@ function makeRule(node, numericId, childKeys, ctx, modelVersionIntroduced, statu
     MustSatisfy: node.text,
     Keyword: keyword ? keyword[1] : '',
     Requirement: c.Requirement,
-    Condition: {},
+    Condition: c.carriedCondition || {},
     Dependencies: c.Dependencies,
   };
+  // Transient marker (stripped before write) so the post-pass can validate carried refs
+  // and re-warn if it must revert one.
+  if (c.carried) rule.__carried = { entity: `${ctx.entityType} ${ctx.artifactName}`, text: node.text };
   return rule;
 }
 
@@ -310,12 +339,18 @@ function loadConditions(locationAbs, idHeading) {
 function expandTree(root, ctx, prevRules) {
   const specs = flattenTree(root);
 
+  // Only Active previous rules are eligible for ID reuse: an exact MustSatisfy match
+  // means the requirement is already in the model. A match against a non-Active rule
+  // (Removed/Deprecated) does NOT count; that text gets a new NumericId. All previous
+  // IDs still advance maxNumericId so tombstoned numbers are never reassigned.
   const prevByText = new Map();
   let maxNumericId = -1;
   if (prevRules) {
     for (const id of Object.keys(prevRules)) {
-      prevByText.set(normalizeMustSatisfy(prevRules[id].ValidationCriteria.MustSatisfy), id);
       maxNumericId = Math.max(maxNumericId, numericIdOf(id));
+      if (prevRules[id].Status === 'Active') {
+        prevByText.set(normalizeMustSatisfy(prevRules[id].ValidationCriteria.MustSatisfy), id);
+      }
     }
   }
 
@@ -336,11 +371,11 @@ function expandTree(root, ctx, prevRules) {
   specs.forEach((spec, idx) => {
     const id = idByIdx[idx];
     const childKeys = spec.childIdx.map((ci) => idByIdx[ci]);
+    // A reused id always came from an Active previous rule (reuse is Active-only), so
+    // the rule is emitted Active; only its introduced version carries over.
     const prev = prevRules && prevRules[id];
     const introduced = prev ? prev.ModelVersionIntroduced : NEW_VERSION;
-    // A rule deprecated in the previous release stays deprecated when still present.
-    const status = prev && prev.Status === 'Deprecated' ? 'Deprecated' : 'Active';
-    output[id] = makeRule(spec.node, numericIdOf(id), childKeys, ctx, introduced, status);
+    output[id] = makeRule(spec.node, numericIdOf(id), childKeys, ctx, introduced, 'Active', prev);
   });
 
   if (prevRules) {
@@ -370,13 +405,52 @@ function writeJson(outPath, obj) {
   fs.writeFileSync(outPath, JSON.stringify(obj, null, 4) + '\n');
 }
 
-/** Parse one markdown file, expand it against its baseline, and write its output file. */
+/**
+ * Parse one markdown file and expand it against its baseline. Output is collected in
+ * EMITTED (not written yet) so the global carry-forward post-pass can run with every
+ * rule ID visible before anything is persisted.
+ */
 function emit(mdPath, ctx, headings, baseline, outPath) {
   const tokens = marked.lexer(fs.readFileSync(mdPath, 'utf8'));
   const tree = parseRequirementTree(tokens, headings.Requirements);
   const rules = expandTree(tree, ctx, baseline);
-  writeJson(outPath, rules);
+  EMITTED.push({ outPath, rules });
   return rules;
+}
+
+/** RuleIds a rule's Requirement/Dependencies point at (for cross-version ref validation). */
+function referencedIds(rule) {
+  const reqIds = [...JSON.stringify(rule.ValidationCriteria.Requirement || {}).matchAll(/"ModelRuleId":"([^"]+)"/g)].map((m) => m[1]);
+  return reqIds.concat(rule.ValidationCriteria.Dependencies || []);
+}
+
+/**
+ * Validate every carried-forward Requirement against the full set of generated rule IDs.
+ * A carry whose references don't all resolve (e.g. a baseline dependency whose NumericId
+ * shifted) is reverted to an empty, Dynamic rule and re-flagged as unmapped. Then strip
+ * the transient marker and persist every file.
+ */
+function finalizeEmitted() {
+  const liveIds = new Set();
+  for (const { rules } of EMITTED) {
+    for (const id of Object.keys(rules)) if (rules[id].Status !== 'Removed') liveIds.add(id);
+  }
+  for (const { rules } of EMITTED) {
+    for (const id of Object.keys(rules)) {
+      const r = rules[id];
+      const carried = r.__carried;
+      delete r.__carried;
+      if (!carried || r.Status === 'Removed') continue;
+      if (referencedIds(r).every((x) => liveIds.has(x))) continue;
+      r.Function = 'Validation';
+      r.Type = 'Dynamic';
+      r.ValidationCriteria.Requirement = {};
+      r.ValidationCriteria.Condition = {};
+      r.ValidationCriteria.Dependencies = [];
+      WARNINGS.push(carried);
+    }
+  }
+  for (const { outPath, rules } of EMITTED) writeJson(outPath, rules);
 }
 
 function main() {
@@ -448,15 +522,15 @@ function main() {
     }
   }
 
+  finalizeEmitted();
+
   console.log(`Wrote model rules under ${OUTPUT_ROOT} (diff ${PREVIOUS_VERSION} -> ${NEW_VERSION}):`);
   for (const [name, count] of summary) console.log(`  ${name}: ${count} rules`);
 
-  if (WARNINGS.size) {
-    let total = 0;
-    for (const w of WARNINGS.values()) total += w.count;
-    console.warn(`\n⚠ ${total} requirement sentence(s) across ${WARNINGS.size} distinct phrasings have no check-function mapping`);
+  if (WARNINGS.length) {
+    console.warn(`\n⚠ ${WARNINGS.length} requirement sentence(s) have no check-function mapping`);
     console.warn('  (Requirement left empty, Type set to Dynamic). Add entries to the lookup to resolve:');
-    for (const [norm, w] of WARNINGS) console.warn(`    (${w.count}×) ${norm}`);
+    for (const w of WARNINGS) console.warn(`    [${w.entity}] ${w.text}`);
   }
 }
 

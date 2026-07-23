@@ -138,7 +138,7 @@
         }
     },
     "CAU-SkuMeter-C-004-C": {
-        "Function": "Validation",
+        "Function": "Nullability",
         "Reference": "SkuMeter",
         "EntityType": "Column",
         "EntityName": "SKU Meter",
@@ -147,7 +147,7 @@
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
         "Conditions": [],
-        "Type": "Dynamic",
+        "Type": "Static",
         "Order": 40,
         "DatasetType": "CAU",
         "DatasetId": "CostAndUsage",
@@ -155,13 +155,23 @@
         "ValidationCriteria": {
             "MustSatisfy": "SkuMeter MUST be null when SkuId is null.",
             "Keyword": "MUST",
-            "Requirement": {},
-            "Condition": {},
-            "Dependencies": []
+            "Requirement": {
+                "CheckFunction": "CheckValue",
+                "ColumnName": "SkuMeter",
+                "Value": null
+            },
+            "Condition": {
+                "CheckFunction": "CheckValue",
+                "ColumnName": "SkuId",
+                "Value": null
+            },
+            "Dependencies": [
+                "CAU-SkuId-C-003-M"
+            ]
         }
     },
     "CAU-SkuMeter-C-005-C": {
-        "Function": "Validation",
+        "Function": "Nullability",
         "Reference": "SkuMeter",
         "EntityType": "Column",
         "EntityName": "SKU Meter",
@@ -170,7 +180,7 @@
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
         "Conditions": [],
-        "Type": "Dynamic",
+        "Type": "Static",
         "Order": 50,
         "DatasetType": "CAU",
         "DatasetId": "CostAndUsage",
@@ -178,9 +188,19 @@
         "ValidationCriteria": {
             "MustSatisfy": "SkuMeter SHOULD NOT be null when SkuId is not null.",
             "Keyword": "SHOULD NOT",
-            "Requirement": {},
-            "Condition": {},
-            "Dependencies": []
+            "Requirement": {
+                "CheckFunction": "CheckNotValue",
+                "ColumnName": "SkuMeter",
+                "Value": null
+            },
+            "Condition": {
+                "CheckFunction": "CheckNotValue",
+                "ColumnName": "SkuId",
+                "Value": null
+            },
+            "Dependencies": [
+                "CAU-SkuId-C-003-M"
+            ]
         }
     },
     "CAU-SkuMeter-C-006-O": {

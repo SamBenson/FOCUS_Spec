@@ -138,7 +138,7 @@
         }
     },
     "CAU-BillingAccountType-C-004-C": {
-        "Function": "Validation",
+        "Function": "Nullability",
         "Reference": "BillingAccountType",
         "EntityType": "Column",
         "EntityName": "Billing Account Type",
@@ -147,7 +147,7 @@
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
         "Conditions": [],
-        "Type": "Dynamic",
+        "Type": "Static",
         "Order": 40,
         "DatasetType": "CAU",
         "DatasetId": "CostAndUsage",
@@ -155,13 +155,23 @@
         "ValidationCriteria": {
             "MustSatisfy": "BillingAccountType MUST be null when BillingAccountId is null.",
             "Keyword": "MUST",
-            "Requirement": {},
-            "Condition": {},
-            "Dependencies": []
+            "Requirement": {
+                "CheckFunction": "CheckValue",
+                "ColumnName": "BillingAccountType",
+                "Value": null
+            },
+            "Condition": {
+                "CheckFunction": "CheckValue",
+                "ColumnName": "BillingAccountId",
+                "Value": null
+            },
+            "Dependencies": [
+                "CAU-BillingAccountId-C-001-M"
+            ]
         }
     },
     "CAU-BillingAccountType-C-005-C": {
-        "Function": "Validation",
+        "Function": "Nullability",
         "Reference": "BillingAccountType",
         "EntityType": "Column",
         "EntityName": "Billing Account Type",
@@ -170,7 +180,7 @@
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
         "Conditions": [],
-        "Type": "Dynamic",
+        "Type": "Static",
         "Order": 50,
         "DatasetType": "CAU",
         "DatasetId": "CostAndUsage",
@@ -178,9 +188,19 @@
         "ValidationCriteria": {
             "MustSatisfy": "BillingAccountType MUST NOT be null when BillingAccountId is not null.",
             "Keyword": "MUST NOT",
-            "Requirement": {},
-            "Condition": {},
-            "Dependencies": []
+            "Requirement": {
+                "CheckFunction": "CheckNotValue",
+                "ColumnName": "BillingAccountType",
+                "Value": null
+            },
+            "Condition": {
+                "CheckFunction": "CheckNotValue",
+                "ColumnName": "BillingAccountId",
+                "Value": null
+            },
+            "Dependencies": [
+                "CAU-BillingAccountId-C-001-M"
+            ]
         }
     },
     "CAU-BillingAccountType-C-006-M": {

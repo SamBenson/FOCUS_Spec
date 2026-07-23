@@ -356,7 +356,7 @@
         "ModelVersionIntroduced": "1.3",
         "Status": "Active",
         "Conditions": [],
-        "Type": "Dynamic",
+        "Type": "Static",
         "Order": 110,
         "DatasetType": "CAU",
         "DatasetId": "CostAndUsage",
@@ -364,9 +364,31 @@
         "ValidationCriteria": {
             "MustSatisfy": "ContractedCost MUST equal the product of ContractedUnitPrice and PricingQuantity when ContractedUnitPrice is not null and PricingQuantity is not null.",
             "Keyword": "MUST",
-            "Requirement": {},
-            "Condition": {},
-            "Dependencies": []
+            "Requirement": {
+                "CheckFunction": "ColumnByColumnEqualsColumnValue",
+                "ColumnAName": "ContractedUnitPrice",
+                "ColumnBName": "PricingQuantity",
+                "ResultColumnName": "ContractedCost"
+            },
+            "Condition": {
+                "CheckFunction": "AND",
+                "Items": [
+                    {
+                        "CheckFunction": "CheckNotValue",
+                        "ColumnName": "ContractedUnitPrice",
+                        "Value": null
+                    },
+                    {
+                        "CheckFunction": "CheckNotValue",
+                        "ColumnName": "PricingQuantity",
+                        "Value": null
+                    }
+                ]
+            },
+            "Dependencies": [
+                "CAU-ContractedUnitPrice-C-004-M",
+                "CAU-PricingQuantity-C-003-M"
+            ]
         }
     }
 }

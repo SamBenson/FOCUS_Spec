@@ -151,7 +151,7 @@
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
         "Conditions": [],
-        "Type": "Dynamic",
+        "Type": "Static",
         "Order": 40,
         "DatasetType": "CCT",
         "DatasetId": "ContractCommitment",
@@ -159,7 +159,21 @@
         "ValidationCriteria": {
             "MustSatisfy": "ContractCommitmentPaymentUpfrontPercentage MUST be a value between 0.0 and 1.0, inclusive.",
             "Keyword": "MUST",
-            "Requirement": {},
+            "Requirement": {
+                "CheckFunction": "AND",
+                "Items": [
+                    {
+                        "CheckFunction": "CheckGreaterOrEqualThanValue",
+                        "ColumnName": "ContractCommitmentPaymentUpfrontPercentage",
+                        "Value": 0
+                    },
+                    {
+                        "CheckFunction": "CheckLessOrEqualThanValue",
+                        "ColumnName": "ContractCommitmentPaymentUpfrontPercentage",
+                        "Value": 1
+                    }
+                ]
+            },
             "Condition": {},
             "Dependencies": []
         }
@@ -174,7 +188,7 @@
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
         "Conditions": [],
-        "Type": "Dynamic",
+        "Type": "Static",
         "Order": 50,
         "DatasetType": "CCT",
         "DatasetId": "ContractCommitment",
@@ -182,9 +196,19 @@
         "ValidationCriteria": {
             "MustSatisfy": "ContractCommitmentPaymentUpfrontPercentage MUST be 1.0 when ContractCommitmentPaymentModel is \"All Upfront\".",
             "Keyword": "MUST",
-            "Requirement": {},
-            "Condition": {},
-            "Dependencies": []
+            "Requirement": {
+                "CheckFunction": "CheckValue",
+                "ColumnName": "ContractCommitmentPaymentUpfrontPercentage",
+                "Value": 1
+            },
+            "Condition": {
+                "CheckFunction": "CheckValue",
+                "ColumnName": "ContractCommitmentPaymentModel",
+                "Value": "All Upfront"
+            },
+            "Dependencies": [
+                "CCT-ContractCommitmentPaymentModel-C-003-M"
+            ]
         }
     },
     "CCT-ContractCommitmentPaymentUpfrontPercentage-C-006-C": {
@@ -197,7 +221,7 @@
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
         "Conditions": [],
-        "Type": "Dynamic",
+        "Type": "Static",
         "Order": 60,
         "DatasetType": "CCT",
         "DatasetId": "ContractCommitment",
@@ -205,9 +229,19 @@
         "ValidationCriteria": {
             "MustSatisfy": "ContractCommitmentPaymentUpfrontPercentage MUST be 0.0 when ContractCommitmentPaymentModel is \"No Upfront\".",
             "Keyword": "MUST",
-            "Requirement": {},
-            "Condition": {},
-            "Dependencies": []
+            "Requirement": {
+                "CheckFunction": "CheckValue",
+                "ColumnName": "ContractCommitmentPaymentUpfrontPercentage",
+                "Value": 0
+            },
+            "Condition": {
+                "CheckFunction": "CheckValue",
+                "ColumnName": "ContractCommitmentPaymentModel",
+                "Value": "No Upfront"
+            },
+            "Dependencies": [
+                "CCT-ContractCommitmentPaymentModel-C-003-M"
+            ]
         }
     },
     "CCT-ContractCommitmentPaymentUpfrontPercentage-C-007-C": {

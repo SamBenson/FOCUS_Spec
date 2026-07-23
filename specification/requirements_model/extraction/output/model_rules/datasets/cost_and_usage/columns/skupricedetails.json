@@ -150,7 +150,7 @@
         }
     },
     "CAU-SkuPriceDetails-C-004-C": {
-        "Function": "Validation",
+        "Function": "Nullability",
         "Reference": "SkuPriceDetails",
         "EntityType": "Column",
         "EntityName": "SKU Price Details",
@@ -159,7 +159,7 @@
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
         "Conditions": [],
-        "Type": "Dynamic",
+        "Type": "Static",
         "Order": 40,
         "DatasetType": "CAU",
         "DatasetId": "CostAndUsage",
@@ -167,13 +167,23 @@
         "ValidationCriteria": {
             "MustSatisfy": "SkuPriceDetails MUST be null when SkuPriceId is null.",
             "Keyword": "MUST",
-            "Requirement": {},
-            "Condition": {},
-            "Dependencies": []
+            "Requirement": {
+                "CheckFunction": "CheckValue",
+                "ColumnName": "SkuPriceDetails",
+                "Value": null
+            },
+            "Condition": {
+                "CheckFunction": "CheckValue",
+                "ColumnName": "SkuPriceId",
+                "Value": null
+            },
+            "Dependencies": [
+                "CAU-SkuPriceId-C-003-M"
+            ]
         }
     },
     "CAU-SkuPriceDetails-C-005-C": {
-        "Function": "Validation",
+        "Function": "Nullability",
         "Reference": "SkuPriceDetails",
         "EntityType": "Column",
         "EntityName": "SKU Price Details",
@@ -182,7 +192,7 @@
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
         "Conditions": [],
-        "Type": "Dynamic",
+        "Type": "Static",
         "Order": 50,
         "DatasetType": "CAU",
         "DatasetId": "CostAndUsage",
@@ -190,9 +200,19 @@
         "ValidationCriteria": {
             "MustSatisfy": "SkuPriceDetails MAY be null when SkuPriceId is not null.",
             "Keyword": "MAY",
-            "Requirement": {},
-            "Condition": {},
-            "Dependencies": []
+            "Requirement": {
+                "CheckFunction": "CheckValue",
+                "ColumnName": "SkuPriceDetails",
+                "Value": null
+            },
+            "Condition": {
+                "CheckFunction": "CheckNotValue",
+                "ColumnName": "SkuPriceId",
+                "Value": null
+            },
+            "Dependencies": [
+                "CAU-SkuPriceId-C-003-M"
+            ]
         }
     },
     "CAU-SkuPriceDetails-C-006-C": {
@@ -705,7 +725,7 @@
         }
     },
     "CAU-SkuPriceDetails-C-024-M": {
-        "Function": "Validation",
+        "Function": "Type",
         "Reference": "SkuPriceDetails",
         "EntityType": "Column",
         "EntityName": "SKU Price Details",
@@ -714,7 +734,7 @@
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
         "Conditions": [],
-        "Type": "Dynamic",
+        "Type": "Static",
         "Order": 240,
         "DatasetType": "CAU",
         "DatasetId": "CostAndUsage",
@@ -722,7 +742,19 @@
         "ValidationCriteria": {
             "MustSatisfy": "SkuPriceDetails MUST be of type JSON Object (serialized as a String where necessary).",
             "Keyword": "MUST",
-            "Requirement": {},
+            "Requirement": {
+                "CheckFunction": "OR",
+                "Items": [
+                    {
+                        "CheckFunction": "TypeString",
+                        "ColumnName": "SkuPriceDetails"
+                    },
+                    {
+                        "CheckFunction": "TypeJSON",
+                        "ColumnName": "SkuPriceDetails"
+                    }
+                ]
+            },
             "Condition": {},
             "Dependencies": []
         }

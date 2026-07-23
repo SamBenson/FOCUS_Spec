@@ -115,7 +115,7 @@
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
         "Conditions": [],
-        "Type": "Dynamic",
+        "Type": "Static",
         "Order": 30,
         "DatasetType": "BIP",
         "DatasetId": "BillingPeriod",
@@ -123,7 +123,21 @@
         "ValidationCriteria": {
             "MustSatisfy": "BillingPeriodStatus MUST be one of the allowed values.",
             "Keyword": "MUST",
-            "Requirement": {},
+            "Requirement": {
+                "CheckFunction": "OR",
+                "Items": [
+                    {
+                        "CheckFunction": "CheckValue",
+                        "ColumnName": "BillingPeriodStatus",
+                        "Value": "Open"
+                    },
+                    {
+                        "CheckFunction": "CheckValue",
+                        "ColumnName": "BillingPeriodStatus",
+                        "Value": "Closed"
+                    }
+                ]
+            },
             "Condition": {},
             "Dependencies": []
         }

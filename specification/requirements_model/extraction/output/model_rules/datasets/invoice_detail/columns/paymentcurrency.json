@@ -164,7 +164,7 @@
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
         "Conditions": [],
-        "Type": "Dynamic",
+        "Type": "Static",
         "Order": 50,
         "DatasetType": "IND",
         "DatasetId": "InvoiceDetail",
@@ -172,7 +172,10 @@
         "ValidationCriteria": {
             "MustSatisfy": "PaymentCurrency MUST be expressed in national currency (e.g., USD, EUR).",
             "Keyword": "MUST",
-            "Requirement": {},
+            "Requirement": {
+                "CheckFunction": "CheckNationalCurrency",
+                "ColumnName": "PaymentCurrency"
+            },
             "Condition": {},
             "Dependencies": []
         }

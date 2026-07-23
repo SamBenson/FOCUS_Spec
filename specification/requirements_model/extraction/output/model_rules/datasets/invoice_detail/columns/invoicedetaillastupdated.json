@@ -164,7 +164,7 @@
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
         "Conditions": [],
-        "Type": "Dynamic",
+        "Type": "Static",
         "Order": 50,
         "DatasetType": "IND",
         "DatasetId": "InvoiceDetail",
@@ -172,9 +172,16 @@
         "ValidationCriteria": {
             "MustSatisfy": "InvoiceDetailLastUpdated MUST be greater than or equal to InvoiceDetailCreated.",
             "Keyword": "MUST",
-            "Requirement": {},
+            "Requirement": {
+                "CheckFunction": "CheckColumnComparison",
+                "ColumnAName": "InvoiceDetailLastUpdated",
+                "ColumnBName": "InvoiceDetailCreated",
+                "Comparator": ">="
+            },
             "Condition": {},
-            "Dependencies": []
+            "Dependencies": [
+                "IND-InvoiceDetailCreated-C-000-M"
+            ]
         }
     }
 }

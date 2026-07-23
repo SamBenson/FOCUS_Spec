@@ -597,7 +597,7 @@
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
         "Conditions": [],
-        "Type": "Dynamic",
+        "Type": "Static",
         "Order": 170,
         "DatasetType": "CAU",
         "DatasetId": "CostAndUsage",
@@ -605,9 +605,30 @@
         "ValidationCriteria": {
             "MustSatisfy": "EffectiveCost MUST equal BilledCost when ChargeCategory is \"Tax\" or \"Credit\".",
             "Keyword": "MUST",
-            "Requirement": {},
-            "Condition": {},
-            "Dependencies": []
+            "Requirement": {
+                "CheckFunction": "CheckSameValue",
+                "ColumnAName": "EffectiveCost",
+                "ColumnBName": "BilledCost"
+            },
+            "Condition": {
+                "CheckFunction": "OR",
+                "Items": [
+                    {
+                        "CheckFunction": "CheckValue",
+                        "ColumnName": "ChargeCategory",
+                        "Value": "Tax"
+                    },
+                    {
+                        "CheckFunction": "CheckValue",
+                        "ColumnName": "ChargeCategory",
+                        "Value": "Credit"
+                    }
+                ]
+            },
+            "Dependencies": [
+                "CAU-BilledCost-C-000-M",
+                "CAU-ChargeCategory-C-000-M"
+            ]
         }
     },
     "CAU-EffectiveCost-C-018-C": {

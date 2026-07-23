@@ -153,7 +153,7 @@
         }
     },
     "CAU-PricingCurrencyListUnitPrice-C-004-C": {
-        "Function": "Validation",
+        "Function": "Nullability",
         "Reference": "PricingCurrencyListUnitPrice",
         "EntityType": "Column",
         "EntityName": "Pricing Currency List Unit Price",
@@ -162,7 +162,7 @@
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
         "Conditions": [],
-        "Type": "Dynamic",
+        "Type": "Static",
         "Order": 40,
         "DatasetType": "CAU",
         "DatasetId": "CostAndUsage",
@@ -170,13 +170,23 @@
         "ValidationCriteria": {
             "MustSatisfy": "PricingCurrencyListUnitPrice MUST be null when ChargeCategory is \"Tax\".",
             "Keyword": "MUST",
-            "Requirement": {},
-            "Condition": {},
-            "Dependencies": []
+            "Requirement": {
+                "CheckFunction": "CheckValue",
+                "ColumnName": "PricingCurrencyListUnitPrice",
+                "Value": null
+            },
+            "Condition": {
+                "CheckFunction": "CheckValue",
+                "ColumnName": "ChargeCategory",
+                "Value": "Tax"
+            },
+            "Dependencies": [
+                "CAU-ChargeCategory-C-002-M"
+            ]
         }
     },
     "CAU-PricingCurrencyListUnitPrice-C-005-C": {
-        "Function": "Validation",
+        "Function": "Nullability",
         "Reference": "PricingCurrencyListUnitPrice",
         "EntityType": "Column",
         "EntityName": "Pricing Currency List Unit Price",
@@ -185,7 +195,7 @@
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
         "Conditions": [],
-        "Type": "Dynamic",
+        "Type": "Static",
         "Order": 50,
         "DatasetType": "CAU",
         "DatasetId": "CostAndUsage",
@@ -193,9 +203,40 @@
         "ValidationCriteria": {
             "MustSatisfy": "PricingCurrencyListUnitPrice MUST NOT be null when ChargeCategory is \"Usage\" or \"Purchase\" and ChargeClass is not \"Correction\".",
             "Keyword": "MUST NOT",
-            "Requirement": {},
-            "Condition": {},
-            "Dependencies": []
+            "Requirement": {
+                "CheckFunction": "CheckNotValue",
+                "ColumnName": "PricingCurrencyListUnitPrice",
+                "Value": null
+            },
+            "Condition": {
+                "CheckFunction": "AND",
+                "Items": [
+                    {
+                        "CheckFunction": "OR",
+                        "Items": [
+                            {
+                                "CheckFunction": "CheckValue",
+                                "ColumnName": "ChargeCategory",
+                                "Value": "Usage"
+                            },
+                            {
+                                "CheckFunction": "CheckValue",
+                                "ColumnName": "ChargeCategory",
+                                "Value": "Purchase"
+                            }
+                        ]
+                    },
+                    {
+                        "CheckFunction": "CheckNotValue",
+                        "ColumnName": "ChargeClass",
+                        "Value": "Correction"
+                    }
+                ]
+            },
+            "Dependencies": [
+                "CAU-ChargeCategory-C-002-M",
+                "CAU-ChargeClass-C-002-C"
+            ]
         }
     },
     "CAU-PricingCurrencyListUnitPrice-C-006-O": {
@@ -269,7 +310,7 @@
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
         "Conditions": [],
-        "Type": "Dynamic",
+        "Type": "Static",
         "Order": 80,
         "DatasetType": "CAU",
         "DatasetId": "CostAndUsage",
@@ -277,7 +318,11 @@
         "ValidationCriteria": {
             "MustSatisfy": "PricingCurrencyListUnitPrice MUST be a non-negative decimal value.",
             "Keyword": "MUST",
-            "Requirement": {},
+            "Requirement": {
+                "CheckFunction": "CheckGreaterOrEqualThanValue",
+                "ColumnName": "PricingCurrencyListUnitPrice",
+                "Value": 0
+            },
             "Condition": {},
             "Dependencies": []
         }
@@ -335,7 +380,7 @@
         }
     },
     "CAU-PricingCurrencyListUnitPrice-C-011-C": {
-        "Function": "Validation",
+        "Function": "Nullability",
         "Reference": "PricingCurrencyListUnitPrice",
         "EntityType": "Column",
         "EntityName": "Pricing Currency List Unit Price",
@@ -344,7 +389,7 @@
         "ModelVersionIntroduced": "1.3",
         "Status": "Active",
         "Conditions": [],
-        "Type": "Dynamic",
+        "Type": "Static",
         "Order": 110,
         "DatasetType": "CAU",
         "DatasetId": "CostAndUsage",
@@ -352,13 +397,23 @@
         "ValidationCriteria": {
             "MustSatisfy": "PricingCurrencyListUnitPrice MUST be null when SkuPriceId is null.",
             "Keyword": "MUST",
-            "Requirement": {},
-            "Condition": {},
-            "Dependencies": []
+            "Requirement": {
+                "CheckFunction": "CheckValue",
+                "ColumnName": "PricingCurrencyListUnitPrice",
+                "Value": null
+            },
+            "Condition": {
+                "CheckFunction": "CheckValue",
+                "ColumnName": "SkuPriceId",
+                "Value": null
+            },
+            "Dependencies": [
+                "CAU-SkuPriceId-C-003-M"
+            ]
         }
     },
     "CAU-PricingCurrencyListUnitPrice-C-012-C": {
-        "Function": "Validation",
+        "Function": "Nullability",
         "Reference": "PricingCurrencyListUnitPrice",
         "EntityType": "Column",
         "EntityName": "Pricing Currency List Unit Price",
@@ -367,7 +422,7 @@
         "ModelVersionIntroduced": "1.3",
         "Status": "Active",
         "Conditions": [],
-        "Type": "Dynamic",
+        "Type": "Static",
         "Order": 120,
         "DatasetType": "CAU",
         "DatasetId": "CostAndUsage",
@@ -375,9 +430,19 @@
         "ValidationCriteria": {
             "MustSatisfy": "PricingCurrencyListUnitPrice MUST NOT be null when SkuPriceId is not null.",
             "Keyword": "MUST NOT",
-            "Requirement": {},
-            "Condition": {},
-            "Dependencies": []
+            "Requirement": {
+                "CheckFunction": "CheckNotValue",
+                "ColumnName": "PricingCurrencyListUnitPrice",
+                "Value": null
+            },
+            "Condition": {
+                "CheckFunction": "CheckNotValue",
+                "ColumnName": "SkuPriceId",
+                "Value": null
+            },
+            "Dependencies": [
+                "CAU-SkuPriceId-C-003-M"
+            ]
         }
     }
 }

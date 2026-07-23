@@ -117,7 +117,7 @@
         }
     },
     "CAU-CommitmentDiscountStatus-C-003-C": {
-        "Function": "Validation",
+        "Function": "Nullability",
         "Reference": "CommitmentDiscountStatus",
         "EntityType": "Column",
         "EntityName": "Commitment Discount Status",
@@ -126,7 +126,7 @@
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
         "Conditions": [],
-        "Type": "Dynamic",
+        "Type": "Static",
         "Order": 30,
         "DatasetType": "CAU",
         "DatasetId": "CostAndUsage",
@@ -134,13 +134,23 @@
         "ValidationCriteria": {
             "MustSatisfy": "CommitmentDiscountStatus MUST be null when CommitmentDiscountId is null.",
             "Keyword": "MUST",
-            "Requirement": {},
-            "Condition": {},
-            "Dependencies": []
+            "Requirement": {
+                "CheckFunction": "CheckValue",
+                "ColumnName": "CommitmentDiscountStatus",
+                "Value": null
+            },
+            "Condition": {
+                "CheckFunction": "CheckValue",
+                "ColumnName": "CommitmentDiscountId",
+                "Value": null
+            },
+            "Dependencies": [
+                "CAU-CommitmentDiscountId-C-003-C"
+            ]
         }
     },
     "CAU-CommitmentDiscountStatus-C-004-C": {
-        "Function": "Validation",
+        "Function": "Nullability",
         "Reference": "CommitmentDiscountStatus",
         "EntityType": "Column",
         "EntityName": "Commitment Discount Status",
@@ -149,7 +159,7 @@
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
         "Conditions": [],
-        "Type": "Dynamic",
+        "Type": "Static",
         "Order": 40,
         "DatasetType": "CAU",
         "DatasetId": "CostAndUsage",
@@ -157,9 +167,30 @@
         "ValidationCriteria": {
             "MustSatisfy": "CommitmentDiscountStatus MUST NOT be null when CommitmentDiscountId is not null and ChargeCategory is \"Usage\".",
             "Keyword": "MUST NOT",
-            "Requirement": {},
-            "Condition": {},
-            "Dependencies": []
+            "Requirement": {
+                "CheckFunction": "CheckNotValue",
+                "ColumnName": "CommitmentDiscountStatus",
+                "Value": null
+            },
+            "Condition": {
+                "CheckFunction": "AND",
+                "Items": [
+                    {
+                        "CheckFunction": "CheckNotValue",
+                        "ColumnName": "CommitmentDiscountId",
+                        "Value": null
+                    },
+                    {
+                        "CheckFunction": "CheckValue",
+                        "ColumnName": "ChargeCategory",
+                        "Value": "Usage"
+                    }
+                ]
+            },
+            "Dependencies": [
+                "CAU-CommitmentDiscountId-C-003-C",
+                "CAU-ChargeCategory-C-002-M"
+            ]
         }
     },
     "CAU-CommitmentDiscountStatus-C-005-M": {
@@ -172,7 +203,7 @@
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
         "Conditions": [],
-        "Type": "Dynamic",
+        "Type": "Static",
         "Order": 50,
         "DatasetType": "CAU",
         "DatasetId": "CostAndUsage",
@@ -180,7 +211,21 @@
         "ValidationCriteria": {
             "MustSatisfy": "CommitmentDiscountStatus MUST be one of the allowed values.",
             "Keyword": "MUST",
-            "Requirement": {},
+            "Requirement": {
+                "CheckFunction": "OR",
+                "Items": [
+                    {
+                        "CheckFunction": "CheckValue",
+                        "ColumnName": "CommitmentDiscountStatus",
+                        "Value": "Used"
+                    },
+                    {
+                        "CheckFunction": "CheckValue",
+                        "ColumnName": "CommitmentDiscountStatus",
+                        "Value": "Unused"
+                    }
+                ]
+            },
             "Condition": {},
             "Dependencies": []
         }

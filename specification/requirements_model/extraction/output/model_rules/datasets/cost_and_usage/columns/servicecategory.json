@@ -105,7 +105,7 @@
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
         "Conditions": [],
-        "Type": "Dynamic",
+        "Type": "Static",
         "Order": 30,
         "DatasetType": "CAU",
         "DatasetId": "CostAndUsage",
@@ -113,7 +113,106 @@
         "ValidationCriteria": {
             "MustSatisfy": "ServiceCategory MUST be one of the allowed values.",
             "Keyword": "MUST",
-            "Requirement": {},
+            "Requirement": {
+                "CheckFunction": "OR",
+                "Items": [
+                    {
+                        "CheckFunction": "CheckValue",
+                        "ColumnName": "ServiceCategory",
+                        "Value": "AI and Machine Learning"
+                    },
+                    {
+                        "CheckFunction": "CheckValue",
+                        "ColumnName": "ServiceCategory",
+                        "Value": "Analytics"
+                    },
+                    {
+                        "CheckFunction": "CheckValue",
+                        "ColumnName": "ServiceCategory",
+                        "Value": "Business Applications"
+                    },
+                    {
+                        "CheckFunction": "CheckValue",
+                        "ColumnName": "ServiceCategory",
+                        "Value": "Compute"
+                    },
+                    {
+                        "CheckFunction": "CheckValue",
+                        "ColumnName": "ServiceCategory",
+                        "Value": "Databases"
+                    },
+                    {
+                        "CheckFunction": "CheckValue",
+                        "ColumnName": "ServiceCategory",
+                        "Value": "Developer Tools"
+                    },
+                    {
+                        "CheckFunction": "CheckValue",
+                        "ColumnName": "ServiceCategory",
+                        "Value": "Multicloud"
+                    },
+                    {
+                        "CheckFunction": "CheckValue",
+                        "ColumnName": "ServiceCategory",
+                        "Value": "Identity"
+                    },
+                    {
+                        "CheckFunction": "CheckValue",
+                        "ColumnName": "ServiceCategory",
+                        "Value": "Integration"
+                    },
+                    {
+                        "CheckFunction": "CheckValue",
+                        "ColumnName": "ServiceCategory",
+                        "Value": "Internet of Things"
+                    },
+                    {
+                        "CheckFunction": "CheckValue",
+                        "ColumnName": "ServiceCategory",
+                        "Value": "Management and Governance"
+                    },
+                    {
+                        "CheckFunction": "CheckValue",
+                        "ColumnName": "ServiceCategory",
+                        "Value": "Media"
+                    },
+                    {
+                        "CheckFunction": "CheckValue",
+                        "ColumnName": "ServiceCategory",
+                        "Value": "Migration"
+                    },
+                    {
+                        "CheckFunction": "CheckValue",
+                        "ColumnName": "ServiceCategory",
+                        "Value": "Mobile"
+                    },
+                    {
+                        "CheckFunction": "CheckValue",
+                        "ColumnName": "ServiceCategory",
+                        "Value": "Networking"
+                    },
+                    {
+                        "CheckFunction": "CheckValue",
+                        "ColumnName": "ServiceCategory",
+                        "Value": "Security"
+                    },
+                    {
+                        "CheckFunction": "CheckValue",
+                        "ColumnName": "ServiceCategory",
+                        "Value": "Storage"
+                    },
+                    {
+                        "CheckFunction": "CheckValue",
+                        "ColumnName": "ServiceCategory",
+                        "Value": "Web"
+                    },
+                    {
+                        "CheckFunction": "CheckValue",
+                        "ColumnName": "ServiceCategory",
+                        "Value": "Other"
+                    }
+                ]
+            },
             "Condition": {},
             "Dependencies": []
         }

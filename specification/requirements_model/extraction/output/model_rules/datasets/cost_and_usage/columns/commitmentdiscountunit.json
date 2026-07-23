@@ -169,7 +169,7 @@
         }
     },
     "CAU-CommitmentDiscountUnit-C-005-C": {
-        "Function": "Validation",
+        "Function": "Nullability",
         "Reference": "CommitmentDiscountUnit",
         "EntityType": "Column",
         "EntityName": "Commitment Discount Unit",
@@ -178,7 +178,7 @@
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
         "Conditions": [],
-        "Type": "Dynamic",
+        "Type": "Static",
         "Order": 50,
         "DatasetType": "CAU",
         "DatasetId": "CostAndUsage",
@@ -186,13 +186,23 @@
         "ValidationCriteria": {
             "MustSatisfy": "CommitmentDiscountUnit MUST be null when CommitmentDiscountQuantity is null.",
             "Keyword": "MUST",
-            "Requirement": {},
-            "Condition": {},
-            "Dependencies": []
+            "Requirement": {
+                "CheckFunction": "CheckValue",
+                "ColumnName": "CommitmentDiscountUnit",
+                "Value": null
+            },
+            "Condition": {
+                "CheckFunction": "CheckValue",
+                "ColumnName": "CommitmentDiscountQuantity",
+                "Value": null
+            },
+            "Dependencies": [
+                "CAU-CommitmentDiscountQuantity-C-000-C"
+            ]
         }
     },
     "CAU-CommitmentDiscountUnit-C-006-C": {
-        "Function": "Validation",
+        "Function": "Nullability",
         "Reference": "CommitmentDiscountUnit",
         "EntityType": "Column",
         "EntityName": "Commitment Discount Unit",
@@ -201,7 +211,7 @@
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
         "Conditions": [],
-        "Type": "Dynamic",
+        "Type": "Static",
         "Order": 60,
         "DatasetType": "CAU",
         "DatasetId": "CostAndUsage",
@@ -209,9 +219,19 @@
         "ValidationCriteria": {
             "MustSatisfy": "CommitmentDiscountUnit MUST NOT be null when CommitmentDiscountQuantity is not null.",
             "Keyword": "MUST NOT",
-            "Requirement": {},
-            "Condition": {},
-            "Dependencies": []
+            "Requirement": {
+                "CheckFunction": "CheckNotValue",
+                "ColumnName": "CommitmentDiscountUnit",
+                "Value": null
+            },
+            "Condition": {
+                "CheckFunction": "CheckNotValue",
+                "ColumnName": "CommitmentDiscountQuantity",
+                "Value": null
+            },
+            "Dependencies": [
+                "CAU-CommitmentDiscountQuantity-C-000-C"
+            ]
         }
     },
     "CAU-CommitmentDiscountUnit-C-007-C": {

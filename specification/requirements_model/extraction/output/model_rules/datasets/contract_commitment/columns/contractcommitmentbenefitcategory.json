@@ -105,7 +105,7 @@
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
         "Conditions": [],
-        "Type": "Dynamic",
+        "Type": "Static",
         "Order": 30,
         "DatasetType": "CCT",
         "DatasetId": "ContractCommitment",
@@ -113,7 +113,31 @@
         "ValidationCriteria": {
             "MustSatisfy": "ContractCommitmentBenefitCategory MUST be one of the allowed values.",
             "Keyword": "MUST",
-            "Requirement": {},
+            "Requirement": {
+                "CheckFunction": "OR",
+                "Items": [
+                    {
+                        "CheckFunction": "CheckValue",
+                        "ColumnName": "ContractCommitmentBenefitCategory",
+                        "Value": "Discount"
+                    },
+                    {
+                        "CheckFunction": "CheckValue",
+                        "ColumnName": "ContractCommitmentBenefitCategory",
+                        "Value": "Entitlement"
+                    },
+                    {
+                        "CheckFunction": "CheckValue",
+                        "ColumnName": "ContractCommitmentBenefitCategory",
+                        "Value": "Availability"
+                    },
+                    {
+                        "CheckFunction": "CheckValue",
+                        "ColumnName": "ContractCommitmentBenefitCategory",
+                        "Value": "Other"
+                    }
+                ]
+            },
             "Condition": {},
             "Dependencies": []
         }

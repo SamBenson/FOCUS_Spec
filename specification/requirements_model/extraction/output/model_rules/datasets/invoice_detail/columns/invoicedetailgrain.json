@@ -78,7 +78,7 @@
         }
     },
     "IND-InvoiceDetailGrain-C-001-M": {
-        "Function": "Validation",
+        "Function": "Type",
         "Reference": "InvoiceDetailGrain",
         "EntityType": "Column",
         "EntityName": "Invoice Detail Grain",
@@ -87,7 +87,7 @@
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
         "Conditions": [],
-        "Type": "Dynamic",
+        "Type": "Static",
         "Order": 10,
         "DatasetType": "IND",
         "DatasetId": "InvoiceDetail",
@@ -95,7 +95,19 @@
         "ValidationCriteria": {
             "MustSatisfy": "InvoiceDetailGrain MUST be of type JSON Object (serialized as a String where necessary).",
             "Keyword": "MUST",
-            "Requirement": {},
+            "Requirement": {
+                "CheckFunction": "OR",
+                "Items": [
+                    {
+                        "CheckFunction": "TypeString",
+                        "ColumnName": "InvoiceDetailGrain"
+                    },
+                    {
+                        "CheckFunction": "TypeJSON",
+                        "ColumnName": "InvoiceDetailGrain"
+                    }
+                ]
+            },
             "Condition": {},
             "Dependencies": []
         }

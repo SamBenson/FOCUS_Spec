@@ -138,7 +138,7 @@
         }
     },
     "CAU-ConsumedQuantity-C-004-C": {
-        "Function": "Validation",
+        "Function": "Nullability",
         "Reference": "ConsumedQuantity",
         "EntityType": "Column",
         "EntityName": "Consumed Quantity",
@@ -147,7 +147,7 @@
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
         "Conditions": [],
-        "Type": "Dynamic",
+        "Type": "Static",
         "Order": 40,
         "DatasetType": "CAU",
         "DatasetId": "CostAndUsage",
@@ -155,9 +155,40 @@
         "ValidationCriteria": {
             "MustSatisfy": "ConsumedQuantity MUST be null when ChargeCategory is not \"Usage\", or when ChargeCategory is \"Usage\" and CommitmentDiscountStatus is \"Unused\".",
             "Keyword": "MUST",
-            "Requirement": {},
-            "Condition": {},
-            "Dependencies": []
+            "Requirement": {
+                "CheckFunction": "CheckValue",
+                "ColumnName": "ConsumedQuantity",
+                "Value": null
+            },
+            "Condition": {
+                "CheckFunction": "OR",
+                "Items": [
+                    {
+                        "CheckFunction": "CheckNotValue",
+                        "ColumnName": "ChargeCategory",
+                        "Value": "Usage"
+                    },
+                    {
+                        "CheckFunction": "AND",
+                        "Items": [
+                            {
+                                "CheckFunction": "CheckValue",
+                                "ColumnName": "ChargeCategory",
+                                "Value": "Usage"
+                            },
+                            {
+                                "CheckFunction": "CheckValue",
+                                "ColumnName": "CommitmentDiscountStatus",
+                                "Value": "Unused"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "Dependencies": [
+                "CAU-ChargeCategory-C-002-M",
+                "CAU-CommitmentDiscountStatus-C-002-C"
+            ]
         }
     },
     "CAU-ConsumedQuantity-C-005-C": {
@@ -199,7 +230,7 @@
         }
     },
     "CAU-ConsumedQuantity-C-006-C": {
-        "Function": "Validation",
+        "Function": "Nullability",
         "Reference": "ConsumedQuantity",
         "EntityType": "Column",
         "EntityName": "Consumed Quantity",
@@ -208,7 +239,7 @@
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
         "Conditions": [],
-        "Type": "Dynamic",
+        "Type": "Static",
         "Order": 60,
         "DatasetType": "CAU",
         "DatasetId": "CostAndUsage",
@@ -216,13 +247,23 @@
         "ValidationCriteria": {
             "MustSatisfy": "ConsumedQuantity MUST NOT be null when ChargeClass is not \"Correction\".",
             "Keyword": "MUST NOT",
-            "Requirement": {},
-            "Condition": {},
-            "Dependencies": []
+            "Requirement": {
+                "CheckFunction": "CheckNotValue",
+                "ColumnName": "ConsumedQuantity",
+                "Value": null
+            },
+            "Condition": {
+                "CheckFunction": "CheckValue",
+                "ColumnName": "ChargeClass",
+                "Value": "Correction"
+            },
+            "Dependencies": [
+                "CAU-ChargeClass-C-002-C"
+            ]
         }
     },
     "CAU-ConsumedQuantity-C-007-C": {
-        "Function": "Validation",
+        "Function": "Nullability",
         "Reference": "ConsumedQuantity",
         "EntityType": "Column",
         "EntityName": "Consumed Quantity",
@@ -231,7 +272,7 @@
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
         "Conditions": [],
-        "Type": "Dynamic",
+        "Type": "Static",
         "Order": 70,
         "DatasetType": "CAU",
         "DatasetId": "CostAndUsage",
@@ -239,9 +280,19 @@
         "ValidationCriteria": {
             "MustSatisfy": "ConsumedQuantity MAY be null when ChargeClass is \"Correction\".",
             "Keyword": "MAY",
-            "Requirement": {},
-            "Condition": {},
-            "Dependencies": []
+            "Requirement": {
+                "CheckFunction": "CheckValue",
+                "ColumnName": "ConsumedQuantity",
+                "Value": null
+            },
+            "Condition": {
+                "CheckFunction": "CheckValue",
+                "ColumnName": "ChargeClass",
+                "Value": "Correction"
+            },
+            "Dependencies": [
+                "CAU-ChargeClass-C-000-M"
+            ]
         }
     },
     "CAU-ConsumedQuantity-C-008-C": {
@@ -273,7 +324,7 @@
         }
     },
     "CAU-ConsumedQuantity-C-009-C": {
-        "Function": "Validation",
+        "Function": "Nullability",
         "Reference": "ConsumedQuantity",
         "EntityType": "Column",
         "EntityName": "Consumed Quantity",
@@ -282,7 +333,7 @@
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
         "Conditions": [],
-        "Type": "Dynamic",
+        "Type": "Static",
         "Order": 90,
         "DatasetType": "CAU",
         "DatasetId": "CostAndUsage",
@@ -290,9 +341,19 @@
         "ValidationCriteria": {
             "MustSatisfy": "ConsumedQuantity MUST be null when SkuPriceId is null.",
             "Keyword": "MUST",
-            "Requirement": {},
-            "Condition": {},
-            "Dependencies": []
+            "Requirement": {
+                "CheckFunction": "CheckValue",
+                "ColumnName": "ConsumedQuantity",
+                "Value": null
+            },
+            "Condition": {
+                "CheckFunction": "CheckValue",
+                "ColumnName": "SkuPriceId",
+                "Value": null
+            },
+            "Dependencies": [
+                "CAU-SkuPriceId-C-003-M"
+            ]
         }
     }
 }

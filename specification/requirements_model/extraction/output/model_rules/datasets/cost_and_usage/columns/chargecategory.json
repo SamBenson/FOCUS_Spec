@@ -130,7 +130,7 @@
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
         "Conditions": [],
-        "Type": "Dynamic",
+        "Type": "Static",
         "Order": 30,
         "DatasetType": "CAU",
         "DatasetId": "CostAndUsage",
@@ -138,7 +138,36 @@
         "ValidationCriteria": {
             "MustSatisfy": "ChargeCategory MUST be one of the allowed values.",
             "Keyword": "MUST",
-            "Requirement": {},
+            "Requirement": {
+                "CheckFunction": "OR",
+                "Items": [
+                    {
+                        "CheckFunction": "CheckValue",
+                        "ColumnName": "ChargeCategory",
+                        "Value": "Usage"
+                    },
+                    {
+                        "CheckFunction": "CheckValue",
+                        "ColumnName": "ChargeCategory",
+                        "Value": "Purchase"
+                    },
+                    {
+                        "CheckFunction": "CheckValue",
+                        "ColumnName": "ChargeCategory",
+                        "Value": "Tax"
+                    },
+                    {
+                        "CheckFunction": "CheckValue",
+                        "ColumnName": "ChargeCategory",
+                        "Value": "Credit"
+                    },
+                    {
+                        "CheckFunction": "CheckValue",
+                        "ColumnName": "ChargeCategory",
+                        "Value": "Adjustment"
+                    }
+                ]
+            },
             "Condition": {},
             "Dependencies": []
         }

@@ -164,7 +164,7 @@
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
         "Conditions": [],
-        "Type": "Dynamic",
+        "Type": "Static",
         "Order": 50,
         "DatasetType": "IND",
         "DatasetId": "InvoiceDetail",
@@ -172,9 +172,20 @@
         "ValidationCriteria": {
             "MustSatisfy": "PaymentCurrencyInvoiceDetailId MUST match InvoiceDetailId of the current record when PaymentCurrencyBilledCost is non-zero.",
             "Keyword": "MUST",
-            "Requirement": {},
-            "Condition": {},
-            "Dependencies": []
+            "Requirement": {
+                "CheckFunction": "CheckSameValue",
+                "ColumnAName": "PaymentCurrencyInvoiceDetailId",
+                "ColumnBName": "InvoiceDetailId"
+            },
+            "Condition": {
+                "CheckFunction": "CheckNotValue",
+                "ColumnName": "PaymentCurrencyBilledCost",
+                "Value": 0
+            },
+            "Dependencies": [
+                "IND-InvoiceDetailId-C-003-M",
+                "IND-PaymentCurrencyBilledCost-C-003-M"
+            ]
         }
     }
 }

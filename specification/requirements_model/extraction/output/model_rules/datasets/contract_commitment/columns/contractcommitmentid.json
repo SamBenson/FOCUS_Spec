@@ -236,7 +236,7 @@
         "ModelVersionIntroduced": "1.3",
         "Status": "Active",
         "Conditions": [],
-        "Type": "Dynamic",
+        "Type": "Static",
         "Order": 70,
         "DatasetType": "CCT",
         "DatasetId": "ContractCommitment",
@@ -244,9 +244,16 @@
         "ValidationCriteria": {
             "MustSatisfy": "ContractCommitmentId MUST have one and only one parent ContractId.",
             "Keyword": "MUST",
-            "Requirement": {},
+            "Requirement": {
+                "CheckFunction": "CheckDistinctCount",
+                "ColumnAName": "ContractCommitmentId",
+                "ColumnBName": "ContractId",
+                "ExpectedCount": 1
+            },
             "Condition": {},
-            "Dependencies": []
+            "Dependencies": [
+                "CCT-ContractId-C-003-M"
+            ]
         }
     },
     "CCT-ContractCommitmentId-C-008-O": {

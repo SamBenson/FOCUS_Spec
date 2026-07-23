@@ -110,7 +110,7 @@
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
         "Conditions": [],
-        "Type": "Dynamic",
+        "Type": "Static",
         "Order": 30,
         "DatasetType": "CAU",
         "DatasetId": "CostAndUsage",
@@ -118,7 +118,26 @@
         "ValidationCriteria": {
             "MustSatisfy": "ChargeFrequency MUST be one of the allowed values.",
             "Keyword": "MUST",
-            "Requirement": {},
+            "Requirement": {
+                "CheckFunction": "OR",
+                "Items": [
+                    {
+                        "CheckFunction": "CheckValue",
+                        "ColumnName": "ChargeFrequency",
+                        "Value": "One-Time"
+                    },
+                    {
+                        "CheckFunction": "CheckValue",
+                        "ColumnName": "ChargeFrequency",
+                        "Value": "Recurring"
+                    },
+                    {
+                        "CheckFunction": "CheckValue",
+                        "ColumnName": "ChargeFrequency",
+                        "Value": "Usage-Based"
+                    }
+                ]
+            },
             "Condition": {},
             "Dependencies": []
         }
@@ -133,7 +152,7 @@
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
         "Conditions": [],
-        "Type": "Dynamic",
+        "Type": "Static",
         "Order": 40,
         "DatasetType": "CAU",
         "DatasetId": "CostAndUsage",
@@ -141,9 +160,19 @@
         "ValidationCriteria": {
             "MustSatisfy": "ChargeFrequency MUST NOT be \"Usage-Based\" when ChargeCategory is \"Purchase\".",
             "Keyword": "MUST NOT",
-            "Requirement": {},
-            "Condition": {},
-            "Dependencies": []
+            "Requirement": {
+                "CheckFunction": "CheckNotValue",
+                "ColumnName": "ChargeFrequency",
+                "Value": "Usage-Based"
+            },
+            "Condition": {
+                "CheckFunction": "CheckValue",
+                "ColumnName": "ChargeCategory",
+                "Value": "Purchase"
+            },
+            "Dependencies": [
+                "CAU-ChargeCategory-C-000-M"
+            ]
         }
     }
 }

@@ -294,7 +294,7 @@
                 "Items": [
                     {
                         "CheckFunction": "CheckModelRule",
-                        "ModelRuleId": "IND-BilledCost-C-015-M"
+                        "ModelRuleId": "IND-BilledCost-C-010-C"
                     },
                     {
                         "CheckFunction": "CheckModelRule",
@@ -304,7 +304,7 @@
             },
             "Condition": {},
             "Dependencies": [
-                "IND-BilledCost-C-015-M",
+                "IND-BilledCost-C-010-C",
                 "IND-BilledCost-C-011-C"
             ]
         }
@@ -317,38 +317,20 @@
         "EntityId": "BilledCost",
         "Notes": "",
         "ModelVersionIntroduced": "1.4",
-        "Status": "Removed",
+        "Status": "Active",
         "Conditions": [],
         "Type": "Dynamic",
-        "Order": -1,
+        "Order": 100,
         "DatasetType": "IND",
         "DatasetId": "InvoiceDetail",
         "DatasetName": "Invoice Detail",
         "ValidationCriteria": {
-            "MustSatisfy": "When ChargeCategory is not \"Tax\" and InvoiceIssueStatus is not \"Open\", the sum of BilledCost MUST NOT differ from the sum of CostAndUsage.BilledCost by more than `MAX(100 × Subunit, (SQRT(Rows) × 0.5) × Subunit)` as defined in Rounding Variance Tolerance.",
+            "MustSatisfy": "When ChargeCategory is not \"Tax\" and InvoiceIssueStatus is not \"Open\", the sum of BilledCost MUST NOT differ from the sum of CostAndUsage.BilledCost by more than MAX(100 × Subunit, (SQRT(Rows) × 0.5) × Subunit) as defined in Rounding Variance Tolerance.",
             "Keyword": "MUST NOT",
             "Requirement": {},
-            "Condition": {
-                "CheckFunction": "AND",
-                "Items": [
-                    {
-                        "CheckFunction": "CheckNotValue",
-                        "ColumnName": "ChargeCategory",
-                        "Value": "Tax"
-                    },
-                    {
-                        "CheckFunction": "CheckNotValue",
-                        "ColumnName": "InvoiceIssueStatus",
-                        "Value": "Open"
-                    }
-                ]
-            },
-            "Dependencies": [
-                "IND-ChargeCategory-C-002-M",
-                "IND-InvoiceIssueStatus-C-003-M"
-            ]
-        },
-        "ModelVersionRemoved": "1.5"
+            "Condition": {},
+            "Dependencies": []
+        }
     },
     "IND-BilledCost-C-011-C": {
         "Function": "Validation",
@@ -396,7 +378,7 @@
                 "Items": [
                     {
                         "CheckFunction": "CheckModelRule",
-                        "ModelRuleId": "IND-BilledCost-C-016-M"
+                        "ModelRuleId": "IND-BilledCost-C-013-C"
                     },
                     {
                         "CheckFunction": "CheckModelRule",
@@ -406,7 +388,7 @@
             },
             "Condition": {},
             "Dependencies": [
-                "IND-BilledCost-C-016-M",
+                "IND-BilledCost-C-013-C",
                 "IND-BilledCost-C-014-C"
             ]
         }
@@ -419,27 +401,20 @@
         "EntityId": "BilledCost",
         "Notes": "",
         "ModelVersionIntroduced": "1.4",
-        "Status": "Removed",
+        "Status": "Active",
         "Conditions": [],
         "Type": "Dynamic",
-        "Order": -1,
+        "Order": 130,
         "DatasetType": "IND",
         "DatasetId": "InvoiceDetail",
         "DatasetName": "Invoice Detail",
         "ValidationCriteria": {
-            "MustSatisfy": "When InvoiceIssueStatus is not \"Open\", the sum of BilledCost MUST NOT differ from the sum of CostAndUsage.BilledCost by more than `MAX(100 × Subunit, (SQRT(Rows) × 0.5) × Subunit)` as defined in Rounding Variance Tolerance.",
+            "MustSatisfy": "When InvoiceIssueStatus is not \"Open\", the sum of BilledCost MUST NOT differ from the sum of CostAndUsage.BilledCost by more than MAX(100 × Subunit, (SQRT(Rows) × 0.5) × Subunit) as defined in Rounding Variance Tolerance.",
             "Keyword": "MUST NOT",
             "Requirement": {},
-            "Condition": {
-                "CheckFunction": "CheckNotValue",
-                "ColumnName": "InvoiceIssueStatus",
-                "Value": "Open"
-            },
-            "Dependencies": [
-                "IND-InvoiceIssueStatus-C-003-M"
-            ]
-        },
-        "ModelVersionRemoved": "1.5"
+            "Condition": {},
+            "Dependencies": []
+        }
     },
     "IND-BilledCost-C-014-C": {
         "Function": "Validation",
@@ -459,52 +434,6 @@
         "ValidationCriteria": {
             "MustSatisfy": "When InvoiceIssueStatus is \"Open\", the sum of BilledCost MAY differ from the sum of CostAndUsage.BilledCost.",
             "Keyword": "MAY",
-            "Requirement": {},
-            "Condition": {},
-            "Dependencies": []
-        }
-    },
-    "IND-BilledCost-C-015-M": {
-        "Function": "Validation",
-        "Reference": "BilledCost",
-        "EntityType": "Column",
-        "EntityName": "Billed Cost",
-        "EntityId": "BilledCost",
-        "Notes": "",
-        "ModelVersionIntroduced": "1.5",
-        "Status": "Active",
-        "Conditions": [],
-        "Type": "Dynamic",
-        "Order": 150,
-        "DatasetType": "IND",
-        "DatasetId": "InvoiceDetail",
-        "DatasetName": "Invoice Detail",
-        "ValidationCriteria": {
-            "MustSatisfy": "When ChargeCategory is not \"Tax\" and InvoiceIssueStatus is not \"Open\", the sum of BilledCost MUST NOT differ from the sum of CostAndUsage.BilledCost by more than MAX(100 × Subunit, (SQRT(Rows) × 0.5) × Subunit) as defined in Rounding Variance Tolerance.",
-            "Keyword": "MUST NOT",
-            "Requirement": {},
-            "Condition": {},
-            "Dependencies": []
-        }
-    },
-    "IND-BilledCost-C-016-M": {
-        "Function": "Validation",
-        "Reference": "BilledCost",
-        "EntityType": "Column",
-        "EntityName": "Billed Cost",
-        "EntityId": "BilledCost",
-        "Notes": "",
-        "ModelVersionIntroduced": "1.5",
-        "Status": "Active",
-        "Conditions": [],
-        "Type": "Dynamic",
-        "Order": 160,
-        "DatasetType": "IND",
-        "DatasetId": "InvoiceDetail",
-        "DatasetName": "Invoice Detail",
-        "ValidationCriteria": {
-            "MustSatisfy": "When InvoiceIssueStatus is not \"Open\", the sum of BilledCost MUST NOT differ from the sum of CostAndUsage.BilledCost by more than MAX(100 × Subunit, (SQRT(Rows) × 0.5) × Subunit) as defined in Rounding Variance Tolerance.",
-            "Keyword": "MUST NOT",
             "Requirement": {},
             "Condition": {},
             "Dependencies": []

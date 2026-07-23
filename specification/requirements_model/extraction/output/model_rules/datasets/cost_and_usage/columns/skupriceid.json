@@ -143,7 +143,7 @@
         }
     },
     "CAU-SkuPriceId-C-004-C": {
-        "Function": "Validation",
+        "Function": "Nullability",
         "Reference": "SkuPriceId",
         "EntityType": "Column",
         "EntityName": "SKU Price ID",
@@ -152,7 +152,7 @@
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
         "Conditions": [],
-        "Type": "Dynamic",
+        "Type": "Static",
         "Order": 40,
         "DatasetType": "CAU",
         "DatasetId": "CostAndUsage",
@@ -160,13 +160,23 @@
         "ValidationCriteria": {
             "MustSatisfy": "SkuPriceId MUST be null when ChargeCategory is \"Tax\".",
             "Keyword": "MUST",
-            "Requirement": {},
-            "Condition": {},
-            "Dependencies": []
+            "Requirement": {
+                "CheckFunction": "CheckValue",
+                "ColumnName": "SkuPriceId",
+                "Value": null
+            },
+            "Condition": {
+                "CheckFunction": "CheckValue",
+                "ColumnName": "ChargeCategory",
+                "Value": "Tax"
+            },
+            "Dependencies": [
+                "CAU-ChargeCategory-C-002-M"
+            ]
         }
     },
     "CAU-SkuPriceId-C-005-C": {
-        "Function": "Validation",
+        "Function": "Nullability",
         "Reference": "SkuPriceId",
         "EntityType": "Column",
         "EntityName": "SKU Price ID",
@@ -175,7 +185,7 @@
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
         "Conditions": [],
-        "Type": "Dynamic",
+        "Type": "Static",
         "Order": 50,
         "DatasetType": "CAU",
         "DatasetId": "CostAndUsage",
@@ -183,9 +193,40 @@
         "ValidationCriteria": {
             "MustSatisfy": "SkuPriceId MUST NOT be null when ChargeCategory is \"Usage\" or \"Purchase\" and ChargeClass is not \"Correction\".",
             "Keyword": "MUST NOT",
-            "Requirement": {},
-            "Condition": {},
-            "Dependencies": []
+            "Requirement": {
+                "CheckFunction": "CheckNotValue",
+                "ColumnName": "SkuPriceId",
+                "Value": null
+            },
+            "Condition": {
+                "CheckFunction": "AND",
+                "Items": [
+                    {
+                        "CheckFunction": "OR",
+                        "Items": [
+                            {
+                                "CheckFunction": "CheckValue",
+                                "ColumnName": "ChargeCategory",
+                                "Value": "Usage"
+                            },
+                            {
+                                "CheckFunction": "CheckValue",
+                                "ColumnName": "ChargeCategory",
+                                "Value": "Purchase"
+                            }
+                        ]
+                    },
+                    {
+                        "CheckFunction": "CheckNotValue",
+                        "ColumnName": "ChargeClass",
+                        "Value": "Correction"
+                    }
+                ]
+            },
+            "Dependencies": [
+                "CAU-ChargeClass-C-000-M",
+                "CAU-ChargeCategory-C-000-M"
+            ]
         }
     },
     "CAU-SkuPriceId-C-006-O": {
@@ -289,7 +330,7 @@
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
         "Conditions": [],
-        "Type": "Dynamic",
+        "Type": "Static",
         "Order": 80,
         "DatasetType": "CAU",
         "DatasetId": "CostAndUsage",
@@ -297,9 +338,16 @@
         "ValidationCriteria": {
             "MustSatisfy": "SkuPriceId MUST have one and only one parent SkuId.",
             "Keyword": "MUST",
-            "Requirement": {},
+            "Requirement": {
+                "CheckFunction": "CheckDistinctCount",
+                "ColumnAName": "SkuPriceId",
+                "ColumnBName": "SkuId",
+                "ExpectedCount": 1
+            },
             "Condition": {},
-            "Dependencies": []
+            "Dependencies": [
+                "CAU-SkuId-C-003-M"
+            ]
         }
     },
     "CAU-SkuPriceId-C-009-M": {
@@ -358,7 +406,7 @@
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
         "Conditions": [],
-        "Type": "Dynamic",
+        "Type": "Static",
         "Order": 110,
         "DatasetType": "CAU",
         "DatasetId": "CostAndUsage",
@@ -366,9 +414,15 @@
         "ValidationCriteria": {
             "MustSatisfy": "SkuPriceId MAY match SkuId.",
             "Keyword": "MAY",
-            "Requirement": {},
+            "Requirement": {
+                "CheckFunction": "CheckSameValue",
+                "ColumnAName": "SkuPriceId",
+                "ColumnBName": "SkuId"
+            },
             "Condition": {},
-            "Dependencies": []
+            "Dependencies": [
+                "CAU-SkuId-C-003-M"
+            ]
         }
     },
     "CAU-SkuPriceId-C-012-C": {

@@ -164,7 +164,7 @@
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
         "Conditions": [],
-        "Type": "Dynamic",
+        "Type": "Static",
         "Order": 50,
         "DatasetType": "CCT",
         "DatasetId": "ContractCommitment",
@@ -172,9 +172,16 @@
         "ValidationCriteria": {
             "MustSatisfy": "ContractCommitmentLastUpdated MUST be greater than or equal to ContractCommitmentCreated.",
             "Keyword": "MUST",
-            "Requirement": {},
+            "Requirement": {
+                "CheckFunction": "CheckColumnComparison",
+                "ColumnAName": "ContractCommitmentLastUpdated",
+                "ColumnBName": "ContractCommitmentCreated",
+                "Comparator": ">="
+            },
             "Condition": {},
-            "Dependencies": []
+            "Dependencies": [
+                "CCT-ContractCommitmentCreated-C-000-M"
+            ]
         }
     }
 }

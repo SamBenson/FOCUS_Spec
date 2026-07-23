@@ -105,7 +105,7 @@
         "ModelVersionIntroduced": "1.3",
         "Status": "Active",
         "Conditions": [],
-        "Type": "Dynamic",
+        "Type": "Static",
         "Order": 30,
         "DatasetType": "CCT",
         "DatasetId": "ContractCommitment",
@@ -113,7 +113,21 @@
         "ValidationCriteria": {
             "MustSatisfy": "ContractCommitmentCategory MUST be one of the allowed values.",
             "Keyword": "MUST",
-            "Requirement": {},
+            "Requirement": {
+                "CheckFunction": "OR",
+                "Items": [
+                    {
+                        "CheckFunction": "CheckValue",
+                        "ColumnName": "ContractCommitmentCategory",
+                        "Value": "Spend"
+                    },
+                    {
+                        "CheckFunction": "CheckValue",
+                        "ColumnName": "ContractCommitmentCategory",
+                        "Value": "Usage"
+                    }
+                ]
+            },
             "Condition": {},
             "Dependencies": []
         }

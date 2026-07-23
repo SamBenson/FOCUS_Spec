@@ -151,7 +151,7 @@
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
         "Conditions": [],
-        "Type": "Dynamic",
+        "Type": "Static",
         "Order": 40,
         "DatasetType": "CCT",
         "DatasetId": "ContractCommitment",
@@ -159,7 +159,11 @@
         "ValidationCriteria": {
             "MustSatisfy": "ContractCommitmentDurationType SHOULD be expressed with a quantity and time unit, where quantity is a positive integer, and time-unit is a standardized unit of time, either singular or plural (e.g., \"1 Day\", \"1 Year\", \"3 Months\", \"3 Years\").",
             "Keyword": "SHOULD",
-            "Requirement": {},
+            "Requirement": {
+                "CheckFunction": "CheckRegexMatch",
+                "ColumnName": "ContractCommitmentDurationType",
+                "Pattern": "^[1-9][0-9]*\\s+(Minute|Minutes|Hour|Hours|Day|Days|Week|Weeks|Month|Months|Quarter|Quarters|Year|Years)$"
+            },
             "Condition": {},
             "Dependencies": []
         }
@@ -174,7 +178,7 @@
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
         "Conditions": [],
-        "Type": "Dynamic",
+        "Type": "Static",
         "Order": 50,
         "DatasetType": "CCT",
         "DatasetId": "ContractCommitment",
@@ -182,7 +186,81 @@
         "ValidationCriteria": {
             "MustSatisfy": "ContractCommitmentDurationType SHOULD present the unit of time as one of the allowed values.",
             "Keyword": "SHOULD",
-            "Requirement": {},
+            "Requirement": {
+                "CheckFunction": "OR",
+                "Items": [
+                    {
+                        "CheckFunction": "CheckStringEndsWith",
+                        "ColumnName": "ContractCommitmentDurationType",
+                        "Value": "Minute"
+                    },
+                    {
+                        "CheckFunction": "CheckStringEndsWith",
+                        "ColumnName": "ContractCommitmentDurationType",
+                        "Value": "Minutes"
+                    },
+                    {
+                        "CheckFunction": "CheckStringEndsWith",
+                        "ColumnName": "ContractCommitmentDurationType",
+                        "Value": "Hour"
+                    },
+                    {
+                        "CheckFunction": "CheckStringEndsWith",
+                        "ColumnName": "ContractCommitmentDurationType",
+                        "Value": "Hours"
+                    },
+                    {
+                        "CheckFunction": "CheckStringEndsWith",
+                        "ColumnName": "ContractCommitmentDurationType",
+                        "Value": "Day"
+                    },
+                    {
+                        "CheckFunction": "CheckStringEndsWith",
+                        "ColumnName": "ContractCommitmentDurationType",
+                        "Value": "Days"
+                    },
+                    {
+                        "CheckFunction": "CheckStringEndsWith",
+                        "ColumnName": "ContractCommitmentDurationType",
+                        "Value": "Week"
+                    },
+                    {
+                        "CheckFunction": "CheckStringEndsWith",
+                        "ColumnName": "ContractCommitmentDurationType",
+                        "Value": "Weeks"
+                    },
+                    {
+                        "CheckFunction": "CheckStringEndsWith",
+                        "ColumnName": "ContractCommitmentDurationType",
+                        "Value": "Month"
+                    },
+                    {
+                        "CheckFunction": "CheckStringEndsWith",
+                        "ColumnName": "ContractCommitmentDurationType",
+                        "Value": "Months"
+                    },
+                    {
+                        "CheckFunction": "CheckStringEndsWith",
+                        "ColumnName": "ContractCommitmentDurationType",
+                        "Value": "Quarter"
+                    },
+                    {
+                        "CheckFunction": "CheckStringEndsWith",
+                        "ColumnName": "ContractCommitmentDurationType",
+                        "Value": "Quarters"
+                    },
+                    {
+                        "CheckFunction": "CheckStringEndsWith",
+                        "ColumnName": "ContractCommitmentDurationType",
+                        "Value": "Year"
+                    },
+                    {
+                        "CheckFunction": "CheckStringEndsWith",
+                        "ColumnName": "ContractCommitmentDurationType",
+                        "Value": "Years"
+                    }
+                ]
+            },
             "Condition": {},
             "Dependencies": []
         }

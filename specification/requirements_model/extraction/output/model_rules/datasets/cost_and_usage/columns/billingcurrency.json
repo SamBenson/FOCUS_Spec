@@ -195,7 +195,7 @@
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
         "Conditions": [],
-        "Type": "Dynamic",
+        "Type": "Static",
         "Order": 60,
         "DatasetType": "CAU",
         "DatasetId": "CostAndUsage",
@@ -203,7 +203,10 @@
         "ValidationCriteria": {
             "MustSatisfy": "BillingCurrency MUST be expressed in national currency (e.g., USD, EUR).",
             "Keyword": "MUST",
-            "Requirement": {},
+            "Requirement": {
+                "CheckFunction": "CheckNationalCurrency",
+                "ColumnName": "BillingCurrency"
+            },
             "Condition": {},
             "Dependencies": []
         }

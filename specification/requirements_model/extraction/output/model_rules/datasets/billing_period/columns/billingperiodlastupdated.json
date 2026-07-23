@@ -164,7 +164,7 @@
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
         "Conditions": [],
-        "Type": "Dynamic",
+        "Type": "Static",
         "Order": 50,
         "DatasetType": "BIP",
         "DatasetId": "BillingPeriod",
@@ -172,9 +172,16 @@
         "ValidationCriteria": {
             "MustSatisfy": "BillingPeriodLastUpdated MUST be greater than or equal to BillingPeriodCreated.",
             "Keyword": "MUST",
-            "Requirement": {},
+            "Requirement": {
+                "CheckFunction": "CheckColumnComparison",
+                "ColumnAName": "BillingPeriodLastUpdated",
+                "ColumnBName": "BillingPeriodCreated",
+                "Comparator": ">="
+            },
             "Condition": {},
-            "Dependencies": []
+            "Dependencies": [
+                "BIP-BillingPeriodCreated-C-000-M"
+            ]
         }
     }
 }

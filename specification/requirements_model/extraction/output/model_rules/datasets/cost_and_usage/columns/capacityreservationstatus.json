@@ -107,7 +107,7 @@
         }
     },
     "CAU-CapacityReservationStatus-C-003-C": {
-        "Function": "Validation",
+        "Function": "Nullability",
         "Reference": "CapacityReservationStatus",
         "EntityType": "Column",
         "EntityName": "Capacity Reservation Status",
@@ -116,7 +116,7 @@
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
         "Conditions": [],
-        "Type": "Dynamic",
+        "Type": "Static",
         "Order": 30,
         "DatasetType": "CAU",
         "DatasetId": "CostAndUsage",
@@ -124,13 +124,23 @@
         "ValidationCriteria": {
             "MustSatisfy": "CapacityReservationStatus MUST be null when CapacityReservationId is null.",
             "Keyword": "MUST",
-            "Requirement": {},
-            "Condition": {},
-            "Dependencies": []
+            "Requirement": {
+                "CheckFunction": "CheckValue",
+                "ColumnName": "CapacityReservationStatus",
+                "Value": null
+            },
+            "Condition": {
+                "CheckFunction": "CheckValue",
+                "ColumnName": "CapacityReservationId",
+                "Value": null
+            },
+            "Dependencies": [
+                "CAU-CapacityReservationId-C-003-C"
+            ]
         }
     },
     "CAU-CapacityReservationStatus-C-004-C": {
-        "Function": "Validation",
+        "Function": "Nullability",
         "Reference": "CapacityReservationStatus",
         "EntityType": "Column",
         "EntityName": "Capacity Reservation Status",
@@ -139,7 +149,7 @@
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
         "Conditions": [],
-        "Type": "Dynamic",
+        "Type": "Static",
         "Order": 40,
         "DatasetType": "CAU",
         "DatasetId": "CostAndUsage",
@@ -147,9 +157,30 @@
         "ValidationCriteria": {
             "MustSatisfy": "CapacityReservationStatus MUST NOT be null when CapacityReservationId is not null and ChargeCategory is \"Usage\".",
             "Keyword": "MUST NOT",
-            "Requirement": {},
-            "Condition": {},
-            "Dependencies": []
+            "Requirement": {
+                "CheckFunction": "CheckNotValue",
+                "ColumnName": "CapacityReservationStatus",
+                "Value": null
+            },
+            "Condition": {
+                "CheckFunction": "AND",
+                "Items": [
+                    {
+                        "CheckFunction": "CheckNotValue",
+                        "ColumnName": "CapacityReservationId",
+                        "Value": null
+                    },
+                    {
+                        "CheckFunction": "CheckValue",
+                        "ColumnName": "ChargeCategory",
+                        "Value": "Usage"
+                    }
+                ]
+            },
+            "Dependencies": [
+                "CAU-CapacityReservationId-C-003-C",
+                "CAU-ChargeCategory-C-000-M"
+            ]
         }
     },
     "CAU-CapacityReservationStatus-C-005-C": {
@@ -205,7 +236,7 @@
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
         "Conditions": [],
-        "Type": "Dynamic",
+        "Type": "Static",
         "Order": 60,
         "DatasetType": "CAU",
         "DatasetId": "CostAndUsage",
@@ -213,7 +244,21 @@
         "ValidationCriteria": {
             "MustSatisfy": "CapacityReservationStatus MUST be one of the allowed values.",
             "Keyword": "MUST",
-            "Requirement": {},
+            "Requirement": {
+                "CheckFunction": "OR",
+                "Items": [
+                    {
+                        "CheckFunction": "CheckValue",
+                        "ColumnName": "CapacityReservationStatus",
+                        "Value": "Used"
+                    },
+                    {
+                        "CheckFunction": "CheckValue",
+                        "ColumnName": "CapacityReservationStatus",
+                        "Value": "Unused"
+                    }
+                ]
+            },
             "Condition": {},
             "Dependencies": []
         }

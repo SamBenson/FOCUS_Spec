@@ -133,7 +133,7 @@
         }
     },
     "CCT-ContractCommitmentQuantity-C-004-C": {
-        "Function": "Validation",
+        "Function": "Nullability",
         "Reference": "ContractCommitmentQuantity",
         "EntityType": "Column",
         "EntityName": "Contract Commitment Quantity",
@@ -142,7 +142,7 @@
         "ModelVersionIntroduced": "1.3",
         "Status": "Active",
         "Conditions": [],
-        "Type": "Dynamic",
+        "Type": "Static",
         "Order": 40,
         "DatasetType": "CCT",
         "DatasetId": "ContractCommitment",
@@ -150,13 +150,23 @@
         "ValidationCriteria": {
             "MustSatisfy": "ContractCommitmentQuantity MUST NOT be null when ContractCommitmentCategory is \"Usage\".",
             "Keyword": "MUST NOT",
-            "Requirement": {},
-            "Condition": {},
-            "Dependencies": []
+            "Requirement": {
+                "CheckFunction": "CheckNotValue",
+                "ColumnName": "ContractCommitmentQuantity",
+                "Value": null
+            },
+            "Condition": {
+                "CheckFunction": "CheckValue",
+                "ColumnName": "ContractCommitmentCategory",
+                "Value": "Usage"
+            },
+            "Dependencies": [
+                "CCT-ContractCommitmentCategory-C-000-M"
+            ]
         }
     },
     "CCT-ContractCommitmentQuantity-C-005-C": {
-        "Function": "Validation",
+        "Function": "Nullability",
         "Reference": "ContractCommitmentQuantity",
         "EntityType": "Column",
         "EntityName": "Contract Commitment Quantity",
@@ -165,7 +175,7 @@
         "ModelVersionIntroduced": "1.3",
         "Status": "Active",
         "Conditions": [],
-        "Type": "Dynamic",
+        "Type": "Static",
         "Order": 50,
         "DatasetType": "CCT",
         "DatasetId": "ContractCommitment",
@@ -173,9 +183,19 @@
         "ValidationCriteria": {
             "MustSatisfy": "ContractCommitmentQuantity MAY be null when ContractCommitmentCategory is \"Spend\".",
             "Keyword": "MAY",
-            "Requirement": {},
-            "Condition": {},
-            "Dependencies": []
+            "Requirement": {
+                "CheckFunction": "CheckValue",
+                "ColumnName": "ContractCommitmentQuantity",
+                "Value": null
+            },
+            "Condition": {
+                "CheckFunction": "CheckValue",
+                "ColumnName": "ContractCommitmentCategory",
+                "Value": "Spend"
+            },
+            "Dependencies": [
+                "CCT-ContractCommitmentCategory-C-000-M"
+            ]
         }
     },
     "CCT-ContractCommitmentQuantity-C-006-M": {

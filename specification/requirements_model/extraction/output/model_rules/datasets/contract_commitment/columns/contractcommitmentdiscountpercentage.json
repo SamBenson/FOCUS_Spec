@@ -148,7 +148,7 @@
         }
     },
     "CCT-ContractCommitmentDiscountPercentage-C-004-C": {
-        "Function": "Validation",
+        "Function": "Nullability",
         "Reference": "ContractCommitmentDiscountPercentage",
         "EntityType": "Column",
         "EntityName": "Contract Commitment Discount Percentage",
@@ -157,7 +157,7 @@
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
         "Conditions": [],
-        "Type": "Dynamic",
+        "Type": "Static",
         "Order": 40,
         "DatasetType": "CCT",
         "DatasetId": "ContractCommitment",
@@ -165,13 +165,23 @@
         "ValidationCriteria": {
             "MustSatisfy": "ContractCommitmentDiscountPercentage MUST NOT be null when ContractCommitmentBenefitCategory is \"Discount\".",
             "Keyword": "MUST NOT",
-            "Requirement": {},
-            "Condition": {},
-            "Dependencies": []
+            "Requirement": {
+                "CheckFunction": "CheckNotValue",
+                "ColumnName": "ContractCommitmentDiscountPercentage",
+                "Value": null
+            },
+            "Condition": {
+                "CheckFunction": "CheckValue",
+                "ColumnName": "ContractCommitmentBenefitCategory",
+                "Value": "Discount"
+            },
+            "Dependencies": [
+                "CCT-ContractCommitmentBenefitCategory-C-002-M"
+            ]
         }
     },
     "CCT-ContractCommitmentDiscountPercentage-C-005-C": {
-        "Function": "Validation",
+        "Function": "Nullability",
         "Reference": "ContractCommitmentDiscountPercentage",
         "EntityType": "Column",
         "EntityName": "Contract Commitment Discount Percentage",
@@ -180,7 +190,7 @@
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
         "Conditions": [],
-        "Type": "Dynamic",
+        "Type": "Static",
         "Order": 50,
         "DatasetType": "CCT",
         "DatasetId": "ContractCommitment",
@@ -188,9 +198,19 @@
         "ValidationCriteria": {
             "MustSatisfy": "ContractCommitmentDiscountPercentage MUST be null when ContractCommitmentBenefitCategory is \"Availability\".",
             "Keyword": "MUST",
-            "Requirement": {},
-            "Condition": {},
-            "Dependencies": []
+            "Requirement": {
+                "CheckFunction": "CheckValue",
+                "ColumnName": "ContractCommitmentDiscountPercentage",
+                "Value": null
+            },
+            "Condition": {
+                "CheckFunction": "CheckValue",
+                "ColumnName": "ContractCommitmentBenefitCategory",
+                "Value": "Availability"
+            },
+            "Dependencies": [
+                "CCT-ContractCommitmentBenefitCategory-C-002-M"
+            ]
         }
     },
     "CCT-ContractCommitmentDiscountPercentage-C-006-M": {
@@ -203,7 +223,7 @@
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
         "Conditions": [],
-        "Type": "Dynamic",
+        "Type": "Static",
         "Order": 60,
         "DatasetType": "CCT",
         "DatasetId": "ContractCommitment",
@@ -211,7 +231,21 @@
         "ValidationCriteria": {
             "MustSatisfy": "ContractCommitmentDiscountPercentage MUST be a value between 0.0 and 1.0, inclusive.",
             "Keyword": "MUST",
-            "Requirement": {},
+            "Requirement": {
+                "CheckFunction": "AND",
+                "Items": [
+                    {
+                        "CheckFunction": "CheckGreaterOrEqualThanValue",
+                        "ColumnName": "ContractCommitmentDiscountPercentage",
+                        "Value": 0
+                    },
+                    {
+                        "CheckFunction": "CheckLessOrEqualThanValue",
+                        "ColumnName": "ContractCommitmentDiscountPercentage",
+                        "Value": 1
+                    }
+                ]
+            },
             "Condition": {},
             "Dependencies": []
         }

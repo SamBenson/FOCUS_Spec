@@ -1232,16 +1232,16 @@
         }
     },
     "CAU-CostAndUsage-D-027-O": {
-        "Function": "Validation",
-        "Reference": "CostAndUsage",
+        "Function": "Presence",
+        "Reference": "ChargeFrequency",
         "EntityType": "Dataset",
-        "EntityName": "Cost and Usage",
-        "EntityId": "CostAndUsage",
+        "EntityName": "Charge Frequency",
+        "EntityId": "ChargeFrequency",
         "Notes": "",
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
         "Conditions": [],
-        "Type": "Dynamic",
+        "Type": "Static",
         "Order": 270,
         "DatasetType": "CAU",
         "DatasetId": "CostAndUsage",
@@ -1249,7 +1249,10 @@
         "ValidationCriteria": {
             "MustSatisfy": "CostAndUsage SHOULD include ChargeFrequency.",
             "Keyword": "SHOULD",
-            "Requirement": {},
+            "Requirement": {
+                "CheckFunction": "ColumnPresent",
+                "ColumnName": "ChargeFrequency"
+            },
             "Condition": {},
             "Dependencies": []
         }
@@ -1633,16 +1636,16 @@
         }
     },
     "CAU-CostAndUsage-D-042-O": {
-        "Function": "Validation",
-        "Reference": "CostAndUsage",
+        "Function": "Presence",
+        "Reference": "ServiceSubcategory",
         "EntityType": "Dataset",
-        "EntityName": "Cost and Usage",
-        "EntityId": "CostAndUsage",
+        "EntityName": "Service Subcategory",
+        "EntityId": "ServiceSubcategory",
         "Notes": "",
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
         "Conditions": [],
-        "Type": "Dynamic",
+        "Type": "Static",
         "Order": 420,
         "DatasetType": "CAU",
         "DatasetId": "CostAndUsage",
@@ -1650,7 +1653,10 @@
         "ValidationCriteria": {
             "MustSatisfy": "CostAndUsage SHOULD include ServiceSubcategory.",
             "Keyword": "SHOULD",
-            "Requirement": {},
+            "Requirement": {
+                "CheckFunction": "ColumnPresent",
+                "ColumnName": "ServiceSubcategory"
+            },
             "Condition": {},
             "Dependencies": []
         }
@@ -1850,16 +1856,16 @@
         "ModelVersionRemoved": "1.5"
     },
     "CAU-CostAndUsage-D-049-C": {
-        "Function": "Validation",
-        "Reference": "CostAndUsage",
+        "Function": "Presence",
+        "Reference": "PricingCurrencyContractedUnitPrice",
         "EntityType": "Dataset",
-        "EntityName": "Cost and Usage",
-        "EntityId": "CostAndUsage",
+        "EntityName": "Pricing Currency Contracted Unit Price",
+        "EntityId": "PricingCurrencyContractedUnitPrice",
         "Notes": "",
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
         "Conditions": [],
-        "Type": "Dynamic",
+        "Type": "Static",
         "Order": 490,
         "DatasetType": "CAU",
         "DatasetId": "CostAndUsage",
@@ -1867,7 +1873,10 @@
         "ValidationCriteria": {
             "MustSatisfy": "CostAndUsage MAY include PricingCurrencyContractedUnitPrice in all other cases.",
             "Keyword": "MAY",
-            "Requirement": {},
+            "Requirement": {
+                "CheckFunction": "ColumnPresent",
+                "ColumnName": "PricingCurrencyContractedUnitPrice"
+            },
             "Condition": {},
             "Dependencies": []
         }
@@ -1980,16 +1989,16 @@
         "ModelVersionRemoved": "1.5"
     },
     "CAU-CostAndUsage-D-053-C": {
-        "Function": "Validation",
-        "Reference": "CostAndUsage",
+        "Function": "Presence",
+        "Reference": "PricingCurrencyEffectiveCost",
         "EntityType": "Dataset",
-        "EntityName": "Cost and Usage",
-        "EntityId": "CostAndUsage",
+        "EntityName": "Pricing Currency Effective Cost",
+        "EntityId": "PricingCurrencyEffectiveCost",
         "Notes": "",
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
         "Conditions": [],
-        "Type": "Dynamic",
+        "Type": "Static",
         "Order": 530,
         "DatasetType": "CAU",
         "DatasetId": "CostAndUsage",
@@ -1997,7 +2006,10 @@
         "ValidationCriteria": {
             "MustSatisfy": "CostAndUsage MAY include PricingCurrencyEffectiveCost in all other cases.",
             "Keyword": "MAY",
-            "Requirement": {},
+            "Requirement": {
+                "CheckFunction": "ColumnPresent",
+                "ColumnName": "PricingCurrencyEffectiveCost"
+            },
             "Condition": {},
             "Dependencies": []
         }
@@ -2110,16 +2122,16 @@
         "ModelVersionRemoved": "1.5"
     },
     "CAU-CostAndUsage-D-057-C": {
-        "Function": "Validation",
-        "Reference": "CostAndUsage",
+        "Function": "Presence",
+        "Reference": "PricingCurrencyListUnitPrice",
         "EntityType": "Dataset",
-        "EntityName": "Cost and Usage",
-        "EntityId": "CostAndUsage",
+        "EntityName": "Pricing Currency List Unit Price",
+        "EntityId": "PricingCurrencyListUnitPrice",
         "Notes": "",
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
         "Conditions": [],
-        "Type": "Dynamic",
+        "Type": "Static",
         "Order": 570,
         "DatasetType": "CAU",
         "DatasetId": "CostAndUsage",
@@ -2127,7 +2139,10 @@
         "ValidationCriteria": {
             "MustSatisfy": "CostAndUsage MAY include PricingCurrencyListUnitPrice in all other cases.",
             "Keyword": "MAY",
-            "Requirement": {},
+            "Requirement": {
+                "CheckFunction": "ColumnPresent",
+                "ColumnName": "PricingCurrencyListUnitPrice"
+            },
             "Condition": {},
             "Dependencies": []
         }

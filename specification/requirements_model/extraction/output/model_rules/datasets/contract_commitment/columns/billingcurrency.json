@@ -136,7 +136,7 @@
         }
     },
     "CCT-BillingCurrency-C-004-C": {
-        "Function": "Validation",
+        "Function": "Nullability",
         "Reference": "BillingCurrency",
         "EntityType": "Column",
         "EntityName": "Billing Currency",
@@ -145,7 +145,7 @@
         "ModelVersionIntroduced": "1.3",
         "Status": "Active",
         "Conditions": [],
-        "Type": "Dynamic",
+        "Type": "Static",
         "Order": 40,
         "DatasetType": "CCT",
         "DatasetId": "ContractCommitment",
@@ -153,9 +153,19 @@
         "ValidationCriteria": {
             "MustSatisfy": "BillingCurrency MUST NOT be null when ContractCommitmentCategory is \"Spend\".",
             "Keyword": "MUST NOT",
-            "Requirement": {},
-            "Condition": {},
-            "Dependencies": []
+            "Requirement": {
+                "CheckFunction": "CheckNotValue",
+                "ColumnName": "BillingCurrency",
+                "Value": null
+            },
+            "Condition": {
+                "CheckFunction": "CheckValue",
+                "ColumnName": "ContractCommitmentCategory",
+                "Value": "Spend"
+            },
+            "Dependencies": [
+                "CCT-ContractCommitmentCategory-C-000-M"
+            ]
         }
     },
     "CCT-BillingCurrency-C-005-M": {
@@ -182,7 +192,7 @@
         }
     },
     "CCT-BillingCurrency-C-006-M": {
-        "Function": "Validation",
+        "Function": "Format",
         "Reference": "BillingCurrency",
         "EntityType": "Column",
         "EntityName": "Billing Currency",
@@ -191,7 +201,7 @@
         "ModelVersionIntroduced": "1.3",
         "Status": "Active",
         "Conditions": [],
-        "Type": "Dynamic",
+        "Type": "Static",
         "Order": 60,
         "DatasetType": "CCT",
         "DatasetId": "ContractCommitment",
@@ -199,7 +209,10 @@
         "ValidationCriteria": {
             "MustSatisfy": "BillingCurrency MUST be expressed in national currency (e.g., USD, EUR).",
             "Keyword": "MUST",
-            "Requirement": {},
+            "Requirement": {
+                "CheckFunction": "CheckNationalCurrency",
+                "ColumnName": "BillingCurrency"
+            },
             "Condition": {},
             "Dependencies": []
         }

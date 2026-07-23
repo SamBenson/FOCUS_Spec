@@ -133,7 +133,7 @@
         }
     },
     "CAU-RegionName-C-004-C": {
-        "Function": "Validation",
+        "Function": "Nullability",
         "Reference": "RegionName",
         "EntityType": "Column",
         "EntityName": "Region Name",
@@ -142,7 +142,7 @@
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
         "Conditions": [],
-        "Type": "Dynamic",
+        "Type": "Static",
         "Order": 40,
         "DatasetType": "CAU",
         "DatasetId": "CostAndUsage",
@@ -150,13 +150,23 @@
         "ValidationCriteria": {
             "MustSatisfy": "RegionName MUST be null when RegionId is null.",
             "Keyword": "MUST",
-            "Requirement": {},
-            "Condition": {},
-            "Dependencies": []
+            "Requirement": {
+                "CheckFunction": "CheckValue",
+                "ColumnName": "RegionName",
+                "Value": null
+            },
+            "Condition": {
+                "CheckFunction": "CheckValue",
+                "ColumnName": "RegionId",
+                "Value": null
+            },
+            "Dependencies": [
+                "CAU-RegionId-C-000-C"
+            ]
         }
     },
     "CAU-RegionName-C-005-C": {
-        "Function": "Validation",
+        "Function": "Nullability",
         "Reference": "RegionName",
         "EntityType": "Column",
         "EntityName": "Region Name",
@@ -165,7 +175,7 @@
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
         "Conditions": [],
-        "Type": "Dynamic",
+        "Type": "Static",
         "Order": 50,
         "DatasetType": "CAU",
         "DatasetId": "CostAndUsage",
@@ -173,9 +183,19 @@
         "ValidationCriteria": {
             "MustSatisfy": "RegionName MUST NOT be null when RegionId is not null.",
             "Keyword": "MUST NOT",
-            "Requirement": {},
-            "Condition": {},
-            "Dependencies": []
+            "Requirement": {
+                "CheckFunction": "CheckNotValue",
+                "ColumnName": "RegionName",
+                "Value": null
+            },
+            "Condition": {
+                "CheckFunction": "CheckNotValue",
+                "ColumnName": "RegionId",
+                "Value": null
+            },
+            "Dependencies": [
+                "CAU-RegionId-C-000-C"
+            ]
         }
     }
 }

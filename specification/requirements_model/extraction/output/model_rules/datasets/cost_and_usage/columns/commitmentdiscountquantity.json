@@ -186,7 +186,7 @@
         }
     },
     "CAU-CommitmentDiscountQuantity-C-005-C": {
-        "Function": "Validation",
+        "Function": "Nullability",
         "Reference": "CommitmentDiscountQuantity",
         "EntityType": "Column",
         "EntityName": "Commitment Discount Quantity",
@@ -195,7 +195,7 @@
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
         "Conditions": [],
-        "Type": "Dynamic",
+        "Type": "Static",
         "Order": 50,
         "DatasetType": "CAU",
         "DatasetId": "CostAndUsage",
@@ -203,13 +203,23 @@
         "ValidationCriteria": {
             "MustSatisfy": "CommitmentDiscountQuantity MUST NOT be null when ChargeClass is not \"Correction\".",
             "Keyword": "MUST NOT",
-            "Requirement": {},
-            "Condition": {},
-            "Dependencies": []
+            "Requirement": {
+                "CheckFunction": "CheckNotValue",
+                "ColumnName": "CommitmentDiscountQuantity",
+                "Value": null
+            },
+            "Condition": {
+                "CheckFunction": "CheckNotValue",
+                "ColumnName": "ChargeClass",
+                "Value": "Correction"
+            },
+            "Dependencies": [
+                "CAU-ChargeClass-C-002-C"
+            ]
         }
     },
     "CAU-CommitmentDiscountQuantity-C-006-C": {
-        "Function": "Validation",
+        "Function": "Nullability",
         "Reference": "CommitmentDiscountQuantity",
         "EntityType": "Column",
         "EntityName": "Commitment Discount Quantity",
@@ -218,7 +228,7 @@
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
         "Conditions": [],
-        "Type": "Dynamic",
+        "Type": "Static",
         "Order": 60,
         "DatasetType": "CAU",
         "DatasetId": "CostAndUsage",
@@ -226,13 +236,23 @@
         "ValidationCriteria": {
             "MustSatisfy": "CommitmentDiscountQuantity MAY be null when ChargeClass is \"Correction\".",
             "Keyword": "MAY",
-            "Requirement": {},
-            "Condition": {},
-            "Dependencies": []
+            "Requirement": {
+                "CheckFunction": "CheckValue",
+                "ColumnName": "CommitmentDiscountQuantity",
+                "Value": null
+            },
+            "Condition": {
+                "CheckFunction": "CheckValue",
+                "ColumnName": "ChargeClass",
+                "Value": "Correction"
+            },
+            "Dependencies": [
+                "CAU-ChargeClass-C-002-C"
+            ]
         }
     },
     "CAU-CommitmentDiscountQuantity-C-007-C": {
-        "Function": "Validation",
+        "Function": "Nullability",
         "Reference": "CommitmentDiscountQuantity",
         "EntityType": "Column",
         "EntityName": "Commitment Discount Quantity",
@@ -241,7 +261,7 @@
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
         "Conditions": [],
-        "Type": "Dynamic",
+        "Type": "Static",
         "Order": 70,
         "DatasetType": "CAU",
         "DatasetId": "CostAndUsage",
@@ -249,9 +269,46 @@
         "ValidationCriteria": {
             "MustSatisfy": "CommitmentDiscountQuantity MUST be null in all other cases.",
             "Keyword": "MUST",
-            "Requirement": {},
-            "Condition": {},
-            "Dependencies": []
+            "Requirement": {
+                "CheckFunction": "CheckValue",
+                "ColumnName": "CommitmentDiscountQuantity",
+                "Value": null
+            },
+            "Condition": {
+                "CheckFunction": "OR",
+                "Items": [
+                    {
+                        "CheckFunction": "AND",
+                        "Items": [
+                            {
+                                "CheckFunction": "CheckNotValue",
+                                "ColumnName": "ChargeCategory",
+                                "Value": "Usage"
+                            },
+                            {
+                                "CheckFunction": "CheckNotValue",
+                                "ColumnName": "ChargeCategory",
+                                "Value": "Purchase"
+                            }
+                        ]
+                    },
+                    {
+                        "CheckFunction": "CheckValue",
+                        "ColumnName": "CommitmentDiscountId",
+                        "Value": null
+                    },
+                    {
+                        "CheckFunction": "CheckValue",
+                        "ColumnName": "ChargeClass",
+                        "Value": "Correction"
+                    }
+                ]
+            },
+            "Dependencies": [
+                "CAU-ChargeCategory-C-002-M",
+                "CAU-CommitmentDiscountId-C-003-C",
+                "CAU-ChargeClass-C-002-C"
+            ]
         }
     },
     "CAU-CommitmentDiscountQuantity-C-008-C": {
@@ -489,7 +546,7 @@
         }
     },
     "CAU-CommitmentDiscountQuantity-C-016-C": {
-        "Function": "Validation",
+        "Function": "Nullability",
         "Reference": "CommitmentDiscountQuantity",
         "EntityType": "Column",
         "EntityName": "Commitment Discount Quantity",
@@ -498,7 +555,7 @@
         "ModelVersionIntroduced": "1.3",
         "Status": "Active",
         "Conditions": [],
-        "Type": "Dynamic",
+        "Type": "Static",
         "Order": 160,
         "DatasetType": "CAU",
         "DatasetId": "CostAndUsage",
@@ -506,9 +563,19 @@
         "ValidationCriteria": {
             "MustSatisfy": "CommitmentDiscountQuantity MUST be null when SkuPriceId is null.",
             "Keyword": "MUST",
-            "Requirement": {},
-            "Condition": {},
-            "Dependencies": []
+            "Requirement": {
+                "CheckFunction": "CheckValue",
+                "ColumnName": "CommitmentDiscountQuantity",
+                "Value": null
+            },
+            "Condition": {
+                "CheckFunction": "CheckValue",
+                "ColumnName": "SkuPriceId",
+                "Value": null
+            },
+            "Dependencies": [
+                "CAU-SkuPriceId-C-003-M"
+            ]
         }
     }
 }

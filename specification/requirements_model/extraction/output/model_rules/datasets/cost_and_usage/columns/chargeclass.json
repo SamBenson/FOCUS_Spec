@@ -162,7 +162,7 @@
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
         "Conditions": [],
-        "Type": "Dynamic",
+        "Type": "Static",
         "Order": 50,
         "DatasetType": "CAU",
         "DatasetId": "CostAndUsage",
@@ -170,8 +170,16 @@
         "ValidationCriteria": {
             "MustSatisfy": "ChargeClass MUST be \"Correction\" when ChargeClass is not null.",
             "Keyword": "MUST",
-            "Requirement": {},
-            "Condition": {},
+            "Requirement": {
+                "CheckFunction": "CheckValue",
+                "ColumnName": "ChargeClass",
+                "Value": "Correction"
+            },
+            "Condition": {
+                "CheckFunction": "CheckNotValue",
+                "ColumnName": "ChargeClass",
+                "Value": null
+            },
             "Dependencies": []
         }
     }

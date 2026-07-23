@@ -146,7 +146,7 @@
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
         "Conditions": [],
-        "Type": "Dynamic",
+        "Type": "Static",
         "Order": 40,
         "DatasetType": "IND",
         "DatasetId": "InvoiceDetail",
@@ -154,7 +154,26 @@
         "ValidationCriteria": {
             "MustSatisfy": "InvoiceIssueStatus MUST be one of the allowed values.",
             "Keyword": "MUST",
-            "Requirement": {},
+            "Requirement": {
+                "CheckFunction": "OR",
+                "Items": [
+                    {
+                        "CheckFunction": "CheckValue",
+                        "ColumnName": "InvoiceIssueStatus",
+                        "Value": "Open"
+                    },
+                    {
+                        "CheckFunction": "CheckValue",
+                        "ColumnName": "InvoiceIssueStatus",
+                        "Value": "Issued"
+                    },
+                    {
+                        "CheckFunction": "CheckValue",
+                        "ColumnName": "InvoiceIssueStatus",
+                        "Value": "Voided"
+                    }
+                ]
+            },
             "Condition": {},
             "Dependencies": []
         }

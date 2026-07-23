@@ -105,7 +105,7 @@
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
         "Conditions": [],
-        "Type": "Dynamic",
+        "Type": "Static",
         "Order": 30,
         "DatasetType": "CCT",
         "DatasetId": "ContractCommitment",
@@ -113,7 +113,26 @@
         "ValidationCriteria": {
             "MustSatisfy": "ContractCommitmentPaymentModel MUST be one of the allowed values.",
             "Keyword": "MUST",
-            "Requirement": {},
+            "Requirement": {
+                "CheckFunction": "OR",
+                "Items": [
+                    {
+                        "CheckFunction": "CheckValue",
+                        "ColumnName": "ContractCommitmentPaymentModel",
+                        "Value": "No Upfront"
+                    },
+                    {
+                        "CheckFunction": "CheckValue",
+                        "ColumnName": "ContractCommitmentPaymentModel",
+                        "Value": "Partial Upfront"
+                    },
+                    {
+                        "CheckFunction": "CheckValue",
+                        "ColumnName": "ContractCommitmentPaymentModel",
+                        "Value": "All Upfront"
+                    }
+                ]
+            },
             "Condition": {},
             "Dependencies": []
         }

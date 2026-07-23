@@ -110,7 +110,7 @@
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
         "Conditions": [],
-        "Type": "Dynamic",
+        "Type": "Static",
         "Order": 30,
         "DatasetType": "CCT",
         "DatasetId": "ContractCommitment",
@@ -118,7 +118,46 @@
         "ValidationCriteria": {
             "MustSatisfy": "ContractCommitmentLifecycleStatus MUST be one of the allowed values.",
             "Keyword": "MUST",
-            "Requirement": {},
+            "Requirement": {
+                "CheckFunction": "OR",
+                "Items": [
+                    {
+                        "CheckFunction": "CheckValue",
+                        "ColumnName": "ContractCommitmentLifecycleStatus",
+                        "Value": "Proposed"
+                    },
+                    {
+                        "CheckFunction": "CheckValue",
+                        "ColumnName": "ContractCommitmentLifecycleStatus",
+                        "Value": "Pending"
+                    },
+                    {
+                        "CheckFunction": "CheckValue",
+                        "ColumnName": "ContractCommitmentLifecycleStatus",
+                        "Value": "Active"
+                    },
+                    {
+                        "CheckFunction": "CheckValue",
+                        "ColumnName": "ContractCommitmentLifecycleStatus",
+                        "Value": "Exhausted"
+                    },
+                    {
+                        "CheckFunction": "CheckValue",
+                        "ColumnName": "ContractCommitmentLifecycleStatus",
+                        "Value": "Expired"
+                    },
+                    {
+                        "CheckFunction": "CheckValue",
+                        "ColumnName": "ContractCommitmentLifecycleStatus",
+                        "Value": "Canceled"
+                    },
+                    {
+                        "CheckFunction": "CheckValue",
+                        "ColumnName": "ContractCommitmentLifecycleStatus",
+                        "Value": "Superseded"
+                    }
+                ]
+            },
             "Condition": {},
             "Dependencies": []
         }

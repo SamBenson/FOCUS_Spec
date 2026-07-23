@@ -538,7 +538,7 @@
         }
     },
     "CAU-Tags-C-018-M": {
-        "Function": "Validation",
+        "Function": "Type",
         "Reference": "Tags",
         "EntityType": "Column",
         "EntityName": "Tags",
@@ -547,7 +547,7 @@
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
         "Conditions": [],
-        "Type": "Dynamic",
+        "Type": "Static",
         "Order": 180,
         "DatasetType": "CAU",
         "DatasetId": "CostAndUsage",
@@ -555,7 +555,19 @@
         "ValidationCriteria": {
             "MustSatisfy": "Tags MUST be of type JSON Object (serialized as a String where necessary).",
             "Keyword": "MUST",
-            "Requirement": {},
+            "Requirement": {
+                "CheckFunction": "OR",
+                "Items": [
+                    {
+                        "CheckFunction": "TypeString",
+                        "ColumnName": "Tags"
+                    },
+                    {
+                        "CheckFunction": "TypeJSON",
+                        "ColumnName": "Tags"
+                    }
+                ]
+            },
             "Condition": {},
             "Dependencies": []
         }

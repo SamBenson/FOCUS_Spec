@@ -133,7 +133,7 @@
         }
     },
     "CAU-SubAccountName-C-004-C": {
-        "Function": "Validation",
+        "Function": "Nullability",
         "Reference": "SubAccountName",
         "EntityType": "Column",
         "EntityName": "Sub Account Name",
@@ -142,7 +142,7 @@
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
         "Conditions": [],
-        "Type": "Dynamic",
+        "Type": "Static",
         "Order": 40,
         "DatasetType": "CAU",
         "DatasetId": "CostAndUsage",
@@ -150,13 +150,23 @@
         "ValidationCriteria": {
             "MustSatisfy": "SubAccountName MUST be null when SubAccountId is null.",
             "Keyword": "MUST",
-            "Requirement": {},
-            "Condition": {},
-            "Dependencies": []
+            "Requirement": {
+                "CheckFunction": "CheckValue",
+                "ColumnName": "SubAccountName",
+                "Value": null
+            },
+            "Condition": {
+                "CheckFunction": "CheckValue",
+                "ColumnName": "SubAccountId",
+                "Value": null
+            },
+            "Dependencies": [
+                "CAU-SubAccountId-C-000-C"
+            ]
         }
     },
     "CAU-SubAccountName-C-005-C": {
-        "Function": "Validation",
+        "Function": "Nullability",
         "Reference": "SubAccountName",
         "EntityType": "Column",
         "EntityName": "Sub Account Name",
@@ -165,7 +175,7 @@
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
         "Conditions": [],
-        "Type": "Dynamic",
+        "Type": "Static",
         "Order": 50,
         "DatasetType": "CAU",
         "DatasetId": "CostAndUsage",
@@ -173,9 +183,19 @@
         "ValidationCriteria": {
             "MustSatisfy": "SubAccountName MUST NOT be null when SubAccountId is not null.",
             "Keyword": "MUST NOT",
-            "Requirement": {},
-            "Condition": {},
-            "Dependencies": []
+            "Requirement": {
+                "CheckFunction": "CheckNotValue",
+                "ColumnName": "SubAccountName",
+                "Value": null
+            },
+            "Condition": {
+                "CheckFunction": "CheckNotValue",
+                "ColumnName": "SubAccountId",
+                "Value": null
+            },
+            "Dependencies": [
+                "CAU-SubAccountId-C-000-C"
+            ]
         }
     }
 }

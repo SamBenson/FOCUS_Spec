@@ -95,7 +95,7 @@
         }
     },
     "CAU-BillingAccountName-C-003-C": {
-        "Function": "Validation",
+        "Function": "Nullability",
         "Reference": "BillingAccountName",
         "EntityType": "Column",
         "EntityName": "Billing Account Name",
@@ -104,7 +104,7 @@
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
         "Conditions": [],
-        "Type": "Dynamic",
+        "Type": "Static",
         "Order": 30,
         "DatasetType": "CAU",
         "DatasetId": "CostAndUsage",
@@ -112,7 +112,11 @@
         "ValidationCriteria": {
             "MustSatisfy": "BillingAccountName MUST NOT be null when the invoice issuer supports assigning a display name for the billing account.",
             "Keyword": "MUST NOT",
-            "Requirement": {},
+            "Requirement": {
+                "CheckFunction": "CheckNotValue",
+                "ColumnName": "BillingAccountName",
+                "Value": null
+            },
             "Condition": {},
             "Dependencies": []
         }

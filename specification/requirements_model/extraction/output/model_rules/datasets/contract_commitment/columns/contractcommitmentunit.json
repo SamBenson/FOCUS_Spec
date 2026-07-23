@@ -164,7 +164,7 @@
         }
     },
     "CCT-ContractCommitmentUnit-C-005-C": {
-        "Function": "Validation",
+        "Function": "Nullability",
         "Reference": "ContractCommitmentUnit",
         "EntityType": "Column",
         "EntityName": "Contract Commitment Unit",
@@ -173,7 +173,7 @@
         "ModelVersionIntroduced": "1.3",
         "Status": "Active",
         "Conditions": [],
-        "Type": "Dynamic",
+        "Type": "Static",
         "Order": 50,
         "DatasetType": "CCT",
         "DatasetId": "ContractCommitment",
@@ -181,13 +181,23 @@
         "ValidationCriteria": {
             "MustSatisfy": "ContractCommitmentUnit MUST be null when ContractCommitmentQuantity is null.",
             "Keyword": "MUST",
-            "Requirement": {},
-            "Condition": {},
-            "Dependencies": []
+            "Requirement": {
+                "CheckFunction": "CheckValue",
+                "ColumnName": "ContractCommitmentUnit",
+                "Value": null
+            },
+            "Condition": {
+                "CheckFunction": "CheckValue",
+                "ColumnName": "ContractCommitmentQuantity",
+                "Value": null
+            },
+            "Dependencies": [
+                "CCT-ContractCommitmentQuantity-C-000-M"
+            ]
         }
     },
     "CCT-ContractCommitmentUnit-C-006-C": {
-        "Function": "Validation",
+        "Function": "Nullability",
         "Reference": "ContractCommitmentUnit",
         "EntityType": "Column",
         "EntityName": "Contract Commitment Unit",
@@ -196,7 +206,7 @@
         "ModelVersionIntroduced": "1.3",
         "Status": "Active",
         "Conditions": [],
-        "Type": "Dynamic",
+        "Type": "Static",
         "Order": 60,
         "DatasetType": "CCT",
         "DatasetId": "ContractCommitment",
@@ -204,9 +214,19 @@
         "ValidationCriteria": {
             "MustSatisfy": "ContractCommitmentUnit MUST NOT be null when ContractCommitmentQuantity is not null.",
             "Keyword": "MUST NOT",
-            "Requirement": {},
-            "Condition": {},
-            "Dependencies": []
+            "Requirement": {
+                "CheckFunction": "CheckNotValue",
+                "ColumnName": "ContractCommitmentUnit",
+                "Value": null
+            },
+            "Condition": {
+                "CheckFunction": "CheckNotValue",
+                "ColumnName": "ContractCommitmentQuantity",
+                "Value": null
+            },
+            "Dependencies": [
+                "CCT-ContractCommitmentQuantity-C-000-M"
+            ]
         }
     }
 }

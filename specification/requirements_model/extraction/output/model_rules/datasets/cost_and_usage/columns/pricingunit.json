@@ -169,7 +169,7 @@
         }
     },
     "CAU-PricingUnit-C-005-C": {
-        "Function": "Validation",
+        "Function": "Nullability",
         "Reference": "PricingUnit",
         "EntityType": "Column",
         "EntityName": "Pricing Unit",
@@ -178,7 +178,7 @@
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
         "Conditions": [],
-        "Type": "Dynamic",
+        "Type": "Static",
         "Order": 50,
         "DatasetType": "CAU",
         "DatasetId": "CostAndUsage",
@@ -186,13 +186,23 @@
         "ValidationCriteria": {
             "MustSatisfy": "PricingUnit MUST be null when PricingQuantity is null.",
             "Keyword": "MUST",
-            "Requirement": {},
-            "Condition": {},
-            "Dependencies": []
+            "Requirement": {
+                "CheckFunction": "CheckValue",
+                "ColumnName": "PricingUnit",
+                "Value": null
+            },
+            "Condition": {
+                "CheckFunction": "CheckValue",
+                "ColumnName": "PricingQuantity",
+                "Value": null
+            },
+            "Dependencies": [
+                "CAU-PricingQuantity-C-003-M"
+            ]
         }
     },
     "CAU-PricingUnit-C-006-C": {
-        "Function": "Validation",
+        "Function": "Nullability",
         "Reference": "PricingUnit",
         "EntityType": "Column",
         "EntityName": "Pricing Unit",
@@ -201,7 +211,7 @@
         "ModelVersionIntroduced": "1.2",
         "Status": "Active",
         "Conditions": [],
-        "Type": "Dynamic",
+        "Type": "Static",
         "Order": 60,
         "DatasetType": "CAU",
         "DatasetId": "CostAndUsage",
@@ -209,9 +219,19 @@
         "ValidationCriteria": {
             "MustSatisfy": "PricingUnit MUST NOT be null when PricingQuantity is not null.",
             "Keyword": "MUST NOT",
-            "Requirement": {},
-            "Condition": {},
-            "Dependencies": []
+            "Requirement": {
+                "CheckFunction": "CheckNotValue",
+                "ColumnName": "PricingUnit",
+                "Value": null
+            },
+            "Condition": {
+                "CheckFunction": "CheckNotValue",
+                "ColumnName": "PricingQuantity",
+                "Value": null
+            },
+            "Dependencies": [
+                "CAU-PricingQuantity-C-003-M"
+            ]
         }
     },
     "CAU-PricingUnit-C-007-C": {

@@ -357,7 +357,7 @@
         "ModelVersionIntroduced": "1.3",
         "Status": "Active",
         "Conditions": [],
-        "Type": "Dynamic",
+        "Type": "Static",
         "Order": 110,
         "DatasetType": "CAU",
         "DatasetId": "CostAndUsage",
@@ -365,9 +365,31 @@
         "ValidationCriteria": {
             "MustSatisfy": "ListCost MUST equal the product of ListUnitPrice and PricingQuantity when ListUnitPrice is not null and PricingQuantity is not null.",
             "Keyword": "MUST",
-            "Requirement": {},
-            "Condition": {},
-            "Dependencies": []
+            "Requirement": {
+                "CheckFunction": "ColumnByColumnEqualsColumnValue",
+                "ColumnAName": "ListUnitPrice",
+                "ColumnBName": "PricingQuantity",
+                "ResultColumnName": "ListCost"
+            },
+            "Condition": {
+                "CheckFunction": "AND",
+                "Items": [
+                    {
+                        "CheckFunction": "CheckNotValue",
+                        "ColumnName": "ListUnitPrice",
+                        "Value": null
+                    },
+                    {
+                        "CheckFunction": "CheckNotValue",
+                        "ColumnName": "PricingQuantity",
+                        "Value": null
+                    }
+                ]
+            },
+            "Dependencies": [
+                "CAU-ListUnitPrice-C-003-M",
+                "CAU-PricingQuantity-C-003-M"
+            ]
         }
     }
 }

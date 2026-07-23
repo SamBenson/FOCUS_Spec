@@ -150,7 +150,7 @@
         }
     },
     "CAU-AllocatedTags-C-004-O": {
-        "Function": "Validation",
+        "Function": "Nullability",
         "Reference": "AllocatedTags",
         "EntityType": "Column",
         "EntityName": "Allocated Tags",
@@ -159,7 +159,7 @@
         "ModelVersionIntroduced": "1.3",
         "Status": "Active",
         "Conditions": [],
-        "Type": "Dynamic",
+        "Type": "Static",
         "Order": 40,
         "DatasetType": "CAU",
         "DatasetId": "CostAndUsage",
@@ -167,7 +167,11 @@
         "ValidationCriteria": {
             "MustSatisfy": "AllocatedTags MAY be null in all other cases.",
             "Keyword": "MAY",
-            "Requirement": {},
+            "Requirement": {
+                "CheckFunction": "CheckValue",
+                "ColumnName": "AllocatedTags",
+                "Value": null
+            },
             "Condition": {},
             "Dependencies": []
         }
@@ -455,7 +459,7 @@
         }
     },
     "CAU-AllocatedTags-C-015-M": {
-        "Function": "Validation",
+        "Function": "Type",
         "Reference": "AllocatedTags",
         "EntityType": "Column",
         "EntityName": "Allocated Tags",
@@ -464,7 +468,7 @@
         "ModelVersionIntroduced": "1.3",
         "Status": "Active",
         "Conditions": [],
-        "Type": "Dynamic",
+        "Type": "Static",
         "Order": 150,
         "DatasetType": "CAU",
         "DatasetId": "CostAndUsage",
@@ -472,7 +476,19 @@
         "ValidationCriteria": {
             "MustSatisfy": "AllocatedTags MUST be of type JSON Object (serialized as a String where necessary).",
             "Keyword": "MUST",
-            "Requirement": {},
+            "Requirement": {
+                "CheckFunction": "OR",
+                "Items": [
+                    {
+                        "CheckFunction": "TypeString",
+                        "ColumnName": "AllocatedTags"
+                    },
+                    {
+                        "CheckFunction": "TypeJSON",
+                        "ColumnName": "AllocatedTags"
+                    }
+                ]
+            },
             "Condition": {},
             "Dependencies": []
         }

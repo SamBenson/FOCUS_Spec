@@ -110,7 +110,7 @@
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
         "Conditions": [],
-        "Type": "Dynamic",
+        "Type": "Static",
         "Order": 30,
         "DatasetType": "CCT",
         "DatasetId": "ContractCommitment",
@@ -118,7 +118,61 @@
         "ValidationCriteria": {
             "MustSatisfy": "ContractCommitmentFulfillmentInterval MUST be one of the allowed values.",
             "Keyword": "MUST",
-            "Requirement": {},
+            "Requirement": {
+                "CheckFunction": "OR",
+                "Items": [
+                    {
+                        "CheckFunction": "CheckValue",
+                        "ColumnName": "ContractCommitmentFulfillmentInterval",
+                        "Value": "Hourly"
+                    },
+                    {
+                        "CheckFunction": "CheckValue",
+                        "ColumnName": "ContractCommitmentFulfillmentInterval",
+                        "Value": "Daily"
+                    },
+                    {
+                        "CheckFunction": "CheckValue",
+                        "ColumnName": "ContractCommitmentFulfillmentInterval",
+                        "Value": "Weekly"
+                    },
+                    {
+                        "CheckFunction": "CheckValue",
+                        "ColumnName": "ContractCommitmentFulfillmentInterval",
+                        "Value": "Monthly"
+                    },
+                    {
+                        "CheckFunction": "CheckValue",
+                        "ColumnName": "ContractCommitmentFulfillmentInterval",
+                        "Value": "Quarterly"
+                    },
+                    {
+                        "CheckFunction": "CheckValue",
+                        "ColumnName": "ContractCommitmentFulfillmentInterval",
+                        "Value": "Semi-Annually"
+                    },
+                    {
+                        "CheckFunction": "CheckValue",
+                        "ColumnName": "ContractCommitmentFulfillmentInterval",
+                        "Value": "Annually"
+                    },
+                    {
+                        "CheckFunction": "CheckValue",
+                        "ColumnName": "ContractCommitmentFulfillmentInterval",
+                        "Value": "Total Term"
+                    },
+                    {
+                        "CheckFunction": "CheckValue",
+                        "ColumnName": "ContractCommitmentFulfillmentInterval",
+                        "Value": "Transactional"
+                    },
+                    {
+                        "CheckFunction": "CheckValue",
+                        "ColumnName": "ContractCommitmentFulfillmentInterval",
+                        "Value": "Custom"
+                    }
+                ]
+            },
             "Condition": {},
             "Dependencies": []
         }
@@ -133,7 +187,7 @@
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
         "Conditions": [],
-        "Type": "Dynamic",
+        "Type": "Static",
         "Order": 40,
         "DatasetType": "CCT",
         "DatasetId": "ContractCommitment",
@@ -141,9 +195,19 @@
         "ValidationCriteria": {
             "MustSatisfy": "ContractCommitmentFulfillmentInterval MUST NOT be \"Full Period\" when ContractCommitmentModel is \"Continuous\".",
             "Keyword": "MUST NOT",
-            "Requirement": {},
-            "Condition": {},
-            "Dependencies": []
+            "Requirement": {
+                "CheckFunction": "CheckNotValue",
+                "ColumnName": "ContractCommitmentFulfillmentInterval",
+                "Value": "Full Period"
+            },
+            "Condition": {
+                "CheckFunction": "CheckValue",
+                "ColumnName": "ContractCommitmentModel",
+                "Value": "Continuous"
+            },
+            "Dependencies": [
+                "CCT-ContractCommitmentModel-C-003-M"
+            ]
         }
     }
 }

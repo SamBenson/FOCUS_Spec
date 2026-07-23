@@ -115,7 +115,7 @@
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
         "Conditions": [],
-        "Type": "Dynamic",
+        "Type": "Static",
         "Order": 30,
         "DatasetType": "CCT",
         "DatasetId": "ContractCommitment",
@@ -123,7 +123,41 @@
         "ValidationCriteria": {
             "MustSatisfy": "ContractCommitmentPaymentInterval MUST be one of the allowed values.",
             "Keyword": "MUST",
-            "Requirement": {},
+            "Requirement": {
+                "CheckFunction": "OR",
+                "Items": [
+                    {
+                        "CheckFunction": "CheckValue",
+                        "ColumnName": "ContractCommitmentPaymentInterval",
+                        "Value": "One-Time"
+                    },
+                    {
+                        "CheckFunction": "CheckValue",
+                        "ColumnName": "ContractCommitmentPaymentInterval",
+                        "Value": "Monthly"
+                    },
+                    {
+                        "CheckFunction": "CheckValue",
+                        "ColumnName": "ContractCommitmentPaymentInterval",
+                        "Value": "Quarterly"
+                    },
+                    {
+                        "CheckFunction": "CheckValue",
+                        "ColumnName": "ContractCommitmentPaymentInterval",
+                        "Value": "Semi-Annual"
+                    },
+                    {
+                        "CheckFunction": "CheckValue",
+                        "ColumnName": "ContractCommitmentPaymentInterval",
+                        "Value": "Annual"
+                    },
+                    {
+                        "CheckFunction": "CheckValue",
+                        "ColumnName": "ContractCommitmentPaymentInterval",
+                        "Value": "Custom"
+                    }
+                ]
+            },
             "Condition": {},
             "Dependencies": []
         }
@@ -138,7 +172,7 @@
         "ModelVersionIntroduced": "1.4",
         "Status": "Active",
         "Conditions": [],
-        "Type": "Dynamic",
+        "Type": "Static",
         "Order": 40,
         "DatasetType": "CCT",
         "DatasetId": "ContractCommitment",
@@ -146,9 +180,19 @@
         "ValidationCriteria": {
             "MustSatisfy": "ContractCommitmentPaymentInterval MUST be \"One-Time\" when ContractCommitmentPaymentModel is \"All Upfront\".",
             "Keyword": "MUST",
-            "Requirement": {},
-            "Condition": {},
-            "Dependencies": []
+            "Requirement": {
+                "CheckFunction": "CheckValue",
+                "ColumnName": "ContractCommitmentPaymentInterval",
+                "Value": "One-Time"
+            },
+            "Condition": {
+                "CheckFunction": "CheckValue",
+                "ColumnName": "ContractCommitmentPaymentModel",
+                "Value": "All Upfront"
+            },
+            "Dependencies": [
+                "CCT-ContractCommitmentPaymentModel-C-003-M"
+            ]
         }
     },
     "CCT-ContractCommitmentPaymentInterval-C-005-O": {
